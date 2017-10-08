@@ -1,0 +1,21 @@
+.tableauARenderAnimate {
+        margin: 20px 100px;
+        position: relative;
+}
+
+.gridHolder {
+        position: absolute;
+        top: 72px;
+        left: 0px;
+        border-width: 1px 0 0 1px;
+        /*border-color: #262626;*/
+        border-style: solid;
+        border-color: rgba(19, 83, 150, 1);
+}
+
+
+.tileMoveRS {
+        background-color: #BBFFBB;
+        opacity: .7;
+        border-width: 2px;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="Tableau.css"></link>
+        <style type="text/css">
+                h3 {
+                       margin: 20px 10px 5px 50px;
+               }
+               span {
+                       display:inline-block;
+                       margin: 10px 20px;
+               }
+               .SmallButton {
+                       width: 70px;
+               }
+               .BigButton {
+                       width: 110px;
+               }
+                #Controls {
+                        margin: 20px 30px;
+                }
+        </style>
+        <title>Domino Robinson-Schensted Algorithm, With Grid</title>
+        <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="Tableau.js"></script>
+        <script type="text/javascript" src="Page.js"></script>
+        <script type="text/javascript" src="PageDominoRSGrids.js"></script>
+</head>
+<body>
+        <h3>Domino Robinson-Schensted Algorithm, With Grid</h3>
+        <div id="Controls">
+                <span>Choose Grid:&nbsp;
+                        <label>B<input type="radio" name="gridGroup" value="B" onclick="pageDominoRSGrid.setType(this);">&nbsp; </label>
+                        <label>C<input type="radio" name="gridGroup" value="C" onclick="pageDominoRSGrid.setType(this);" checked>&nbsp; </label>
+                        <label>D<input type="radio" name="gridGroup" value="D" onclick="pageDominoRSGrid.setType(this);">&nbsp; </label>
+                </span><br>
+                <span>n: <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
+                <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageDominoRSGrid.runInput()">Run</button></span>
+                <span><button type="button" class = "BigButton" onclick="pageDominoRSGrid.runSteps()">Run Steps</button></span>
+                <span>permutation: <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
+                <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageDominoRSGrid.runParameter()">Run</button></span>
+                <span><button type="button" class = "BigButton" onclick="pageDominoRSGrid.runParameterSteps()">Run Steps</button></span>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+.tableauRenderAnimate {
+        margin: 20px 100px;
+        position: relative;
+}
+
+.gridHolder {
+        position: absolute;
+        top: 60px;
+        left: 60px;
+        border-width: 1px 0 0 1px;
+        border-style: solid;
+        border-color: rgba(19, 83, 150, 1);
+}
+
+.dominoRotateRS {
+        background-color: #BBBBFF;
+        opacity: .7;
+        box-shadow: none;
+        border-width: 2px;
+}
+
+.dominoMoveRS {
+        background-color: #BBFFBB;
+        opacity: .7;
+        border-width: 2px;
+}

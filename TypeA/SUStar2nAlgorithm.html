@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="TableauA.css"/>
+        <style type="text/css">
+                h3 {
+                       margin: 20px 10px 5px 50px;
+               }
+               span {
+                       display:inline-block;
+                       margin: 10px 20px;
+               }
+               .SmallButton {
+                       width: 70px;
+               }
+               .BigButton {
+                       width: 110px;
+               }
+                #Controls {
+                        margin: 20px 30px;
+                }
+        </style>
+        <title>SU*(2n) Algorithm</title>
+        <script type="text/javascript" src="TableauA.js"></script>
+        <script type="text/javascript" src="TableauSUStar.js"></script>
+        <script type="text/javascript" src="Page.js"></script>
+        <script type="text/javascript" src="PageSUStar.js"></script>
+</head>
+<body>
+        <h3>SU*(2n) Algorithm</h3>
+        <div id="Controls">
+                <span>2n: <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
+                <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageSUStar.runInput()">Run</button></span>
+                <span><button type="button" class = "BigButton" onclick="pageSUStar.runSteps()">Run Steps</button></span>
+                <span>parameter: <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
+                <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageSUStar.runParameter()">Run</button></span>
+                <span><button type="button" class = "BigButton" onclick="pageSUStar.runParameterSteps()">Run Steps</button></span>
+        </div>
+</body>
+</html>

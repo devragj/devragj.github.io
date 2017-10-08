@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="Tableau.css"></link>
+        <link rel="stylesheet" href="TableauAnimate.css"></link>
+        <style type="text/css">
+                h3 {
+                       margin: 20px 10px 5px 50px;
+               }
+               span {
+                       display:inline-block;
+                       margin: 10px 20px;
+               }
+               .SmallButton {
+                       width: 70px;
+               }
+               .BiggerButton {
+                       width: 120px;
+               }
+                #Controls {
+                        margin: 20px 30px;
+                }
+        </style>
+        <title>Domino Robinson-Schensted Algorithm Animated</title>
+        <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="jQueryRotate.js"></script>
+        <script type="text/javascript" src="Tableau.js"></script>
+        <script type="text/javascript" src="TableauDominoRSAnimate.js"></script>
+        <script type="text/javascript" src="Page.js"></script>
+        <script type="text/javascript" src="PageAnimate.js"></script>
+        <script type="text/javascript" src="PageAnimateDominoRS.js"></script>
+</head>
+<body>
+        <h3>Domino Robinson-Schensted Algorithm Animated</h3>
+        <div id="Controls">
+                <span>n: <input type="text" id="nbox" size="6" onkeyup="pageAnimateDominoRS.animationRandomKey(event)"></span>
+                <span><button type="button" id="startRandomButton" class = "BiggerButton" onclick="pageAnimateDominoRS.startRandomAnimation()">Start Animation</button></span>
+                <span><button type="button" id="nextRandomButton" class = "BiggerButton" onclick="pageAnimateDominoRS.nextStep()">Next Step</button></span>
+                <span>permutation: <input type="text" id="parameterBox" size="50" onkeyup="pageAnimateDominoRS.animationParameterKey(event)"></span>
+                <span><button type="button" id="startParameterButton" class = "BiggerButton" onclick="pageAnimateDominoRS.startParameterAnimation()">Start Animation</button></span>
+                <span><button type="button" id="nextParameterButton" class = "BiggerButton" onclick="pageAnimateDominoRS.nextStep()">Next Step</button></span>
+                <span>animation speed:
+                        <select id='speed' onchange="pageAnimateDominoRS.changeSpeed(this)">
+                                <option value='1'>1 second</option>
+                                <option value='1.5'>1.5 seconds</option>
+                                <option value='2' selected>2 seconds</option>
+                                <option value='2.5'>2.5 seconds</option>
+                                <option value='3'>3 seconds</option>
+                                <option value='3.5'>3.5 seconds</option>
+                                <option value='4'>4 seconds</option>
+                        </select>
+                </span>
+        </div>
+</body>
+
+</html>

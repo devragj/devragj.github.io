@@ -1,0 +1,154 @@
+body {
+        font-family: calibri, sans-serif;
+}
+
+.tableauPairRender {
+        margin-bottom: 40px;
+}
+
+.tableauRender {
+        margin: 20px;
+        position: relative;
+}
+
+.tableauRenderLeft {
+        display: inline-block;
+        vertical-align: top;
+}
+
+.tableauRenderRight {
+        display: inline-block;
+        vertical-align: top;
+}
+
+.tableauRenderList {
+        display: inline-block;
+        margin-right: 50px;
+        vertical-align: top;
+}
+
+.domino {
+        position: absolute;
+        background-color: #FFF;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+        border-width: 1px;
+        border-color: #262626;
+        border-style: solid;
+        margin-left: 3px;
+        margin-top: 3px;
+}
+
+.dominoHorizontal {
+        width: 53px;
+        height: 23px;
+        line-height: 23px;
+}
+
+.dominoVertical {
+        width: 23px;
+        height: 53px;
+        line-height: 53px;
+}
+
+.dominoBox {
+        width: 53px;
+        height: 53px;
+        line-height: 53px;
+}
+
+.dominoZero {
+        width: 23px;
+        height: 23px;
+        line-height: 23px;
+}
+
+.dominoText {
+        line-height: inherit;
+        width: 100%;
+        text-align: center;
+        font-size: 19px;
+}
+
+.comment {
+        margin-left: 22px;
+}
+
+.tableauGrid {
+        position: relative;
+        border-right: 1px solid #135396;
+        border-bottom: 1px solid #135396;
+}
+
+.tableauGridCell {
+        width: 60px;
+        height: 60px;
+        border-style: solid;
+        border-color: #135396;
+        border-width: 0px;
+        border-top-width: 1px;
+        border-left-width: 1px;
+        position: absolute;
+}
+
+.tableauGridBackground {
+        position: relative;
+        border-right: 1px solid rgba(19, 83, 150, 0.5);
+        border-bottom: 1px solid rgba(19, 83, 150, 0.5);
+}
+
+.tableauGridCellBackground {
+        width: 60px;
+        height: 60px;
+        border-style: solid;
+        border-color: rgba(19, 83, 150, 0.5);
+        border-width: 0px;
+        border-top-width: 1px;
+        border-left-width: 1px;
+        position: absolute;
+}
+
+.dominoNoBorder {
+        position: absolute;
+        background-color: #FFF;
+        margin-top: 4px;
+}
+
+.dominoTextNoBorder{
+        margin-left: 3px;
+}
+
+.dominoHighlighted1 {
+        background-color: #FFBBBB;
+}
+
+.dominoHighlighted2 {
+        background-color: #BBFFBB;
+}
+
+.dominoHighlighted3 {
+        background-color: #FFFFBB;
+}
+
+.dominoHighlighted4 {
+        background-color: #BBBBFF;
+}
+
+.dominoHighlighted5 {
+        background-color: #BBFFBB;
+        opacity: .6;
+}
+
+.dominoHighlighted6 {
+        background-color: #FFEEBB;
+}
+
+.dominoHighlighted7 {
+        background-color: #BBBBFF;
+        opacity: .6;
+}
+
+.dominoHighlighted8 {
+        background-color: #FFBBBB;
+        opacity: .6;
+}

@@ -1,0 +1,71 @@
+body {
+        font-family: calibri, sans-serif;
+}
+
+.tableauAPairRender {
+        margin-bottom: 40px;
+        margin-left: 20px;
+}
+
+.tableauARender {
+        margin: 20px;
+        position: relative;
+}
+
+.tableauARenderLeft {
+        display: inline-block;
+}
+
+.tableauARenderRight {
+        display: inline-block;
+}
+
+.tile {
+        position: absolute;
+        background-color: #FFF;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+        border-width: 1px;
+        border-color: #262626;
+        border-style: solid;
+        margin-left: 3px;
+        margin-top: 3px;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+}
+
+.tileText {
+        line-height: inherit;
+        width: 100%;
+        text-align: center;
+        font-size: 19px;
+}
+
+.comment {
+        margin-left: 22px;
+}
+
+
+.tileHighlighted5 {
+        background-color: #BBFFBB;
+        opacity: .6;
+}
+
+
+.tableauAGrid {
+        position: relative;
+        border-right: 1px solid rgba(19, 83, 150, 0.5);
+        border-bottom: 1px solid rgba(19, 83, 150, 0.5);
+}
+
+.tableauAGridCell {
+        width: 36px;
+        height: 36px;
+        border-style: solid;
+        border-color: rgba(19, 83, 150, 0.5);
+        border-width: 0px;
+        border-top-width: 1px;
+        border-left-width: 1px;
+        position: absolute;
+}
