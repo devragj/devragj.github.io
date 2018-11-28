@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: TableauRendererDOM</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: TableauRendererDOM</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>TableauRendererDOM<span class="signature">(tableau)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">Class for drawing a single <a href="Tableau.html">Tableau</a> on a webpage.The tableau to draw may be a <a href="TableauWithGrid.html">TableauWithGrid</a>, in which case it will bedrawn with its grid.  If not, it will be drawn with a fainter,background grid of type C.</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="TableauRendererDOM"><span class="type-signature"></span>new TableauRendererDOM<span class="signature">(tableau)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tableau</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Tableau.html">Tableau</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the tableau to draw<br></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line2417">line 2417</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="gridSize"><span class="type-signature"></span>gridSize<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    the size of the side of the squarealloted to each square of a Domino, in pixels
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line2432">line 2432</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="hasGrid"><span class="type-signature"></span>hasGrid<span class="type-signature"> :Boolean</span></h4>
+
+
+
+
+<div class="description">
+    a boolean which is true if tableau is a TableauWithGrid
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Boolean</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line2438">line 2438</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="offset"><span class="type-signature"></span>offset<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    the x and y coordinates of the top-left cornerof the tableau in relation to the 2x2 grid
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line2444">line 2444</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="tableau"><span class="type-signature"></span>tableau<span class="type-signature"> :<a href="TableauWithGrid.html">TableauWithGrid</a>|<a href="Tableau.html">Tableau</a></span></h4>
+
+
+
+
+<div class="description">
+    the tableau to draw
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="TableauWithGrid.html">TableauWithGrid</a></span>
+|
+
+<span class="param-type"><a href="Tableau.html">Tableau</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line2426">line 2426</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".fillGridElement"><span class="type-signature">(static) </span>fillGridElement<span class="signature">(gridElement, width, height, gridSize, hasGrid)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This is a static version of <a href="TableauRendererDOM.html#fillGridElement">TableauRendererDOM#fillGridElement</a>,for use by renderers of pairs of tableaux.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>gridElement</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the DOM element to fill with grid cells</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the width of the grid, an even integer</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the height of the grid, an even integer</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>gridSize</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the size of the side of the squarealloted to each square of a Domino, in pixels, thus, half thesize of the side of a 2x2 cell of the grid being rendered here.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>hasGrid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">if false, the grid is rendered fainter.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line2599">line 2599</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".makeDominoElement"><span class="type-signature">(static) </span>makeDominoElement<span class="signature">(domino, offset, gridSize)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This is a static version of makeDominoElement,for use by renderers of pairs of tableaux.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>domino</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Domino.html">Domino</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the domino to render</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the x and y coordinates of the top-left cornerof the tableau in relation to the 2x2 grid</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>gridSize</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the size of the side of the squarealloted to each square of a Domino, in pixels</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line2514">line 2514</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    {dominoElement: Object, dominoText Object}<br>dominoElement is the rendered domino<br>dominoText is the text element contained in thedominoElement.  Access to it is sometimes requiredby animations.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="fillGridElement"><span class="type-signature"></span>fillGridElement<span class="signature">(gridElement, width, height)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This is helper function which fills the DOM element forthe background grid with its 2x2 squares.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>gridElement</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the DOM element to fill with grid cells</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the width of the grid, an even integer</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the height of the grid, an even integer</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line2561">line 2561</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="makeDominoElement"><span class="type-signature"></span>makeDominoElement<span class="signature">(domino)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This is helper function which makes the DOM element forone domino in the tableau.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>domino</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Domino.html">Domino</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the domino to render</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line2460">line 2460</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    {dominoElement: Object, dominoText Object}<br>dominoElement is the rendered domino<br>dominoText is the text element contained in thedominoElement.  Access to it is sometimes requiredby animations.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="renderDOM"><span class="type-signature"></span>renderDOM<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function creates the DOM element for the <a href="Tableau.html">Tableau</a>.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line2630">line 2630</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    the rendered tableau
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Domino.html">Domino</a></li><li><a href="DominoGrid.html">DominoGrid</a></li><li><a href="Page.html">Page</a></li><li><a href="PageAnimate.html">PageAnimate</a></li><li><a href="PageCycles.html">PageCycles</a></li><li><a href="PageSUStar.html">PageSUStar</a></li><li><a href="ParameterDominoRS.html">ParameterDominoRS</a></li><li><a href="ParameterRS.html">ParameterRS</a></li><li><a href="ParameterSOStar.html">ParameterSOStar</a></li><li><a href="ParameterSppq.html">ParameterSppq</a></li><li><a href="ParameterSUpq.html">ParameterSUpq</a></li><li><a href="ParameterSUStar.html">ParameterSUStar</a></li><li><a href="Square.html">Square</a></li><li><a href="Tableau.html">Tableau</a></li><li><a href="TableauA.html">TableauA</a></li><li><a href="TableauAAnimate.html">TableauAAnimate</a></li><li><a href="TableauAnimate.html">TableauAnimate</a></li><li><a href="TableauAPair.html">TableauAPair</a></li><li><a href="TableauAPairRendererDOM.html">TableauAPairRendererDOM</a></li><li><a href="TableauARendererAnimate.html">TableauARendererAnimate</a></li><li><a href="TableauARendererDOM.html">TableauARendererDOM</a></li><li><a href="TableauCycles.html">TableauCycles</a></li><li><a href="TableauCyclesRendererDOM.html">TableauCyclesRendererDOM</a></li><li><a href="TableauHoverCyclesRendererDOM.html">TableauHoverCyclesRendererDOM</a></li><li><a href="TableauPair.html">TableauPair</a></li><li><a href="TableauPairCycles.html">TableauPairCycles</a></li><li><a href="TableauPairCyclesRendererDOM.html">TableauPairCyclesRendererDOM</a></li><li><a href="TableauPairGrid.html">TableauPairGrid</a></li><li><a href="TableauPairRendererAnimateCycle.html">TableauPairRendererAnimateCycle</a></li><li><a href="TableauPairRendererDOM.html">TableauPairRendererDOM</a></li><li><a href="TableauRendererAnimate.html">TableauRendererAnimate</a></li><li><a href="TableauRendererAnimateCycle.html">TableauRendererAnimateCycle</a></li><li><a href="TableauRendererDOM.html">TableauRendererDOM</a></li><li><a href="TableauSignsSOStar.html">TableauSignsSOStar</a></li><li><a href="TableauSignsSppq.html">TableauSignsSppq</a></li><li><a href="TableauSignsSUpq.html">TableauSignsSUpq</a></li><li><a href="TableauSUStar.html">TableauSUStar</a></li><li><a href="TableauWithGrid.html">TableauWithGrid</a></li><li><a href="Tile.html">Tile</a></li><li><a href="TileGrid.html">TileGrid</a></li></ul><h3>Global</h3><ul><li><a href="global.html#pageAnimateDominoRS">pageAnimateDominoRS</a></li><li><a href="global.html#pageAnimateRS">pageAnimateRS</a></li><li><a href="global.html#pageCycleCopy">pageCycleCopy</a></li><li><a href="global.html#pageCycleHover">pageCycleHover</a></li><li><a href="global.html#pageCycleInPlace">pageCycleInPlace</a></li><li><a href="global.html#pageCyclePairCopy">pageCyclePairCopy</a></li><li><a href="global.html#pageCyclePairInPlace">pageCyclePairInPlace</a></li><li><a href="global.html#pageCyclePairSpecial">pageCyclePairSpecial</a></li><li><a href="global.html#pageCycleSpecial">pageCycleSpecial</a></li><li><a href="global.html#pageDominoRS">pageDominoRS</a></li><li><a href="global.html#pageDominoRSGrid">pageDominoRSGrid</a></li><li><a href="global.html#pageRS">pageRS</a></li><li><a href="global.html#pageSOStar">pageSOStar</a></li><li><a href="global.html#pageSppq">pageSppq</a></li><li><a href="global.html#pageSUpq">pageSUpq</a></li><li><a href="global.html#pageSUStar">pageSUStar</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 28 2018 18:35:36 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

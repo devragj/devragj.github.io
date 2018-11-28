@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Tile</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: Tile</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>Tile<span class="signature">(table)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">This class stores the information for one tile of the tableau.</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="Tile"><span class="type-signature"></span>new Tile<span class="signature">(table)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>table</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>n</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The number occupying the tile.Though, in some uses, the tileis occupied by a sign, not a number.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The x-coordinate of the tile in the tableau.  Zero-based, zero on the left.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The y-coordinate of the tile in the tableau.  Zero-based, zero on top.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeA_TableauA.js.html">TypeA/TableauA.js</a>, <a href="TypeA_TableauA.js.html#line185">line 185</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="n"><span class="type-signature"></span>n<span class="type-signature"> :number|string</span></h4>
+
+
+
+
+<div class="description">
+    the content of the Tile
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+|
+
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeA_TableauA.js.html">TypeA/TableauA.js</a>, <a href="TypeA_TableauA.js.html#line199">line 199</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="x"><span class="type-signature"></span>x<span class="type-signature"> :number</span></h4>
+
+
+
+
+<div class="description">
+    The x-coordinate of the location of the tile.in the tableau.Zero-based, zero on the left.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeA_TableauA.js.html">TypeA/TableauA.js</a>, <a href="TypeA_TableauA.js.html#line206">line 206</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="y"><span class="type-signature"></span>y<span class="type-signature"> :number</span></h4>
+
+
+
+
+<div class="description">
+    The y-coordinate of the location of the tile.in the tableau.Zero-based, zero on top.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeA_TableauA.js.html">TypeA/TableauA.js</a>, <a href="TypeA_TableauA.js.html#line213">line 213</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".cloneList"><span class="type-signature">(static) </span>cloneList<span class="signature">(tileList)</span><span class="type-signature"> &rarr; {Array.&lt;<a href="Tile.html">Tile</a>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    makes a deep copy of an array of Tile
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tileList</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="Tile.html">Tile</a>></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeA_TableauA.js.html">TypeA/TableauA.js</a>, <a href="TypeA_TableauA.js.html#line237">line 237</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;<a href="Tile.html">Tile</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="clone"><span class="type-signature"></span>clone<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Tile.html">Tile</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    makes a copy
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeA_TableauA.js.html">TypeA/TableauA.js</a>, <a href="TypeA_TableauA.js.html#line220">line 220</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Tile.html">Tile</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="toString"><span class="type-signature"></span>toString<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeA_TableauA.js.html">TypeA/TableauA.js</a>, <a href="TypeA_TableauA.js.html#line227">line 227</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Domino.html">Domino</a></li><li><a href="DominoGrid.html">DominoGrid</a></li><li><a href="Page.html">Page</a></li><li><a href="PageAnimate.html">PageAnimate</a></li><li><a href="PageCycles.html">PageCycles</a></li><li><a href="PageSUStar.html">PageSUStar</a></li><li><a href="ParameterDominoRS.html">ParameterDominoRS</a></li><li><a href="ParameterRS.html">ParameterRS</a></li><li><a href="ParameterSOStar.html">ParameterSOStar</a></li><li><a href="ParameterSppq.html">ParameterSppq</a></li><li><a href="ParameterSUpq.html">ParameterSUpq</a></li><li><a href="ParameterSUStar.html">ParameterSUStar</a></li><li><a href="Square.html">Square</a></li><li><a href="Tableau.html">Tableau</a></li><li><a href="TableauA.html">TableauA</a></li><li><a href="TableauAAnimate.html">TableauAAnimate</a></li><li><a href="TableauAnimate.html">TableauAnimate</a></li><li><a href="TableauAPair.html">TableauAPair</a></li><li><a href="TableauAPairRendererDOM.html">TableauAPairRendererDOM</a></li><li><a href="TableauARendererAnimate.html">TableauARendererAnimate</a></li><li><a href="TableauARendererDOM.html">TableauARendererDOM</a></li><li><a href="TableauCycles.html">TableauCycles</a></li><li><a href="TableauCyclesRendererDOM.html">TableauCyclesRendererDOM</a></li><li><a href="TableauHoverCyclesRendererDOM.html">TableauHoverCyclesRendererDOM</a></li><li><a href="TableauPair.html">TableauPair</a></li><li><a href="TableauPairCycles.html">TableauPairCycles</a></li><li><a href="TableauPairCyclesRendererDOM.html">TableauPairCyclesRendererDOM</a></li><li><a href="TableauPairGrid.html">TableauPairGrid</a></li><li><a href="TableauPairRendererAnimateCycle.html">TableauPairRendererAnimateCycle</a></li><li><a href="TableauPairRendererDOM.html">TableauPairRendererDOM</a></li><li><a href="TableauRendererAnimate.html">TableauRendererAnimate</a></li><li><a href="TableauRendererAnimateCycle.html">TableauRendererAnimateCycle</a></li><li><a href="TableauRendererDOM.html">TableauRendererDOM</a></li><li><a href="TableauSignsSOStar.html">TableauSignsSOStar</a></li><li><a href="TableauSignsSppq.html">TableauSignsSppq</a></li><li><a href="TableauSignsSUpq.html">TableauSignsSUpq</a></li><li><a href="TableauSUStar.html">TableauSUStar</a></li><li><a href="TableauWithGrid.html">TableauWithGrid</a></li><li><a href="Tile.html">Tile</a></li><li><a href="TileGrid.html">TileGrid</a></li></ul><h3>Global</h3><ul><li><a href="global.html#pageAnimateDominoRS">pageAnimateDominoRS</a></li><li><a href="global.html#pageAnimateRS">pageAnimateRS</a></li><li><a href="global.html#pageCycleCopy">pageCycleCopy</a></li><li><a href="global.html#pageCycleHover">pageCycleHover</a></li><li><a href="global.html#pageCycleInPlace">pageCycleInPlace</a></li><li><a href="global.html#pageCyclePairCopy">pageCyclePairCopy</a></li><li><a href="global.html#pageCyclePairInPlace">pageCyclePairInPlace</a></li><li><a href="global.html#pageCyclePairSpecial">pageCyclePairSpecial</a></li><li><a href="global.html#pageCycleSpecial">pageCycleSpecial</a></li><li><a href="global.html#pageDominoRS">pageDominoRS</a></li><li><a href="global.html#pageDominoRSGrid">pageDominoRSGrid</a></li><li><a href="global.html#pageRS">pageRS</a></li><li><a href="global.html#pageSOStar">pageSOStar</a></li><li><a href="global.html#pageSppq">pageSppq</a></li><li><a href="global.html#pageSUpq">pageSUpq</a></li><li><a href="global.html#pageSUStar">pageSUStar</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 28 2018 18:35:36 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

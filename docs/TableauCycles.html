@@ -1,0 +1,5881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: TableauCycles</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: TableauCycles</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>TableauCycles<span class="signature">(type, info<span class="signature-attributes">opt</span>, animationDuration, inPlace<span class="signature-attributes">opt</span>, unboxedOnly<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">This class extends <a href="TableauWithGrid.html">TableauWithGrid</a>.  It adds methodsneeded to create animations of cycles.</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="TableauCycles"><span class="type-signature"></span>new TableauCycles<span class="signature">(type, info<span class="signature-attributes">opt</span>, animationDuration, inPlace<span class="signature-attributes">opt</span>, unboxedOnly<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    The first two inputs to the constructor are used to construct a TableauWithGrid.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">B, C, or D</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>info</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Tableau.html">Tableau</a></span>
+|
+
+<span class="param-type">Array.&lt;<a href="Domino.html">Domino</a>></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    []
+                
+                </td>
+            
+
+            <td class="description last">this is the input to construct a Tableau</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>animationDuration</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">how long, in milliseconds, the movementof each Domino should take.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>inPlace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">If true, the change takes place on theoriginal tableau, otherwise, clones are created and shown.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>unboxedOnly</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">If true, only special squares forunboxed cycles will be shown.  Current uses also have<code>inPlace == true</code>.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line49">line 49</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="TableauWithGrid.html">TableauWithGrid</a></li>
+    </ul>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="animationDuration"><span class="type-signature"></span>animationDuration<span class="type-signature"> :number</span></h4>
+
+
+
+
+<div class="description">
+    how long, in milliseconds, the movementof each Domino should take.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line69">line 69</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="dominoGrid"><span class="type-signature"></span>dominoGrid<span class="type-signature"> :<a href="DominoGrid.html">DominoGrid</a></span></h4>
+
+
+
+
+<div class="description">
+    see <a href="DominoGrid.html">DominoGrid</a>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="DominoGrid.html">DominoGrid</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tableau.html#dominoGrid">Tableau#dominoGrid</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line458">line 458</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="dominoList"><span class="type-signature"></span>dominoList<span class="type-signature"> :Array.&lt;<a href="Domino.html">Domino</a>></span></h4>
+
+
+
+
+<div class="description">
+    an array of references to the Dominos of the tableau.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;<a href="Domino.html">Domino</a>></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tableau.html#dominoList">Tableau#dominoList</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line453">line 453</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="getGridSubPosition"><span class="type-signature"></span>getGridSubPosition<span class="type-signature"> :function</span></h4>
+
+
+
+
+<div class="description">
+    See <a href="TableauWithGrid.html#.getGrid">TableauWithGrid.getGrid</a> for a description of this function.The type of the TableauWithGrid is mostly expressed throughthis function, which is used to determine where a square issituated in the 2x2 box of the grid which contains it.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">function</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="TableauWithGrid.html#getGridSubPosition">TableauWithGrid#getGridSubPosition</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line1402">line 1402</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="heightToDraw"><span class="type-signature"></span>heightToDraw<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    Each tableau will be drawn with its corners and holes,so this drawing may be taller than the original tableau.  Thismember is computed in the <a href="TableauCyclesRendererDOM.html">TableauCyclesRendererDOM</a>class and used by the <a href="TableauRendererAnimateCycle.html">TableauRendererAnimateCycle</a>class.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line99">line 99</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="inPlace"><span class="type-signature"></span>inPlace<span class="type-signature"> :boolean</span></h4>
+
+
+
+
+<div class="description">
+    If true, the change takes place on theoriginal tableau, otherwise, clones are created and shown.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">boolean</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line75">line 75</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="type"><span class="type-signature"></span>type<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+    One of "B", "C", or "D"
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="TableauWithGrid.html#type">TableauWithGrid#type</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line1394">line 1394</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="unboxedOnly"><span class="type-signature"></span>unboxedOnly<span class="type-signature"> :boolean</span></h4>
+
+
+
+
+<div class="description">
+    If true, only special squares forunboxed cycles will be shown.  Current uses also have inPlace == true.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">boolean</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line81">line 81</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="widthToDraw"><span class="type-signature"></span>widthToDraw<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    Each tableau will be drawn with its corners and holes,so this drawing may be wider than the original tableau.  Thismember is computed in the <a href="TableauCyclesRendererDOM.html">TableauCyclesRendererDOM</a>class and used by the <a href="TableauRendererAnimateCycle.html">TableauRendererAnimateCycle</a>class.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line90">line 90</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="clone"><span class="type-signature"></span>clone<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="TableauCycles.html">TableauCycles</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    makes a deep copy
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="TableauWithGrid.html#clone">TableauWithGrid#clone</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line106">line 106</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="TableauCycles.html">TableauCycles</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="displayAnimation"><span class="type-signature"></span>displayAnimation<span class="signature">(animationData)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This is a helper method for<a href="TableauCycles.html#drawAnimateMoveOpenCycle">TableauCycles#drawAnimateMoveOpenCycle</a> and<a href="TableauCycles.html#drawAnimateMoveOpenCycleToSquare">TableauCycles#drawAnimateMoveOpenCycleToSquare</a>.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>animationData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">this object is returned by<a href="TableauRendererAnimateCycle.html#getDOMAndAnimation">TableauRendererAnimateCycle#getDOMAndAnimation</a></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line170">line 170</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    the length of the Array ofanimation functions
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="draw"><span class="type-signature"></span>draw<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function uses the <a href="TableauRendererDOM.html">TableauRendererDOM</a> class to draw the Tableau on a webpage.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tableau.html#draw">Tableau#draw</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line487">line 487</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="drawAnimateMoveOpenCycle"><span class="type-signature"></span>drawAnimateMoveOpenCycle<span class="signature">(backSquare, highlight)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function is the click handler for clicking onthe back square of a cycle.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>backSquare</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Square.html">Square</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the back square of the cycle</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>highlight</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the name of the CSS classto attach to the DOM representations of the dominos in the cycle</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line122">line 122</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="drawAnimateMoveOpenCycleToSquare"><span class="type-signature"></span>drawAnimateMoveOpenCycleToSquare<span class="signature">(forwardSquare, highlight)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function is the click handler for clicking onthe forward square of a cycle.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>forwardSquare</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Square.html">Square</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the forward square of the cycle</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>highlight</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the name of the CSS classto attach to the DOM representations of the dominos in the cycle</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line146">line 146</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="drawWithSpecialSquares"><span class="type-signature"></span>drawWithSpecialSquares<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This method uses the <a href="TableauCyclesRendererDOM.html">TableauCyclesRendererDOM</a> classto draw the tableau with its corners and holes highlighted.In addition, each such special square has an click handler attached,so that the square, when clicked, will draw the animation of the cyclecorresponding to that square.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line598">line 598</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="drawWithSpecialSquaresHover"><span class="type-signature"></span>drawWithSpecialSquaresHover<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This method uses the <a href="TableauHoverCyclesRendererDOM.html">TableauHoverCyclesRendererDOM</a> classto draw the tableau with its corners and holes highlighted.In addition, each such special square has a hover handler attached.When the mouse enters the square, the dominos of its cycle arehighlighted.  When the mouse leaves the square,the highlighting is removed.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line610">line 610</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="flipDominoForCycle"><span class="type-signature"></span>flipDominoForCycle<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    helper function for <a href="TableauWithGrid.html#moveOpenCycle">TableauWithGrid#moveOpenCycle</a>and <a href="TableauWithGrid.html#moveOpenCycleToSquare">TableauWithGrid#moveOpenCycleToSquare</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="TableauWithGrid.html#flipDominoForCycle">TableauWithGrid#flipDominoForCycle</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line1845">line 1845</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getBackSquare"><span class="type-signature"></span>getBackSquare<span class="signature">(forwardSquare)</span><span class="type-signature"> &rarr; {<a href="Square.html">Square</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function, given the forward square of an open cycle in thetableau with grid, returns the back square of that cycle.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>forwardSquare</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Square.html">Square</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the forward square of the cycle</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="TableauWithGrid.html#getBackSquare">TableauWithGrid#getBackSquare</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line1577">line 1577</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    the back square of the cycle
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Square.html">Square</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getColumnLength"><span class="type-signature"></span>getColumnLength<span class="signature">(j)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>j</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the zero-based index of the column</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tableau.html#getColumnLength">Tableau#getColumnLength</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line601">line 601</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    the length of the jth column
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getCornersAndHoles"><span class="type-signature"></span>getCornersAndHoles<span class="signature">(unboxedOnly<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Array.&lt;<a href="Square.html">Square</a>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This method finds the corners and holes of the <a href="TableauWithGrid.html">TableauWithGrid</a>.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>unboxedOnly</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">if true, only get the unboxedcorners and holes</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line406">line 406</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    the list of corners and holes
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;<a href="Square.html">Square</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getCycleArray"><span class="type-signature"></span>getCycleArray<span class="signature">()</span><span class="type-signature"> &rarr; {Array.&lt;Object>}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line576">line 576</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    There is one object in the returned array foreach open cycle in the <a href="TableauWithGrid.html">TableauWithGrid</a>.<br>The objects are of the form<br>{backSquare: <a href="Square.html">Square</a>, forwardSquare: <a href="Square.html">Square</a>, cycleDominos: Array.&lt;<a href="Domino.html">Domino</a>>}.<br>backSquare - the back square of the cycle <br>forwardSquare - the forward square of the cycle <br>cycleDominos - an array of the Dominos in the cycle
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Object></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getFixedSquare"><span class="type-signature"></span>getFixedSquare<span class="signature">(domino)</span><span class="type-signature"> &rarr; {<a href="Square.html">Square</a>}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>domino</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Domino.html">Domino</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="TableauWithGrid.html#getFixedSquare">TableauWithGrid#getFixedSquare</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line1493">line 1493</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    the x and y coordinates of the domino'sfixed square with respect to the grid.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Square.html">Square</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getForwardSquare"><span class="type-signature"></span>getForwardSquare<span class="signature">(backSquare)</span><span class="type-signature"> &rarr; {<a href="Square.html">Square</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function, given the back square of an open cycle in thetableau with grid, returns the forward square of that cycle.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>backSquare</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Square.html">Square</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the back square of the cycle</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="TableauWithGrid.html#getForwardSquare">TableauWithGrid#getForwardSquare</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line1531">line 1531</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    the forward square of the cycle
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Square.html">Square</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getForwardSquareAndCycle"><span class="type-signature"></span>getForwardSquareAndCycle<span class="signature">(backSquare)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This is a helper method for <a href="TableauCycles.html#getCycleArray">TableauCycles#getCycleArray</a>.This function gets the forward square of an open cyclespecified by its back square,and an array of the dominos in the open cycle.In addition, it marks the dominos in the cycle.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>backSquare</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Square.html">Square</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the back square of the cycle</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line487">line 487</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    {forwardSquare: <a href="Square.html">Square</a>, cycleDominos: Array.&lt;<a href="Domino.html">Domino</a>>}<br>forwardSquare - the forward square of the cycle <br>cycleDominos - an array of the Dominos in the cycle
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getRowLength"><span class="type-signature"></span>getRowLength<span class="signature">(i)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>i</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the zero-based index of the row</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tableau.html#getRowLength">Tableau#getRowLength</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line593">line 593</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    the length of the ith row
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getTableauToAnimateMoveOpenCycle"><span class="type-signature"></span>getTableauToAnimateMoveOpenCycle<span class="signature">(backSquare, noClone)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function optionally clones the tableau, and then computes theprocedure of moving through a cycle specified by its back squareon the tableau (cloned or original).  However, instead of moving the Dominos,it stores the information of how the Domino would move (slide or rotate)in the Domino, for each Domino that would have been moved.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>backSquare</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Square.html">Square</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the back square of the cycle</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>noClone</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">if true, operate on the original tableau,otherwise, make a clone, operate on it, and return the clone</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line201">line 201</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    {tableauToAnimate: <a href="TableauCycles.html">TableauCycles</a>,movedDominos: Array.&lt;<a href="Domino.html">Domino</a>>, forwardSquare: <a href="Square.html">Square</a>}<br>The returned object stores the original or cloned tableau,with animation information in it,an Array of the Dominos in the cycle, and the forward square of the cycle.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getTableauToAnimateMoveOpenCycleToSquare"><span class="type-signature"></span>getTableauToAnimateMoveOpenCycleToSquare<span class="signature">(forwardSquare, noClone)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function optionally clones the tableau, and then computes theprocedure of moving through a cycle specified by its forward squareon the tableau (cloned or original).  However, instead of moving the Dominos,it stores the information of how the Domino would move (slide or rotate)in the Domino, for each Domino that would have been moved.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>forwardSquare</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Square.html">Square</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the forward square of the cycle.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>noClone</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">if true, operate on the original tableau,otherwise, make a clone, operate on it, and return the clone</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauCycles.js.html">TypeBCD/TableauCycles.js</a>, <a href="TypeBCD_TableauCycles.js.html#line314">line 314</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    {tableauToAnimate: <a href="TableauCycles.html">TableauCycles</a>,movedDominos: Array.&lt;<a href="Domino.html">Domino</a>>, backSquare: <a href="Square.html">Square</a>}<br>The returned object stores the original or cloned tableau,with animation information in it,an Array of the Dominos in the cycle, and the back square of the cycle.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getVariableSquare"><span class="type-signature"></span>getVariableSquare<span class="signature">(domino)</span><span class="type-signature"> &rarr; {<a href="Square.html">Square</a>}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>domino</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Domino.html">Domino</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="TableauWithGrid.html#getVariableSquare">TableauWithGrid#getVariableSquare</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line1475">line 1475</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    the x and y coordinates of the domino'svariable square with respect to the grid.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Square.html">Square</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="insert"><span class="type-signature"></span>insert<span class="signature">(domino)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function adds a Domino to the Tableau.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>domino</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Domino.html">Domino</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the Domino to add</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tableau.html#insert">Tableau#insert</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line495">line 495</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="insertAtEnd"><span class="type-signature"></span>insertAtEnd<span class="signature">(domino)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function adds a Domino to the Tableau, in a situation where thedomino can be added to the end of <a href="Tableau.html#dominoList">Tableau#dominoList</a>.That is, either the domino is being added to a Tableau which containsnumbers, and the number in the new domino is larger than any numbersalready present in the Tableau, or, alternatively, the tableau'sdominos do not contain numbers.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>domino</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Domino.html">Domino</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the Domino to add</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tableau.html#insertAtEnd">Tableau#insertAtEnd</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line584">line 584</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="insertBinary"><span class="type-signature"></span>insertBinary<span class="signature">(domino)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function adds a Domino to the Tableau. It has the same result asthe function <a href="Tableau.html#insert">Tableau#insert</a>, but it uses a binary search to find the placefor the domino in <a href="Tableau.html#dominoList">Tableau#dominoList</a>.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>domino</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Domino.html">Domino</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the Domino to add</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tableau.html#insertBinary">Tableau#insertBinary</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line517">line 517</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="isBoxed"><span class="type-signature"></span>isBoxed<span class="signature">(domino)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>domino</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Domino.html">Domino</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="TableauWithGrid.html#isBoxed">TableauWithGrid#isBoxed</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line1509">line 1509</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    If true, the domino is boxed with respect to the grid.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="isExtremal"><span class="type-signature"></span>isExtremal<span class="signature">(position)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function checks whether a domino shapeis at the edge of the Tableau.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>position</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>horizontal</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tableau.html#isExtremal">Tableau#isExtremal</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line613">line 613</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="moveOpenCycle"><span class="type-signature"></span>moveOpenCycle<span class="signature">(backSquare)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function moves the tableau with grid through an open cyclespecified by its back square.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>backSquare</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Square.html">Square</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the back square of the cycle</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="TableauWithGrid.html#moveOpenCycle">TableauWithGrid#moveOpenCycle</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line1624">line 1624</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    {forwardSquare: <a href="Square.html">Square</a>, movedDominos: Array.&lt;<a href="Domino.html">Domino</a>>}<br>forwardSquare - the forward square of the cycle <br>movedDominos - an array of the Dominos in the cycle
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="moveOpenCycleToSquare"><span class="type-signature"></span>moveOpenCycleToSquare<span class="signature">(forwardSquare)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function moves the tableau with grid through an open cyclespecified by its forward square.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>forwardSquare</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Square.html">Square</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the forward square of the cycle</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="TableauWithGrid.html#moveOpenCycleToSquare">TableauWithGrid#moveOpenCycleToSquare</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line1745">line 1745</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    {backSquare: <a href="Square.html">Square</a>, movedDominos: Array.&lt;<a href="Domino.html">Domino</a>>}<br>backSquare - the back square of the cycle <br>movedDominos - an array of the Dominos in the cycle
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="nextRobinsonSchensted"><span class="type-signature"></span>nextRobinsonSchensted<span class="signature">(rsNumber)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function adds one number with sign to the tableau,using the Domino Robinson-Schensted procedure.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>rsNumber</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the number can be positive or negative</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tableau.html#nextRobinsonSchensted">Tableau#nextRobinsonSchensted</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line643">line 643</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    {x: number, y: number, horizontal: boolean},<br>an object holding the x and y coordinatesand the orientation of the change in the shape of the Tableau.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="nextRobinsonSchenstedBinary"><span class="type-signature"></span>nextRobinsonSchenstedBinary<span class="signature">(rsNumber)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function adds one number with sign to the tableau,using the Domino Robinson-Schensted procedure.It is the same as <a href="Tableau.html#nextRobinsonSchensted">Tableau#nextRobinsonSchensted</a>,except that it uses a binary search to find the positionto place a domino in a row or column, and it calls<a href="Tableau.html#insertBinary">Tableau#insertBinary</a> to update <a href="Tableau.html#dominoList">Tableau#dominoList</a>with the new Domino.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>rsNumber</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the number can be positive or negative</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tableau.html#nextRobinsonSchenstedBinary">Tableau#nextRobinsonSchenstedBinary</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line908">line 908</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    {x: number, y: number, horizontal: boolean},<br>an object holding the x and y coordinatesand the orientation of the change in the shape of the Tableau.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="removeRobinsonSchensted"><span class="type-signature"></span>removeRobinsonSchensted<span class="signature">(inputPosition)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function reduces the tableau by the shape of one domino,using the inverse Robinson-Schensted procedure.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>inputPosition</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">an object holding the x and y coordinatesand the orientation of the change in the shape of the Tableau
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>horizontal</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tableau.html#removeRobinsonSchensted">Tableau#removeRobinsonSchensted</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line781">line 781</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        if the <code>inputPosition</code> is not valid forthis function
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    This is the number contained in the Dominowhich is removed from the Tableau, if the removed domino is horizontal.If the removed Domino is vertical, the number in the domino is multiplied by -1before being returned.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="removeRobinsonSchenstedBinary"><span class="type-signature"></span>removeRobinsonSchenstedBinary<span class="signature">(inputPosition)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function reduces the tableau by the shape of one domino,using the inverse Robinson-Schensted procedure.It is the same as <a href="Tableau.html#removeRobinsonSchensted">Tableau#removeRobinsonSchensted</a>,except that it uses a binary searchto find the position to place a domino in a row or column.Also, it uses a binary search instead of <code>indexOf</code>to remove a Domino from <a href="Tableau.html#dominoList">Tableau#dominoList</a>.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>inputPosition</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">an object holding the x and y coordinatesand the orientation of the change in the shape of the Tableau
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>horizontal</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Tableau.html#removeRobinsonSchenstedBinary">Tableau#removeRobinsonSchenstedBinary</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line1153">line 1153</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        if the <code>inputPosition</code> is not valid forthis function
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    This is the number contained in the Dominowhich is removed from the Tableau, if the removed domino is horizontal.If the removed Domino is vertical, the number in the domino is multiplied by -1before being returned.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="slideDominoForCycle"><span class="type-signature"></span>slideDominoForCycle<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    helper function for <a href="TableauWithGrid.html#moveOpenCycle">TableauWithGrid#moveOpenCycle</a>and <a href="TableauWithGrid.html#moveOpenCycleToSquare">TableauWithGrid#moveOpenCycleToSquare</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="TableauWithGrid.html#slideDominoForCycle">TableauWithGrid#slideDominoForCycle</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_Tableau.js.html">TypeBCD/Tableau.js</a>, <a href="TypeBCD_Tableau.js.html#line1875">line 1875</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Domino.html">Domino</a></li><li><a href="DominoGrid.html">DominoGrid</a></li><li><a href="Page.html">Page</a></li><li><a href="PageAnimate.html">PageAnimate</a></li><li><a href="PageCycles.html">PageCycles</a></li><li><a href="PageSUStar.html">PageSUStar</a></li><li><a href="ParameterDominoRS.html">ParameterDominoRS</a></li><li><a href="ParameterRS.html">ParameterRS</a></li><li><a href="ParameterSOStar.html">ParameterSOStar</a></li><li><a href="ParameterSppq.html">ParameterSppq</a></li><li><a href="ParameterSUpq.html">ParameterSUpq</a></li><li><a href="ParameterSUStar.html">ParameterSUStar</a></li><li><a href="Square.html">Square</a></li><li><a href="Tableau.html">Tableau</a></li><li><a href="TableauA.html">TableauA</a></li><li><a href="TableauAAnimate.html">TableauAAnimate</a></li><li><a href="TableauAnimate.html">TableauAnimate</a></li><li><a href="TableauAPair.html">TableauAPair</a></li><li><a href="TableauAPairRendererDOM.html">TableauAPairRendererDOM</a></li><li><a href="TableauARendererAnimate.html">TableauARendererAnimate</a></li><li><a href="TableauARendererDOM.html">TableauARendererDOM</a></li><li><a href="TableauCycles.html">TableauCycles</a></li><li><a href="TableauCyclesRendererDOM.html">TableauCyclesRendererDOM</a></li><li><a href="TableauHoverCyclesRendererDOM.html">TableauHoverCyclesRendererDOM</a></li><li><a href="TableauPair.html">TableauPair</a></li><li><a href="TableauPairCycles.html">TableauPairCycles</a></li><li><a href="TableauPairCyclesRendererDOM.html">TableauPairCyclesRendererDOM</a></li><li><a href="TableauPairGrid.html">TableauPairGrid</a></li><li><a href="TableauPairRendererAnimateCycle.html">TableauPairRendererAnimateCycle</a></li><li><a href="TableauPairRendererDOM.html">TableauPairRendererDOM</a></li><li><a href="TableauRendererAnimate.html">TableauRendererAnimate</a></li><li><a href="TableauRendererAnimateCycle.html">TableauRendererAnimateCycle</a></li><li><a href="TableauRendererDOM.html">TableauRendererDOM</a></li><li><a href="TableauSignsSOStar.html">TableauSignsSOStar</a></li><li><a href="TableauSignsSppq.html">TableauSignsSppq</a></li><li><a href="TableauSignsSUpq.html">TableauSignsSUpq</a></li><li><a href="TableauSUStar.html">TableauSUStar</a></li><li><a href="TableauWithGrid.html">TableauWithGrid</a></li><li><a href="Tile.html">Tile</a></li><li><a href="TileGrid.html">TileGrid</a></li></ul><h3>Global</h3><ul><li><a href="global.html#pageAnimateDominoRS">pageAnimateDominoRS</a></li><li><a href="global.html#pageAnimateRS">pageAnimateRS</a></li><li><a href="global.html#pageCycleCopy">pageCycleCopy</a></li><li><a href="global.html#pageCycleHover">pageCycleHover</a></li><li><a href="global.html#pageCycleInPlace">pageCycleInPlace</a></li><li><a href="global.html#pageCyclePairCopy">pageCyclePairCopy</a></li><li><a href="global.html#pageCyclePairInPlace">pageCyclePairInPlace</a></li><li><a href="global.html#pageCyclePairSpecial">pageCyclePairSpecial</a></li><li><a href="global.html#pageCycleSpecial">pageCycleSpecial</a></li><li><a href="global.html#pageDominoRS">pageDominoRS</a></li><li><a href="global.html#pageDominoRSGrid">pageDominoRSGrid</a></li><li><a href="global.html#pageRS">pageRS</a></li><li><a href="global.html#pageSOStar">pageSOStar</a></li><li><a href="global.html#pageSppq">pageSppq</a></li><li><a href="global.html#pageSUpq">pageSUpq</a></li><li><a href="global.html#pageSUStar">pageSUStar</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 28 2018 18:35:36 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

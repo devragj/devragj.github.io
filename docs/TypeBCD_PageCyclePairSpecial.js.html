@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: TypeBCD/PageCyclePairSpecial.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: TypeBCD/PageCyclePairSpecial.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ MIT License
+
+ Copyright (c) 2016-2017 Devra Garfinkle Johnson
+ Copyright (c) 2016 Christian Johnson
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+ */
+
+/**
+ * @file
+ * Initializes the {@link PageCycles} object for the webpage CyclesAnimatePairSpecial.html
+ * @copyright 2016-2017 Devra Garfinkle Johnson, 2016 Christian Johnson
+ */
+
+"use strict";
+
+/**
+ * The configuration object for the webpage CyclesAnimatePairSpecial.html.
+ */
+
+ let pageCyclePairSpecial = null;
+ $(function() {
+         pageCyclePairSpecial = new PageCycles({
+                 clearList: ['comment', 'tableauPairRender'],
+                 parse: ParameterDominoRS.parse,
+                 generateParameter: ParameterDominoRS.generateParameter,
+                 getDrawable: function(tableauPair, type, animationDuration, inPlace, unboxed) {
+                         return new TableauPairCycles(type, tableauPair.left,
+                                 tableauPair.right, animationDuration, inPlace, unboxed);
+                 },
+                 draw: function(tableauPair) {tableauPair.drawWithSpecialSquares();},
+                 inPlace: true,
+                 unboxed: true,
+                 type: true
+                 });
+ });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Domino.html">Domino</a></li><li><a href="DominoGrid.html">DominoGrid</a></li><li><a href="Page.html">Page</a></li><li><a href="PageAnimate.html">PageAnimate</a></li><li><a href="PageCycles.html">PageCycles</a></li><li><a href="PageSUStar.html">PageSUStar</a></li><li><a href="ParameterDominoRS.html">ParameterDominoRS</a></li><li><a href="ParameterRS.html">ParameterRS</a></li><li><a href="ParameterSOStar.html">ParameterSOStar</a></li><li><a href="ParameterSppq.html">ParameterSppq</a></li><li><a href="ParameterSUpq.html">ParameterSUpq</a></li><li><a href="ParameterSUStar.html">ParameterSUStar</a></li><li><a href="Square.html">Square</a></li><li><a href="Tableau.html">Tableau</a></li><li><a href="TableauA.html">TableauA</a></li><li><a href="TableauAAnimate.html">TableauAAnimate</a></li><li><a href="TableauAnimate.html">TableauAnimate</a></li><li><a href="TableauAPair.html">TableauAPair</a></li><li><a href="TableauAPairRendererDOM.html">TableauAPairRendererDOM</a></li><li><a href="TableauARendererAnimate.html">TableauARendererAnimate</a></li><li><a href="TableauARendererDOM.html">TableauARendererDOM</a></li><li><a href="TableauCycles.html">TableauCycles</a></li><li><a href="TableauCyclesRendererDOM.html">TableauCyclesRendererDOM</a></li><li><a href="TableauHoverCyclesRendererDOM.html">TableauHoverCyclesRendererDOM</a></li><li><a href="TableauPair.html">TableauPair</a></li><li><a href="TableauPairCycles.html">TableauPairCycles</a></li><li><a href="TableauPairCyclesRendererDOM.html">TableauPairCyclesRendererDOM</a></li><li><a href="TableauPairGrid.html">TableauPairGrid</a></li><li><a href="TableauPairRendererAnimateCycle.html">TableauPairRendererAnimateCycle</a></li><li><a href="TableauPairRendererDOM.html">TableauPairRendererDOM</a></li><li><a href="TableauRendererAnimate.html">TableauRendererAnimate</a></li><li><a href="TableauRendererAnimateCycle.html">TableauRendererAnimateCycle</a></li><li><a href="TableauRendererDOM.html">TableauRendererDOM</a></li><li><a href="TableauSignsSOStar.html">TableauSignsSOStar</a></li><li><a href="TableauSignsSppq.html">TableauSignsSppq</a></li><li><a href="TableauSignsSUpq.html">TableauSignsSUpq</a></li><li><a href="TableauSUStar.html">TableauSUStar</a></li><li><a href="TableauWithGrid.html">TableauWithGrid</a></li><li><a href="Tile.html">Tile</a></li><li><a href="TileGrid.html">TileGrid</a></li></ul><h3>Global</h3><ul><li><a href="global.html#pageAnimateDominoRS">pageAnimateDominoRS</a></li><li><a href="global.html#pageAnimateRS">pageAnimateRS</a></li><li><a href="global.html#pageCycleCopy">pageCycleCopy</a></li><li><a href="global.html#pageCycleHover">pageCycleHover</a></li><li><a href="global.html#pageCycleInPlace">pageCycleInPlace</a></li><li><a href="global.html#pageCyclePairCopy">pageCyclePairCopy</a></li><li><a href="global.html#pageCyclePairInPlace">pageCyclePairInPlace</a></li><li><a href="global.html#pageCyclePairSpecial">pageCyclePairSpecial</a></li><li><a href="global.html#pageCycleSpecial">pageCycleSpecial</a></li><li><a href="global.html#pageDominoRS">pageDominoRS</a></li><li><a href="global.html#pageDominoRSGrid">pageDominoRSGrid</a></li><li><a href="global.html#pageRS">pageRS</a></li><li><a href="global.html#pageSOStar">pageSOStar</a></li><li><a href="global.html#pageSppq">pageSppq</a></li><li><a href="global.html#pageSUpq">pageSUpq</a></li><li><a href="global.html#pageSUStar">pageSUStar</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 28 2018 18:35:36 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
