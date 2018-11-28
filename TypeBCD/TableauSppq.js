@@ -594,7 +594,7 @@ class ParameterSppq {
          * the same parameter
          */
         static parse(parameterString) {
-                let data = parameterString.split(" ");
+                let data = parameterString.split(" ").filter(x => x);
                 let parameter = [0];
                 data.forEach((datum) => {
                                 if (datum.endsWith("+")) {

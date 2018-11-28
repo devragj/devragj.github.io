@@ -854,7 +854,7 @@ class ParameterRS {
          * semi-standard tableaux.
          */
         static parse(parameterString) {
-                let data = parameterString.split(" ");
+                let data = parameterString.split(" ").filter(x => x);
                 let parameter = [0];
                 let dataOK = true;
                 // sanity check
