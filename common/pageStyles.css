@@ -1,0 +1,41 @@
+h3 {
+       margin: 20px 10px 5px 50px;
+}
+h2 {
+       margin: 20px 10px 5px 80px;
+}
+span {
+       display:inline-block;
+       margin: 10px 20px;
+}
+span.infoButtons {
+       /* display:inline-block; */
+       margin: 0 0 0 20px;
+}
+button:hover{
+        background: #3cf;
+        border-radius: 5px;
+}
+.SmallButton {
+       width: 70px;
+}
+.BigButton {
+       width: 110px;
+}
+.BiggerButton {
+        width: 120px;
+}
+.GiantButton {
+        width: 135px;
+}
+#Controls {
+        margin: 20px 30px;
+}
+.infoDiv {
+        margin: 10px 30px;
+        padding: 0px 20px;
+        border: 1px solid black;
+}
+.toggleButton {
+        margin: 0px 20px;
+}

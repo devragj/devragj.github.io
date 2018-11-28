@@ -3,24 +3,7 @@
 <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="Tableau.css"></link>
-        <style type="text/css">
-                h3 {
-                       margin: 20px 10px 5px 50px;
-               }
-               span {
-                       display:inline-block;
-                       margin: 10px 20px;
-               }
-               .SmallButton {
-                       width: 70px;
-               }
-               .BigButton {
-                       width: 110px;
-               }
-                #Controls {
-                        margin: 20px 30px;
-                }
-        </style>
+        <link rel="stylesheet" href="../common/pageStyles.css"/>
         <title>Domino Robinson-Schensted Algorithm, With Grid</title>
         <script type="text/javascript" src="../common/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="Tableau.js"></script>
@@ -28,17 +11,65 @@
         <script type="text/javascript" src="PageDominoRSGrids.js"></script>
 </head>
 <body>
-        <h3>Domino Robinson-Schensted Algorithm, With Grid</h3>
+        <h2>Domino Robinson-Schensted Algorithm, With Grid
+                <span class="infoButtons">
+                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Instructions</button>
+                <!-- <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button> -->
+                </span>
+        </h2>
+
+        <div class="infoDiv" id="InstructionsDiv" style="display:none">
+                <p>
+                        This page displays the Domino Robinson-Schensted algorithm.&nbsp;
+                        The input to the Domino Robinson-Schensted algorithm is a "signed permutation", for example, 2 -5 3 6 -4 1.&nbsp;
+                        That is, the numbers 1 through n are permuted, and, in addition, each number has a sign (or orientation) associated with it.&nbsp;
+                        The output of the Domino Robinson-Schensted algorithm is a pair of Domino Tableaux.&nbsp;
+                        That is, instead of a tableau being made of squares, it is made of 2x1 shapes (dominos), which can be horizontal or vertical in the tableau.&nbsp;
+                        However, unlike the dominos in a game, each domino has only one number in it.
+                </p>
+                <p>
+                        The page can be used in two ways.&nbsp;
+                        First, you can have the page generate a random signed permutation.&nbsp;
+                        To do that, enter the size of the desired permutation in the first textbox.&nbsp;
+                        Then click one of the two buttons directly to the right.&nbsp;
+                        The Run button will display a randomly-generated signed permutation and the output of the Robinson-Schensted algorithm when applied to that permutation.&nbsp;
+                        Alternatively, the Run Steps button will also generate a random signed permutation, and will show you the intermediate steps of applying the Robinson-Schensted algorithm to that permutation.
+                </p>
+                <p>
+                        Instead, you can enter a permutation in the second textbox.&nbsp;
+                        To do that, list the (positive and negative) numbers of the signed permutation, separated by spaces.&nbsp;
+                        Then, use the Run or Run Steps buttons to the right of that box, as above.
+                </p>
+                <p>
+                        Pressing Enter while in one of these two textboxes will click the Run button to the right.&nbsp;
+                        Pressing a button a second time, or a different button, will clear the previous result as it gives you a new result, as will pressing Enter while in a textbox.
+                </p>
+                <p>
+                        Domino tableaux are used to answer questions about simple Lie groups of type B, C, or D.&nbsp;
+                        To use a domino tableau for a question about a Lie group of a specific type, you need to place the tableau on the grid associated to that type.&nbsp;
+                        On this page, you can choose the grid to display the output tableaux on, using the radio buttons.&nbsp;
+                        Selecting a radio button will change the grid used in subsequent runs of the algorithm.
+                </p>
+                <p>
+                        The B grid is associated with the group SO(2n + 1).&nbsp;
+                        Selecting the B grid will run the Domino Robinson-Schensted algorithm algorithm starting with two tableaux with zeros in the top-left corner.&nbsp;
+                        In that way, the resulting tableaux are made of 2n + 1 squares.
+                </p>
+                <p>
+                        To see animations of the insertion (or bumping) procedure of the Domino Robinson-Schensted algorithm, go to <a href="https://devragj.github.io/TypeBCD/DominoRobinsonSchenstedAnimate.html" target="_blank">https://devragj.github.io/TypeBCD/DominoRobinsonSchenstedAnimate.html</a>.
+                </p>
+        </div>
+
         <div id="Controls">
-                <span>Choose Grid:&nbsp;
+                <span>Type:&nbsp;
                         <label>B<input type="radio" name="gridGroup" value="B" onclick="pageDominoRSGrid.setType(this);">&nbsp; </label>
                         <label>C<input type="radio" name="gridGroup" value="C" onclick="pageDominoRSGrid.setType(this);" checked>&nbsp; </label>
                         <label>D<input type="radio" name="gridGroup" value="D" onclick="pageDominoRSGrid.setType(this);">&nbsp; </label>
                 </span><br>
-                <span>n: <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
+                <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
                 <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageDominoRSGrid.runInput()">Run</button></span>
                 <span><button type="button" class = "BigButton" onclick="pageDominoRSGrid.runSteps()">Run Steps</button></span>
-                <span>permutation: <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
+                <span>permutation:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
                 <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageDominoRSGrid.runParameter()">Run</button></span>
                 <span><button type="button" class = "BigButton" onclick="pageDominoRSGrid.runParameterSteps()">Run Steps</button></span>
         </div>

@@ -4,24 +4,7 @@
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="Tableau.css"></link>
         <link rel="stylesheet" href="TableauCycles.css"></link>
-        <style type="text/css">
-                h3 {
-                       margin: 20px 10px 5px 50px;
-               }
-               span {
-                       display:inline-block;
-                       margin: 10px 20px;
-               }
-               .SmallButton {
-                       width: 70px;
-               }
-               .GiantButton {
-                       width: 135px;
-               }
-                #Controls {
-                        margin: 20px 30px;
-                }
-        </style>
+        <link rel="stylesheet" href="../common/pageStyles.css"/>
         <title>Animate Cycles Copy</title>
         <script type="text/javascript" src="../common/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="jQueryRotate.js"></script>
@@ -32,16 +15,72 @@
         <script type="text/javascript" src="PageCycleCopy.js"></script>
 </head>
 <body>
-        <h3>Animate Cycles Copy</h3>
+        <h2>Animate Cycles Copy
+                <span class="infoButtons">
+                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Instructions</button>
+                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button>
+                </span>
+        </h2>
+
+        <div class="infoDiv" id="InstructionsDiv" style="display:none">
+                <p>
+                        First choose the type of tableau using the radio buttons.
+                </p>
+                <p>
+                        Next, obtain a tableau via the Domino Robinson-Schensted algorithm, either randomly or by entering a parameter.&nbsp;
+                        To obtain a randomly-generated tableau, simply enter the size in the textbox labelled "n".&nbsp;
+                        Then, click the Run button to the right of that box, or press Enter.&nbsp;
+                </p>
+                <p>
+                        Instead, you can enter a signed permutation (for example, 2 -5 3 6 -4 1) in the second textbox.&nbsp;
+                        To do that, list the numbers of the signed permutation, separated by spaces.&nbsp;
+                        Then, click the Run button to the right of that box, or press Enter.&nbsp;
+                </p>
+                <p>
+                        The purpose of this page is to demonstrate moving a tableau with grid through an open cycle.&nbsp;
+                        Each open cycle has a back square, marked in green, and a forward square, marked in purple.&nbsp;
+                        If you click on one of those squares, the page will make a copy of your tableau, and animate moving through the indicated cycle on the copy.
+                </p>
+                <p>
+                        You can then repeat this by clicking on another green or purple square of the original tableau.&nbsp;
+                        Clicking the "Clear Animations" button will remove the copies while leaving the original tableau.
+                </p>
+                <p>
+                        You can alter the speed of the animation using the dropdown menu.
+                </p>
+                <p>
+                        Pressing a button a second time, or a different button, will clear the previous result as it gives you a new result, as will pressing Enter while in a textbox.
+                </p>
+        </div>
+
+        <div class="infoDiv" id="InformationDiv" style="display:none">
+                <p>
+                        The purpose of this pages is to help understand the process of moving a domino tableau with grid through an open cycle.&nbsp;
+                        This process is important for the classification of primitive ideals for types B, C, and D (or, equivalently, left or right cells in the Weyl groups of type B<sub>n</sub>, C<sub>n</sub>, and D<sub>n</sub>.)&nbsp;
+                        It is also required by the algorithms for computing annihilators of irrecucible Harish-Chandra modules for types B, C, and D.
+                        See <a href="https://devragj.github.io/TypeBCD/SppqAlgorithm.html" target="_blank">https://devragj.github.io/TypeBCD/SppqAlgorithm.html</a> and <a href="https://devragj.github.io/TypeBCD/SOStar2nAlgorithm.html" target="_blank">https://devragj.github.io/TypeBCD/SOStar2nAlgorithm.html</a>.
+                        <!-- , and the algorithm which is used for SO(p,q) and Sp(n,R). -->
+                </p>
+                <p>
+                        Basically, the procedure of moving a domino tableau with grid through an open cycle is the same no matter which type (B, C, or D) of tableau you use.&nbsp;
+                        However, there is one important difference in that a type B tableau has one open cycle which connects to the top left corner and, when moved through, transforms the tableau into a type C tableau. Similarly, a type C tableau has an open cycle which transforms it into a type B tableau.&nbsp;
+                        <!-- This transformation is important for the SO(p,q), p + q odd / Sp(n,R) algorithm. -->
+                </p>
+                <p>
+                        Moving a tableau with grid through an open cycle changes the shape of the tableau.&nbsp;
+                        It removes one square from the shape of the tableau (the "back square" of the cycle) and adds one square to the shape of the tableau (the "forward square" of the cycle).
+                </p>
+        </div>
+
         <div id="Controls">
-                <span>Choose Grid:&nbsp;
+                <span>Type:&nbsp;
                         <label>B<input type="radio" name="gridGroup" value="B" onclick="pageCycleCopy.setType(this);">&nbsp; </label>
                         <label>C<input type="radio" name="gridGroup" value="C" onclick="pageCycleCopy.setType(this);">&nbsp; </label>
                         <label>D<input type="radio" name="gridGroup" value="D" onclick="pageCycleCopy.setType(this);" checked>&nbsp; </label>
                 </span>
-                <span>n: <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
+                <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
                 <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageCycleCopy.runInput()">Run</button></span>
-                <span>permutation: <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
+                <span>permutation:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
                 <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageCycleCopy.runParameter()">Run</button></span>
                 <span><button type="button" class = "GiantButton" onclick="PageCycles.clearAnimations()">Clear Animations</button></span>
                 <span>animation speed:

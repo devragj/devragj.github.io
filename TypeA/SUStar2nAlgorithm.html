@@ -3,24 +3,7 @@
 <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="TableauA.css"/>
-        <style type="text/css">
-                h3 {
-                       margin: 20px 10px 5px 50px;
-               }
-               span {
-                       display:inline-block;
-                       margin: 10px 20px;
-               }
-               .SmallButton {
-                       width: 70px;
-               }
-               .BigButton {
-                       width: 110px;
-               }
-                #Controls {
-                        margin: 20px 30px;
-                }
-        </style>
+        <link rel="stylesheet" href="../common/pageStyles.css"/>
         <title>SU*(2n) Algorithm</title>
         <script type="text/javascript" src="TableauA.js"></script>
         <script type="text/javascript" src="TableauSUStar.js"></script>
@@ -28,12 +11,75 @@
         <script type="text/javascript" src="PageSUStar.js"></script>
 </head>
 <body>
-        <h3>SU*(2n) Algorithm</h3>
+        <h2>SU*(2n) Algorithm
+                <span class="infoButtons">
+                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Instructions</button>
+                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button>
+                </span>
+        </h2>
+        <div class="infoDiv" id="InstructionsDiv" style="display:none">
+                <p>
+                        The page can be used in two ways.&nbsp;
+                        First, you can have the page generate a random parameter.&nbsp;
+                        To do that, enter the size of the desired parameter in the first textbox.&nbsp;
+                        This size should be an even number.&nbsp;
+                </p>
+                <p>
+                        After entering this information, click one of the two buttons directly to the right.&nbsp;
+                        The Run button will display a randomly-generated parameter and the output of the SU*(2n) Algorithm when applied to that parameter.&nbsp;
+                        Alternatively, the Run Steps button will also generate a random parameter, and will show you the intermediate steps of applying the SU*(2n) Algorithm to that parameter.
+                </p>
+                <p>
+                        Pressing Enter while in one of the textboxes will click the Run button to the right.&nbsp;
+                        Pressing a button a second time, or a different button, will clear the previous result as it gives you a new result, as will pressing Enter while in a textbox.
+                </p>
+                <p>
+                        You can also enter an input parameter in the textbox labelled "parameter".&nbsp;
+                        A parameter is an arrangement of the numbers 1 through n into pairs.&nbsp;
+                        A typical parameter looks like 3_4 1_5 2_6.&nbsp;
+                        The _ is used to indicate a pair of numbers.&nbsp;
+                        This example is a parameter for SU*(6).
+                </p>
+                <p>
+                        To enter a parameter in the parameter textbox, write the parameter as in the example, with spaces separating the pieces of the parameter.&nbsp;
+                        Then, use the Run or Run Steps buttons to the right of that box, as above.
+                </p>
+        </div>
+        <div class="infoDiv" id="InformationDiv" style="display:none">
+                <p>
+                        This page displays the algorithm for computing annihilators and associated varieties for irreducible Harish-Chandra modules for SU*(2n).&nbsp;
+                        The input to the SU*(2n) algorithm is a parameter for the irreducible Harish-Chandra module.&nbsp;
+                        For the purposes of this algorithm, a parameter takes the form of an arrangement of the numbers 1, ..., 2n into pairs.&nbsp;
+                        A typical parameter looks like 3_4 1_5 2_6.&nbsp;
+                        The _ is used to indicate a pair of numbers.&nbsp;
+                        The example above is a parameter for SU*(6).
+                </p>
+                <p>
+                        A parameter is determined by its pieces (that is, the number pairs).&nbsp;
+                        Unlike in a permutation, the order of the pieces doesn't matter.&nbsp;
+                        We will list the pieces in increasing numerical order, where this increasing order disregards the first number of any number pair, and just uses the second number to find its place.&nbsp;
+                        (The example parameter above is in this order.)&nbsp;
+                        The pieces of the parameter are used by the algorithm in this order.
+                </p>
+                <p>
+                        The output of the SU*(2n) algorithm is a single tableau, such as is output by the Robinson-Schensted algorithm.&nbsp;
+                        In addition, the rows of the tableau have even length.&nbsp;
+                        With this restriction, the algorithm is a bijection.
+                </p>
+                <p>
+                        The output tableau corresponds to the primitive idea which is the annihilator of the irreducible Harish-Chandra module associated to the parameter.&nbsp;
+                        For SU*(2n), the associated variety of this Harish-Chandra module is determined by the shape of the output tableau.&nbsp;
+                        For this group, there is no need for a second tableau to describe the associated variety.
+                </p>
+                <p>
+                        Reference:&nbsp; Garfinkle, Devra. "The Annihilators of Irreducible Harish-Chandra Modules for SU(p,q) and Other Type A<sub>n-1</sub> Groups", American Journal of Mathematics, Vol. 115, No. 2 (Apr., 1993), pp. 305-369, Stable URL:&nbsp; <a href="http://www.jstor.org/stable/2374861" target="_blank">http://www.jstor.org/stable/2374861</a>
+                </p>
+        </div>
         <div id="Controls">
                 <span>2n: <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
                 <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageSUStar.runInput()">Run</button></span>
                 <span><button type="button" class = "BigButton" onclick="pageSUStar.runSteps()">Run Steps</button></span>
-                <span>parameter: <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
+                <span>parameter:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
                 <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageSUStar.runParameter()">Run</button></span>
                 <span><button type="button" class = "BigButton" onclick="pageSUStar.runParameterSteps()">Run Steps</button></span>
         </div>

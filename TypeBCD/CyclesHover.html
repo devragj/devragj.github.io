@@ -4,22 +4,8 @@
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="Tableau.css"></link>
         <link rel="stylesheet" href="TableauCycles.css"></link>
-        <style type="text/css">
-                h3 {
-                       margin: 20px 10px 5px 50px;
-               }
-               span {
-                       display:inline-block;
-                       margin: 10px 20px;
-               }
-               .SmallButton {
-                       width: 70px;
-               }
-                #Controls {
-                        margin: 20px 30px;
-                }
-        </style>
-        <title>Hover Cycles</title>
+        <link rel="stylesheet" href="../common/pageStyles.css"/>
+        <title>View Cycles</title>
         <script type="text/javascript" src="../common/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="jQueryRotate.js"></script>
         <script type="text/javascript" src="Tableau.js"></script>
@@ -29,16 +15,47 @@
         <script type="text/javascript" src="PageCycleHover.js"></script>
 </head>
 <body>
-        <h3>Hover Cycles</h3>
+        <h2>View Cycles
+                <span class="infoButtons">
+                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Instructions</button>
+                <!-- <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button> -->
+                </span>
+        </h2>
+
+        <div class="infoDiv" id="InstructionsDiv" style="display:none">
+                <p>
+                        First choose the type of tableau using the radio buttons.
+                </p>
+                <p>
+                        Next, obtain a tableau via the Domino Robinson-Schensted algorithm, either randomly or by entering a parameter.&nbsp;
+                        To obtain a randomly-generated tableau, simply enter the size in the textbox labelled "n".&nbsp;
+                        Then, click the Run button to the right of that box, or press Enter.&nbsp;
+                </p>
+                <p>
+                        Instead, you can enter a signed permutation (for example, 2 -5 3 6 -4 1) in the second textbox.&nbsp;
+                        To do that, list the numbers of the signed permutation, separated by spaces.&nbsp;
+                        Then, click the Run button to the right of that box, or press Enter.&nbsp;
+                </p>
+                <p>
+                        The purpose of this page is to get a quick overview of what open cycles look like.&nbsp;
+                        Each open cycle has a back square, marked in green, and a forward square, marked in purple.&nbsp;
+                        If you hover your mouse over one of those squares, the cycle attached to that square will be highlighted.&nbsp;
+                        You can use one of the animation cycle pages to see the process of moving the tableau through a cycle.
+                </p>
+                <p>
+                        Pressing a button a second time, or a different button, will clear the previous result as it gives you a new result, as will pressing Enter while in a textbox.
+                </p>
+        </div>
+
         <div id="Controls">
-                <span>Choose Grid:&nbsp;
+                <span>Type:&nbsp;
                         <label>B<input type="radio" name="gridGroup" value="B" onclick="pageCycleHover.setType(this);">&nbsp; </label>
                         <label>C<input type="radio" name="gridGroup" value="C" onclick="pageCycleHover.setType(this);">&nbsp; </label>
                         <label>D<input type="radio" name="gridGroup" value="D" onclick="pageCycleHover.setType(this);" checked>&nbsp; </label>
                 </span>
-                <span>n: <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
+                <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
                 <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageCycleHover.runInput()">Run</button></span>
-                <span>permutation: <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
+                <span>permutation:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
                 <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageCycleHover.runParameter()">Run</button></span>
         </div>
 </body>

@@ -4,24 +4,7 @@
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="Tableau.css"></link>
         <link rel="stylesheet" href="TableauAnimate.css"></link>
-        <style type="text/css">
-                h3 {
-                       margin: 20px 10px 5px 50px;
-               }
-               span {
-                       display:inline-block;
-                       margin: 10px 20px;
-               }
-               .SmallButton {
-                       width: 70px;
-               }
-               .BiggerButton {
-                       width: 120px;
-               }
-                #Controls {
-                        margin: 20px 30px;
-                }
-        </style>
+        <link rel="stylesheet" href="../common/pageStyles.css"/>
         <title>Domino Robinson-Schensted Algorithm Animated</title>
         <script type="text/javascript" src="../common/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="jQueryRotate.js"></script>
@@ -32,12 +15,49 @@
         <script type="text/javascript" src="PageAnimateDominoRS.js"></script>
 </head>
 <body>
-        <h3>Domino Robinson-Schensted Algorithm Animated</h3>
+        <h2>Domino Robinson-Schensted Algorithm Animated
+                <span class="infoButtons">
+                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Instructions</button>
+                <!-- <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button> -->
+                </span>
+        </h2>
+
+        <div class="infoDiv" id="InstructionsDiv" style="display:none">
+                <p>
+                        This page animates the insertion procedure, or bumping procedure, of the Domino Robinson-Schensted algorithm.&nbsp;
+                </p>
+                <p>
+                        To start, you need an input signed permutation.&nbsp;
+                        This can be obtained in two ways.&nbsp;
+                        First, you can have the page generate a random signed permutation.&nbsp;
+                        To do that, enter the size of the desired permutation in the first textbox.&nbsp;
+                </p>
+                <p>
+                        Instead, you can enter a signed permutation, for example, 2 -5 3 6 -4 1, in the second textbox.&nbsp;
+                        To do that, list the numbers of the permutation, separated by spaces.
+                </p>
+                <p>
+                        The easiest way to run the animation is to press Enter while in the textbox in which you have placed your input.&nbsp;
+                        The first time you press Enter, the page will start the animation.&nbsp;
+                        After that, it will do the next step.&nbsp;
+                        You can press Enter while in the middle of an animation step, to go on to the next step.&nbsp;
+                        If you press Enter after the animation is completed, this will start a new animation.
+                </p>
+                <p>
+                        If you want go to a different input while still in the middle of a previous input, you can enter your information into one of the textboxes, and then press the Start Animation button to the right of that textbox.&nbsp;
+                        After that, click the adjacent "Next Step" button, or return focus to the textbox.&nbsp;
+                        Then, you can continue the animation by pressing Enter, as above.
+                </p>
+                <p>
+                        You can alter the speed of the animation using the dropdown menu.
+                </p>
+        </div>
+
         <div id="Controls">
-                <span>n: <input type="text" id="nbox" size="6" onkeyup="pageAnimateDominoRS.animationRandomKey(event)"></span>
+                <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="pageAnimateDominoRS.animationRandomKey(event)"></span>
                 <span><button type="button" id="startRandomButton" class = "BiggerButton" onclick="pageAnimateDominoRS.startRandomAnimation()">Start Animation</button></span>
                 <span><button type="button" id="nextRandomButton" class = "BiggerButton" onclick="pageAnimateDominoRS.nextStep()">Next Step</button></span>
-                <span>permutation: <input type="text" id="parameterBox" size="50" onkeyup="pageAnimateDominoRS.animationParameterKey(event)"></span>
+                <span>permutation:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="pageAnimateDominoRS.animationParameterKey(event)"></span>
                 <span><button type="button" id="startParameterButton" class = "BiggerButton" onclick="pageAnimateDominoRS.startParameterAnimation()">Start Animation</button></span>
                 <span><button type="button" id="nextParameterButton" class = "BiggerButton" onclick="pageAnimateDominoRS.nextStep()">Next Step</button></span>
                 <span>animation speed:

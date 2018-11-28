@@ -3,36 +3,53 @@
 <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="TableauA.css"/>
-        <style type="text/css">
-                h3 {
-                       margin: 20px 10px 5px 50px;
-               }
-               span {
-                       display:inline-block;
-                       margin: 10px 20px;
-               }
-               .SmallButton {
-                       width: 70px;
-               }
-               .BigButton {
-                       width: 110px;
-               }
-                #Controls {
-                        margin: 20px 30px;
-                }
-        </style>
+        <link rel="stylesheet" href="../common/pageStyles.css"/>
         <title>Robinson-Schensted Algorithm</title>
         <script type="text/javascript" src="TableauA.js"></script>
         <script type="text/javascript" src="../common/Page.js"></script>
         <script type="text/javascript" src="PageRS.js"></script>
 </head>
 <body>
-        <h3>Robinson-Schensted Algorithm</h3>
+        <h2>Robinson-Schensted Algorithm
+                <span class="infoButtons">
+                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Instructions</button>
+                <!-- <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button> -->
+                </span>
+        </h2>
+
+        <div class="infoDiv" id="InstructionsDiv" style="display:none">
+                <p>
+                        This page displays the classical Robinson-Schensted algorithm.&nbsp; It is included here because it is an ingredient to two of the algorithms, as well as a precurser to the Domino Robinson-Schensted algorithm, which is an ingredient to the rest of the algorithms.&nbsp;
+                        The input to the Robinson-Schensted algorithm is a permutation, for example, 2 5 3 6 4 1.&nbsp;
+                        The output is a pair of tableaux.
+                </p>
+                <p>
+                        The page can be used in two ways.&nbsp;
+                        First, you can have the page generate a random permutation.&nbsp;
+                        To do that, enter the size of the desired permutation in the first textbox.&nbsp;
+                        Then click one of the two buttons directly to the right.&nbsp;
+                        The Run button will display a randomly-generated permutation and the output of the Robinson-Schensted algorithm when applied to that permutation.&nbsp;
+                        Alternatively, the Run Steps button will also generate a random permutation, and will show you the intermediate steps of applying the Robinson-Schensted algorithm to that permutation.
+                </p>
+                <p>
+                        Instead, you can enter a permutation in the second textbox.&nbsp;
+                        To do that, list the numbers of the permutation, separated by spaces.&nbsp;
+                        Then, use the Run or Run Steps buttons to the right of that box, as above.
+                </p>
+                <p>
+                        Pressing Enter while in one of these two textboxes will click the Run button to the right.&nbsp;
+                        Pressing a button a second time, or a different button, will clear the previous result as it gives you a new result, as will pressing Enter while in a textbox.
+                </p>
+                <p>
+                        To see animations of the insertion (or bumping) procedure of the Robinson-Schensted algorithm, go to <a href="https://devragj.github.io/TypeA/RobinsonSchenstedAnimate.html">https://devragj.github.io/TypeA/RobinsonSchenstedAnimate.html</a>.
+                </p>
+        </div>
+
         <div id="Controls">
-                <span>n: <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
+                <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
                 <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageRS.runInput()">Run</button></span>
                 <span><button type="button" class = "BigButton" onclick="pageRS.runSteps()">Run Steps</button></span>
-                <span>permutation: <input type="text" id="parameterBox"  size="50" onkeyup="Page.parameterKey(event)"></span>
+                <span>permutation:&nbsp; <input type="text" id="parameterBox"  size="50" onkeyup="Page.parameterKey(event)"></span>
                 <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageRS.runParameter()">Run</button></span>
                 <span><button type="button" class = "BigButton" onclick="pageRS.runParameterSteps()">Run Steps</button></span>
         </div>

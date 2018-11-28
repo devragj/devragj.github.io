@@ -353,6 +353,50 @@ class Page {
         }
 
         /**
+         * This function toggles the display of a div.
+         * @param {string|Object} info - If a string, the id of the div to toggle.
+         * If not, it is the div itself.
+         */
+        static showHide(info) {
+                let divToToggle;
+                if (typeof(info) == "string") {
+                        divToToggle = document.getElementById(info);
+                } else {
+                        divToToggle = info;
+                }
+
+                if (divToToggle.style.display == 'block') {
+                        divToToggle.style.display = 'none';
+                } else {
+                        divToToggle.style.display = 'block';
+                }
+
+        }
+
+        /**
+         * This function toggles the display of a div, as well as changing
+         * the label of the button whose click triggers the event.
+         * @param {Object} button - the button whose click triggers the event.
+         */
+        static toggleDiv(button) {
+                let text = button.innerHTML;
+                let divName = "Div";
+                if (text[0] == "H") {
+                        let newText = text.slice(5);
+                        divName = newText + divName;
+                        button.innerHTML = newText;
+                }
+
+                else {
+                        divName = text + divName;
+                        button.innerHTML = "Hide " + text;
+                }
+
+                let div = document.getElementById(divName);
+                this.showHide(div);
+        }
+
+        /**
          * This function can be used in the console to test the algorithm
          * for the page and its inverse.  It displays the parameter and its
          * output on the page, and logs the result of the test.

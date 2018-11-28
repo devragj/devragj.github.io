@@ -3,24 +3,7 @@
 <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="Tableau.css"></link>
-        <style type="text/css">
-                h3 {
-                       margin: 20px 10px 5px 50px;
-               }
-               span {
-                       display:inline-block;
-                       margin: 10px 20px;
-               }
-               .SmallButton {
-                       width: 70px;
-               }
-               .BigButton {
-                       width: 110px;
-               }
-                #Controls {
-                        margin: 20px 30px;
-                }
-        </style>
+        <link rel="stylesheet" href="../common/pageStyles.css"/>
         <title>Sp(p,q) Algorithm</title>
         <script type="text/javascript" src="Tableau.js"></script>
         <script type="text/javascript" src="TableauSppq.js"></script>
@@ -28,13 +11,93 @@
         <script type="text/javascript" src="PageSppq.js"></script>
 </head>
 <body>
-        <h3>Sp(p,q) Algorithm</h3>
+        <h2>Sp(p,q) Algorithm
+                <span class="infoButtons">
+                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Instructions</button>
+                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button>
+                </span>
+        </h2>
+
+        <div class="infoDiv" id="InstructionsDiv" style="display:none">
+                <p>
+                        The page can be used in two ways.&nbsp;
+                        First, you can have the page generate a random input parameter.&nbsp;
+                        To do that, enter the size of the parameter in the first textbox.&nbsp;
+                        Optionally, enter the number of pairs in the parameter in the second textbox.&nbsp;
+                        The number of pairs should be less than or equal to half the number chosen for n.
+                </p>
+                <p>
+                        After entering this information, click one of the two buttons directly to the right.&nbsp;
+                        The Run button will display a randomly-generated parameter and the output of the Sp(p,q) Algorithm when applied to that parameter.&nbsp;
+                        Alternatively, the Run Steps button will also generate a random parameter, and will show you the intermediate steps of applying the Sp(p,q) Algorithm to that parameter.
+                </p>
+                <p>
+                        Pressing Enter while in one of the textboxes will click the Run button to the right.&nbsp;
+                        Pressing a button a second time, or a different button, will clear the previous result as it gives you a new result, as will pressing Enter while in a textbox.
+                </p>
+                <p>
+                        You can also enter an input parameter in the textbox labelled "parameter".&nbsp;
+                        A parameter is an arrangement of the numbers 1 through n (with n = p + q), where each number is either a singleton or paired with another number.&nbsp;
+                        Any singleton number has a sign associated to it, either + or -.&nbsp;
+                        In addition, each pair has a sign (or orientation) associated with it.&nbsp;
+                        So, for example, this is a parameter:&nbsp; 1+ 3- 2_-5 6+ 4_7.&nbsp;
+                        The _ is used to indicate a pair of numbers.&nbsp;
+                        If a pair has the negative orientation, then the second number in the pair is written with a - sign.&nbsp;
+                        Specifically, this will be a parameter for Sp(p,q) where p = (number of + signs) + (number of pairs), and similarly q = (number of - signs) + (number of pairs).&nbsp;
+                        So, the example above is a parameter for Sp(4,3).
+                </p>
+                <p>
+                        To enter a parameter in the parameter textbox, write the parameter as in the example, with spaces separating the pieces of the parameter.&nbsp;
+                        Then, use the Run or Run Steps buttons to the right of that box, as above.
+                </p>
+        </div>
+
+        <div class="infoDiv" id="InformationDiv" style="display:none">
+                <p>
+                        This page displays the algorithm for computing annihilators and associated varieties for irreducible Harish-Chandra modules for Sp(p,q).&nbsp;
+                        The input to the Sp(p,q) algorithm is a parameter for the irreducible Harish-Chandra module.&nbsp;
+                        For the purposes of this algorithm, if n = p + q, then a parameter takes the form of an arrangement of the numbers 1, ..., n, where each number is either a singleton or paired with another number.&nbsp;
+                        Any singleton number has a sign associated to it, either + or -.&nbsp;
+                        In addition, each pair has a sign (or orientation) associated with it.&nbsp;
+                        So, for example, this is a parameter:&nbsp; 1+ 3- 2_-5 6+ 4_7.&nbsp;
+                        The _ is used to indicate a pair of numbers.&nbsp;
+                        If a pair has the negative orientation, then the second number in the pair is written with a - sign.&nbsp;
+                        We have p = (number of + signs) + (number of pairs), and similarly q = (number of - signs) + (number of pairs).&nbsp;
+                        So, the example above is a parameter for Sp(4,3).
+                </p>
+                <p>
+                        A parameter is determined by its pieces (that is, the number/sign combinations and number/number pairs).&nbsp;
+                        Unlike in a permutation, the order of the pieces doesn't matter.&nbsp;
+                        We will list the pieces in increasing numerical order, where this increasing order disregards the first number of any number pair, and just uses the second number to find its place.&nbsp;
+                        (The example parameter above is in this order.)&nbsp;
+                        The pieces of the parameter are used by the algorithm in this order.
+                </p>
+                <p>
+                        The output of the Sp(p,q) algorithm is a pair of tableaux.&nbsp;
+                        The left tableau is a domino tableau with numbers, just as in the output to the Domino Robinson-Schensted algorithm.&nbsp;
+                        The left tableaux which are output by this algorithm have the additional property that the number of rows of any give length is even.&nbsp;
+                        The right tableau is a sign tableau, which is used by the algorithm, and also can be used to derive the associated variety of the irreducible Harish-Chandra module.&nbsp;
+                        More precisely, the output of the algorithm is an equivalence class of such pairs of tableaux, with a somewhat complicated equivalence relationship.&nbsp;
+                        With this equivalence relationship, the algorithm is a bijection.&nbsp;
+                        The left tableau of the output corresponds to the primitive idea which is the annihilator of the irreducible Harish-Chandra module associated to the parameter.&nbsp;
+                        The right tableau describes the associated variety of this Harish-Chandra module.
+                </p>
+                <p>
+                        Each of the two tableaux is presented on a grid of 2x2 squares.&nbsp;
+                        This grid is an important feature of the algorithm.&nbsp;
+                        It shows when a tableau shape is special, as well as how to go from special to non-special configurations of the number tableau, when required by the algorithm.&nbsp;
+                        Sp(p,q) is of type C, and so for this algorithm, both tableaux are in the C position with respect to the grid.&nbsp;
+                        In the C position, the top-left corner of the tableau is in the top-left corner of a 2x2 square of the grid.
+                </p>
+                <p>
+        </div>
+
         <div id="Controls">
-                <span>n: <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
-                <span>pairs: <input type="text" id="pbox" size="6" onkeyup="Page.randomKey(event)"></span>
+                <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
+                <span>pairs:&nbsp; <input type="text" id="pbox" size="6" onkeyup="Page.randomKey(event)"></span>
                 <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageSppq.runInput()">Run</button></span>
                 <span><button type="button" class = "BigButton" onclick="pageSppq.runSteps()">Run Steps</button></span>
-                <span>parameter: <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
+                <span>parameter:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
                 <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageSppq.runParameter()">Run</button></span>
                 <span><button type="button" class = "BigButton" onclick="pageSppq.runParameterSteps()">Run Steps</button></span>
         </div>
