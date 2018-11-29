@@ -798,125 +798,6 @@ class TableauRendererAnimateCycle extends TableauRendererDOM {
 
         /**
          * helper function for
-         * {@link TableauRendererAnimateCycle#getDOMAndAnimation}
-         * @param {Domino} domino
-         * @param {Object} dominoElement - the rendered DOM element for this domino
-         * @param {Object} dominoText - the rendered text element contained in
-         * dominoElement
-         * @return {function} the function to animate this domino
-         */
-        makeAnimateFunctionForDominoInCycle(domino, dominoElement, dominoText) {
-                const CENTER_L = "25%";
-                const CENTER_M = "50%";
-                const CENTER_H = "75%";
-                const ANGLE = 90;
-
-                function resetHorizontal(elem) {
-                        elem.removeClass('dominoHorizontal')
-                            .addClass('dominoVertical')
-                            .removeClass("dominoRotateCycle")
-                            .css("transform","");
-                }
-
-
-                function resetVertical(elem) {
-                        elem.removeClass('dominoVertical')
-                            .addClass('dominoHorizontal')
-                            .removeClass("dominoRotateCycle")
-                            .css("transform","");
-                }
-
-                function resetRight(elem) {
-                        elem.css( 'left', '+=30px' )
-                            .css( 'top', '-=30px' );
-                }
-
-                function resetBottom(elem) {
-                        elem.css( 'left', '-=30px' )
-                            .css( 'top', '+=30px' );
-                }
-
-                function resetText(elem) {
-                        elem.css("transform","");
-                }
-
-                let animationDuration = this.tableau.animationDuration;
-                let highlight = this.highlight;
-                let type = this.tableau.type;
-                let animateFunction;
-                if (domino.zero  &amp;&amp; type == "C") {
-                        $(dominoElement).css("display", "none");
-                        animateFunction = function() {
-                                $(dominoElement).addClass(highlight);
-                                $(dominoElement).fadeIn(animationDuration, 'linear');};
-                } else if (domino.zero  &amp;&amp; type == "B") {
-                        animateFunction = function() {
-                                $(dominoElement).addClass(highlight);
-                                $(dominoElement).fadeOut(animationDuration, 'linear');};
-                } else if (domino.rotate) {
-                        let centerX;
-                        let centerY;
-                        let angle;
-                        let callback;
-                        switch (domino.rotate) {
-                                case "top":
-                                        centerX = CENTER_M;
-                                        centerY = CENTER_L;
-                                        angle = -ANGLE;
-                                        callback = function() { resetVertical($(dominoElement)); }
-                                        break;
-                                case "bottom":
-                                        centerX = CENTER_M;
-                                        centerY = CENTER_H;
-                                        angle = -ANGLE;
-                                        callback = function() { resetVertical($(dominoElement)); resetBottom($(dominoElement));}
-                                        break;
-                                case "left":
-                                        centerX = CENTER_L;
-                                        centerY = CENTER_M;
-                                        angle = ANGLE;
-                                        callback = function() { resetHorizontal($(dominoElement)); }
-                                        break;
-                                case "right":
-                                        centerX = CENTER_H;
-                                        centerY = CENTER_M;
-                                        angle = ANGLE;
-                                        callback = function() { resetHorizontal($(dominoElement)); resetRight($(dominoElement));}
-                                        break;
-                        }
-
-                        animateFunction = function() {
-                                $(dominoElement).addClass(highlight).addClass("dominoRotateCycle");
-                                $(dominoElement).rotate({duration: animationDuration, angle:0, animateTo: angle, center: [centerX, centerY],
-                                        callback: callback });
-                                $(dominoText).rotate({duration: animationDuration, angle:0, animateTo: -angle, center: [CENTER_M, CENTER_M],
-                                        callback: function() { resetText($(dominoText)); }});
-                        };
-
-                } else if (domino.newX != undefined) {
-                        let newX = domino.newX + this.offset.x;
-                        let newLeft = newX * this.gridSize + "px";
-                        animateFunction = function() {
-                                $(dominoElement).addClass(highlight);
-                                $(dominoElement)
-                                .animate({ left: newLeft}, animationDuration, 'linear');
-
-                        };
-                } else { // domino.newY != undefined
-                        let newY = domino.newY + this.offset.y;
-                        let newTop = newY * this.gridSize + "px";
-                        animateFunction = function() {
-                                $(dominoElement).addClass(highlight);
-                                $(dominoElement)
-                                .animate({ top: newTop }, animationDuration, 'linear');
-                        };
-                }
-
-                return animateFunction;
-        }
-
-        /**
-         * helper function for
          * {@link TableauRendererAnimateCycle.makeAnimateFunctionList}
          * @param {TableauCycles} tableau
          * @param {Domino} domino
@@ -929,23 +810,23 @@ class TableauRendererAnimateCycle extends TableauRendererDOM {
          * @return {function} the function to animate this domino
          */
         static makeAnimateFunctionForDominoInCycle(tableau, domino, dominoElement, dominoText, offset, gridSize, highlight) {
-                const CENTER_L = "25%";
-                const CENTER_M = "50%";
-                const CENTER_H = "75%";
+                const CENTER_L = "12.5px";
+                const CENTER_M = "12.5px";
+                const CENTER_H = "42.5px";
+                const CENTER_TEXT = "50%"
                 const ANGLE = 90;
 
                 function resetHorizontal(elem) {
                         elem.removeClass('dominoHorizontal')
                             .addClass('dominoVertical')
-                            .removeClass("dominoRotateCycle")
+                            .removeClass("dominoMoveCycle")
                             .css("transform","");
                 }
-
 
                 function resetVertical(elem) {
                         elem.removeClass('dominoVertical')
                             .addClass('dominoHorizontal')
-                            .removeClass("dominoRotateCycle")
+                            .removeClass("dominoMoveCycle")
                             .css("transform","");
                 }
 
@@ -967,14 +848,14 @@ class TableauRendererAnimateCycle extends TableauRendererDOM {
                 // let highlight = tableau.highlight;
                 let type = tableau.type;
                 let animateFunction;
-                if (domino.zero  &amp;&amp; type == "C") {
+                if (domino.zero &amp;&amp; type == "C") {
                         $(dominoElement).css("display", "none");
                         animateFunction = function() {
-                                $(dominoElement).addClass(highlight);
+                                $(dominoElement).addClass(highlight).addClass("dominoMoveCycle");
                                 $(dominoElement).fadeIn(animationDuration, 'linear');};
-                } else if (domino.zero  &amp;&amp; type == "B") {
+                } else if (domino.zero &amp;&amp; type == "B") {
                         animateFunction = function() {
-                                $(dominoElement).addClass(highlight);
+                                $(dominoElement).addClass(highlight).addClass("dominoMoveCycle");
                                 $(dominoElement).fadeOut(animationDuration, 'linear');};
                 } else if (domino.rotate) {
                         let centerX;
@@ -1009,18 +890,22 @@ class TableauRendererAnimateCycle extends TableauRendererDOM {
                         }
 
                         animateFunction = function() {
-                                $(dominoElement).addClass(highlight).addClass("dominoRotateCycle");
-                                $(dominoElement).rotate({duration: animationDuration, angle:0, animateTo: angle, center: [centerX, centerY],
-                                        callback: callback });
-                                $(dominoText).rotate({duration: animationDuration, angle:0, animateTo: -angle, center: [CENTER_M, CENTER_M],
-                                        callback: function() { resetText($(dominoText)); }});
+                                $(dominoElement).addClass(highlight).addClass("dominoMoveCycle");
+                                $(dominoElement).rotate({duration: animationDuration, angle:0, animateTo: angle, center: [centerX, centerY]
+                                        // ,
+                                        // callback: callback
+                                });
+                                $(dominoText).rotate({duration: animationDuration, angle:0, animateTo: -angle, center: [CENTER_TEXT, CENTER_TEXT]
+                                        // ,
+                                        // callback: function() { resetText($(dominoText)); }
+                                });
                         };
 
                 } else if (domino.newX != undefined) {
                         let newX = domino.newX + offset.x;
                         let newLeft = newX * gridSize + "px";
                         animateFunction = function() {
-                                $(dominoElement).addClass(highlight);
+                                $(dominoElement).addClass(highlight).addClass("dominoMoveCycle");
                                 $(dominoElement)
                                 .animate({ left: newLeft}, animationDuration, 'linear');
 
@@ -1029,7 +914,7 @@ class TableauRendererAnimateCycle extends TableauRendererDOM {
                         let newY = domino.newY + offset.y;
                         let newTop = newY * gridSize + "px";
                         animateFunction = function() {
-                                $(dominoElement).addClass(highlight);
+                                $(dominoElement).addClass(highlight).addClass("dominoMoveCycle");
                                 $(dominoElement)
                                 .animate({ top: newTop }, animationDuration, 'linear');
                         };
@@ -1289,7 +1174,7 @@ class TableauHoverCyclesRendererDOM extends TableauRendererDOM {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 28 2018 18:35:36 GMT-0500 (Eastern Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Nov 29 2018 18:38:57 GMT-0500 (Eastern Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>
