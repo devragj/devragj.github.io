@@ -14,18 +14,14 @@
         <h2>Domino Robinson-Schensted Algorithm, With Grid
                 <span class="infoButtons">
                 <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Instructions</button>
-                <!-- <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button> -->
+                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button>
                 </span>
         </h2>
 
         <div class="infoDiv" id="InstructionsDiv" style="display:none">
                 <p>
-                        This page displays the Domino Robinson-Schensted algorithm.&nbsp;
-                        The input to the Domino Robinson-Schensted algorithm is a "signed permutation", for example, 2 -5 3 6 -4 1.&nbsp;
-                        That is, the numbers 1 through n are permuted, and, in addition, each number has a sign (or orientation) associated with it.&nbsp;
-                        The output of the Domino Robinson-Schensted algorithm is a pair of Domino Tableaux.&nbsp;
-                        That is, instead of a tableau being made of squares, it is made of 2x1 shapes (dominos), which can be horizontal or vertical in the tableau.&nbsp;
-                        However, unlike the dominos in a game, each domino has only one number in it.
+                        To begin, select a type of tableau for your output, using the radio buttons.&nbsp;
+                        Selecting a radio button will change the type used in subsequent runs of the algorithm.
                 </p>
                 <p>
                         The page can be used in two ways.&nbsp;
@@ -44,19 +40,55 @@
                         Pressing Enter while in one of these two textboxes will click the Run button to the right.&nbsp;
                         Pressing a button a second time, or a different button, will clear the previous result as it gives you a new result, as will pressing Enter while in a textbox.
                 </p>
+        </div>
+
+        <div class="infoDiv" id="InformationDiv" style="display:none">
+                <p>
+                        This page displays the Domino Robinson-Schensted algorithm.&nbsp;
+                        The Domino Robinson-Schensted algorithm is a relatively straightforward generalization of the Robinson-Schensted algorithm to the hyperoctrahedral group, that is, the group of signed permutations.&nbsp;
+                        The input to the Domino Robinson-Schensted algorithm is a "signed permutation", for example, 2 -5 3 6 -4 1.&nbsp;
+                        That is, the numbers 1 through n are permuted, and, in addition, each number has a sign (or orientation) associated with it.&nbsp;
+                        The output of the Domino Robinson-Schensted algorithm is a pair of domino tableaux with the same shape.&nbsp;
+                        That is, instead of a tableau being made of squares, it is made of 2 x 1 shapes (dominos), which can be horizontal or vertical in the tableau.&nbsp; However, unlike the dominos in a game, each domino has only one number in it.
+                </p>
+                <p>
+                        As in the original Robinson-Schensted algorithm, the left tableau is the insertion, or bumping tableau.&nbsp;
+                        The right tableau is the recording tableau.&nbsp;
+                        In this algorithm, insertion is either as a horizontal domino in the first row, if the number in the signed permutation is positive, or as a vertical domino in the first column, if the number in the signed permutation is positive.&nbsp;
+                        Bumping is also more complicated.&nbsp;
+                        A horizontal domino which is bumped entirely moves to the next row below.&nbsp;
+                        A vertical domino which is bumped entirely moves to the next column to the right.&nbsp;
+                        A domino which is bumped in one square rotates down and to the right on its unbumped square.&nbsp;
+                </p>
+                <p>
+                        After a domino is added to the insertion tableau by this procedure, the resulting change to the shape of the insertion tableau is two squares, adjacent either horizontally or vertically.&nbsp;
+                        A domino is then added to the recording tableau to record this change.
+                </p>
+                <p>
+                        You can see an animation of the bumping procedure here:&nbsp;  <a  href="https://devragj.github.io/TypeBCD/DominoRobinsonSchenstedAnimate.html">Domino Robinson-Schensted Algorithm Animated</a>.
+                </p>
                 <p>
                         Domino tableaux are used to answer questions about simple Lie groups of type B, C, or D.&nbsp;
                         To use a domino tableau for a question about a Lie group of a specific type, you need to place the tableau on the grid associated to that type.&nbsp;
-                        On this page, you can choose the grid to display the output tableaux on, using the radio buttons.&nbsp;
-                        Selecting a radio button will change the grid used in subsequent runs of the algorithm.
                 </p>
                 <p>
                         The B grid is associated with the group SO(2n + 1).&nbsp;
-                        Selecting the B grid will run the Domino Robinson-Schensted algorithm algorithm starting with two tableaux with zeros in the top-left corner.&nbsp;
+                        Selecting the B grid will run the Domino Robinson-Schensted algorithm algorithm starting with two tableaux with zeros in their top-left corner.&nbsp;
                         In that way, the resulting tableaux are made of 2n + 1 squares.
                 </p>
                 <p>
-                        To see animations of the insertion (or bumping) procedure of the Domino Robinson-Schensted algorithm, go to <a href="https://devragj.github.io/TypeBCD/DominoRobinsonSchenstedAnimate.html" target="_blank">https://devragj.github.io/TypeBCD/DominoRobinsonSchenstedAnimate.html</a>.
+                        <h4>References</h4>
+                        <ul style="list-style-type: none; list-style-position: inside; padding-left: 0;">
+                                <li>
+                                        Garfinkle, Devra. "On the classification of primitive ideals for complex classical Lie algebras, I." Compositio Mathematica 75.2 (1990): 135-169. <a href="http://eudml.org/doc/90031" target="_blank">http://eudml.org/doc/90031</a>
+                                </li>
+                                <li>
+                                        Garfinkle, Devra. "On the classification of primitive ideals for complex classical Lie algebras, II." Compositio Mathematica 81.3 (1992): 307-336. <a href="http://eudml.org/doc/90142" target="_blank">http://eudml.org/doc/90142</a>
+                                </li>
+                                <li>
+                                        Garfinkle, Devra. "On the classification of primitive ideals for complex classical Lie algebras, III." Compositio Mathematica 88.2 (1993): 187-234.<a href="http://eudml.org/doc/90244" target="_blank">http://eudml.org/doc/90244</a>
+                                </li>
+                        </ul>
                 </p>
         </div>
 

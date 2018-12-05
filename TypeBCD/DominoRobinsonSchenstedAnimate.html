@@ -18,7 +18,7 @@
         <h2>Domino Robinson-Schensted Algorithm Animated
                 <span class="infoButtons">
                 <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Instructions</button>
-                <!-- <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button> -->
+                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button>
                 </span>
         </h2>
 
@@ -50,6 +50,39 @@
                 </p>
                 <p>
                         You can alter the speed of the animation using the dropdown menu.
+                </p>
+        </div>
+
+        <div class="infoDiv" id="InformationDiv" style="display:none">
+                <p>
+                        The Domino Robinson-Schensted algorithm is a relatively straightforward generalization of the Robinson-Schensted algorithm to the hyperoctrahedral group, that is, the group of signed permutations.&nbsp;
+                        The input to the Domino Robinson-Schensted algorithm is a "signed permutation", for example, 2 -5 3 6 -4 1.&nbsp;
+                        That is, the numbers 1 through n are permuted, and, in addition, each number has a sign (or orientation) associated with it.&nbsp;
+                        The output of the Domino Robinson-Schensted algorithm is a pair of domino tableaux with the same shape.&nbsp;
+                        That is, instead of a tableau being made of squares, it is made of 2 x 1 shapes (dominos), which can be horizontal or vertical in the tableau.&nbsp; However, unlike the dominos in a game, each domino has only one number in it.
+                </p>
+                <p>
+                        As in the original Robinson-Schensted algorithm, the left tableau is the insertion, or bumping tableau.&nbsp;
+                        The right tableau is the recording tableau.&nbsp;
+                        In this algorithm, insertion is either as a horizontal domino in the first row, if the number in the signed permutation is positive, or as a vertical domino in the first column, if the number in the signed permutation is positive.&nbsp;
+                        Bumping is also more complicated.&nbsp;
+                        A horizontal domino which is bumped entirely moves to the next row below.&nbsp;
+                        A vertical domino which is bumped entirely moves to the next column to the right.&nbsp;
+                        A domino which is bumped in one square rotates down and to the right on its unbumped square.&nbsp;
+                </p>
+                <p>
+                        <h4>References</h4>
+                        <ul style="list-style-type: none; list-style-position: inside; padding-left: 0;">
+                                <li>
+                                        Garfinkle, Devra. "On the classification of primitive ideals for complex classical Lie algebras, I." Compositio Mathematica 75.2 (1990): 135-169. <a href="http://eudml.org/doc/90031" target="_blank">http://eudml.org/doc/90031</a>
+                                </li>
+                                <li>
+                                        Garfinkle, Devra. "On the classification of primitive ideals for complex classical Lie algebras, II." Compositio Mathematica 81.3 (1992): 307-336. <a href="http://eudml.org/doc/90142" target="_blank">http://eudml.org/doc/90142</a>
+                                </li>
+                                <li>
+                                        Garfinkle, Devra. "On the classification of primitive ideals for complex classical Lie algebras, III." Compositio Mathematica 88.2 (1993): 187-234.<a href="http://eudml.org/doc/90244" target="_blank">http://eudml.org/doc/90244</a>
+                                </li>
+                        </ul>
                 </p>
         </div>
 
