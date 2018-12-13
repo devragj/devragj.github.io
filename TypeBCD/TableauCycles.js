@@ -2,7 +2,7 @@
  MIT License
 
  Copyright (c) 2016-2018 Devra Garfinkle Johnson
- Copyright (c) 2016 Christian Johnson
+ Copyright (c) 2016-2018 Christian Johnson
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +30,7 @@
  * {@link TableauWithGrid}.<br>
  * There are also two drawing classes, {@link TableauCyclesRendererDOM} and
  * {@link TableauRendererAnimateCycle}.<br>
- * @copyright 2016-2017 Devra Garfinkle Johnson, 2016 Christian Johnson
+ * @copyright 2016-2018 Devra Garfinkle Johnson, 2016-2018 Christian Johnson
  */
 
 "use strict";
@@ -48,37 +48,37 @@ const HIGHLIGHT_BACK = 'squareHighlighted1';
  */
 class TableauCycles extends TableauWithGrid {
         /**
+         * @param {Object} table
          * The first two inputs to the constructor are used to construct a TableauWithGrid.
-         * @param {string} type - B, C, or D
-         * @param {Tableau|Domino[]} [info = []] - this is the input to construct a Tableau
-         * @param {number} animationDuration - how long, in milliseconds, the movement
+         * @param {string} table.type - B, C, or D
+         * @param {Object} [table.tableau] - a Tableau to be copied.
+         * @param {Object} [table.dominoList] - an Array of Dominos.
+         * @param {number} table.animationDuration - how long, in milliseconds, the movement
          * of each Domino should take.
-         * @param {boolean} [inPlace] - If true, the change takes place on the
+         * @param {boolean} [table.inPlace] - If true, the change takes place on the
          * original tableau, otherwise, clones are created and shown.
-         * @param {boolean} [unboxedOnly] - If true, only special squares for
-         * unboxed cycles will be shown.  Current uses also have
-         * <code>inPlace == true</code>.
+         * @param {boolean} [table.unboxedOnly] - If true, only special squares for
+         * unboxed cycles will be shown.
          */
-        constructor(type, info, animationDuration, inPlace, unboxedOnly) {
-                super(type, info);
+        constructor(table) {
+                super(table);
                 /**
                  * how long, in milliseconds, the movement
                  * of each Domino should take.
                  * @type {number}
                  */
-                this.animationDuration = animationDuration;
+                this.animationDuration = table.animationDuration;
                 /**
                  * If true, the change takes place on the
                  * original tableau, otherwise, clones are created and shown.
                  * @type {boolean}
                  */
-                this.inPlace = inPlace;
+                this.inPlace = table.inPlace;
                 /**
                  * If true, only special squares for
-                 * unboxed cycles will be shown.  Current uses also have inPlace == true.
-                 * @type {boolean}
+                 * unboxed cycles will be shown.
                  */
-                this.unboxedOnly = unboxedOnly;
+                this.unboxedOnly = table.unboxedOnly;
                 /**
                  * Each tableau will be drawn with its corners and holes,
                  * so this drawing may be wider than the original tableau.  This
@@ -104,9 +104,8 @@ class TableauCycles extends TableauWithGrid {
          *  @return {TableauCycles}
          */
         clone() {
-                let newTableau = new TableauCycles(this.type,
-                        Domino.cloneList(this.dominoList), this.animationDuration,
-                        this.inPlace, this.unboxedOnly);
+                let newTableau = new TableauCycles({type: this.type,
+                        dominoList: Domino.cloneList(this.dominoList), animationDuration: this.animationDuration, inPlace: this.inPlace, unboxedOnly: this.unboxedOnly});
                 newTableau.widthToDraw = this.widthToDraw;
                 newTableau.heightToDraw = this.heightToDraw;
                 return newTableau;
@@ -596,7 +595,7 @@ class TableauCycles extends TableauWithGrid {
          * corresponding to that square.
          */
         drawWithSpecialSquares() {
-                document.body.appendChild(new TableauCyclesRendererDOM(this).renderDOM());
+                document.body.appendChild(new TableauCyclesRendererDOM({tableau: this}).renderDOM());
         }
 
         /**
@@ -608,7 +607,33 @@ class TableauCycles extends TableauWithGrid {
          * the highlighting is removed.
          */
         drawWithSpecialSquaresHover() {
-                document.body.appendChild(new TableauHoverCyclesRendererDOM(this).renderDOM());
+                document.body.appendChild(new TableauHoverCyclesRendererDOM({tableau: this}).renderDOM());
+        }
+
+        /**
+         * This mwethod alters the {@link TableauCycles}, by moving it through
+         * all its open unboxed cycles.
+         * This changes the {@link TableauCycles} into its associated special tableau.
+         */
+        makeSpecial() {
+                let squareList = this.getCornersAndHoles(true);
+                for (const square of squareList) {
+                        if (square.type == "FC") {
+                                this.moveOpenCycle(square);
+                        }
+                }
+        }
+
+        /**
+         * This method clones the {@link TableauCycles},
+         * and then makes the new {@link TableauCycles} special.
+         * @return {TableauCycles} The special {@link TableauCycles}
+         * associated to this {@link TableauCycles}.
+         */
+        getSpecialTableau() {
+                let newTableau = this.clone();
+                newTableau.makeSpecial();
+                return newTableau;
         }
 }
 
@@ -618,10 +643,12 @@ class TableauCycles extends TableauWithGrid {
  */
 class TableauCyclesRendererDOM extends TableauRendererDOM {
         /**
-         * @param {TableauCycles} tableau
+         * @param {Object} table
+         * @param {TableauCycles} table.tableau
+         * @param {boolean} [table.noClick] Used for pages without animatiom.
          */
-        constructor(tableau) {
-                super(tableau);
+        constructor(table) {
+                super(table);
                 /**
                  * Since true for this class, the 2x2 grid will be drawn will
                  * full opacity
@@ -633,7 +660,12 @@ class TableauCyclesRendererDOM extends TableauRendererDOM {
                  * of the tableau in relation to the 2x2 grid
                  * @type {Object}
                  */
-                this.offset = TableauWithGrid.getOffset(tableau.type);
+                this.offset = TableauWithGrid.getOffset(this.tableau.type);
+                /**
+                 * If true, the special squares are not clickable.
+                 * @type {boolean}
+                 */
+                this.noClick = table.noClick;
         }
 
         /**
@@ -713,7 +745,7 @@ class TableauCyclesRendererDOM extends TableauRendererDOM {
                 }
 
                 let newDimensions = TableauCyclesRendererDOM.addSpecialSquares(wrapper,
-                        this.tableau,  this.offset, this.gridSize, width, height);
+                        this.tableau,  this.offset, this.gridSize, width, height, this.noClick);
                 width = newDimensions.width;
                 height = newDimensions.height;
                 width = width % 2 == 0? width: ++width;
@@ -742,7 +774,7 @@ class TableauRendererAnimateCycle extends TableauRendererDOM {
          * to add to the rendered dominos in the cycle
          */
         constructor(table) {
-                super(table.tableauToAnimate);
+                super({tableau: table.tableauToAnimate});
                 /**
                  * an Array of the Dominos in the cycle
                  * @type {Domino[]}
@@ -994,6 +1026,9 @@ class TableauRendererAnimateCycle extends TableauRendererDOM {
 
                 let width = this.tableau.widthToDraw;
                 let height = this.tableau.heightToDraw;
+                // If animating in place, all special squares are shown
+                // even while the animation is running.
+                // But, they are not clickable while the animation is running.
                 if (this.tableau.inPlace) {
                         TableauCyclesRendererDOM.addSpecialSquares(dominoHolder,
                                 this.tableau,  this.offset, this.gridSize, width, height, true);
@@ -1009,10 +1044,11 @@ class TableauRendererAnimateCycle extends TableauRendererDOM {
 
 class TableauHoverCyclesRendererDOM extends TableauRendererDOM {
         /**
-         * @param {TableauCycles} tableau
+         * @param {Object} table
+         * @param {TableauCycles} table.tableau
          */
-        constructor(tableau) {
-                super(tableau);
+        constructor(table) {
+                super(table);
         }
 
         /**

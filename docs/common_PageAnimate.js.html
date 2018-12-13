@@ -29,7 +29,7 @@
             <pre class="prettyprint source linenums"><code>/**
  MIT License
 
- Copyright (c) 2016-2017 Devra Garfinkle Johnson
+ Copyright (c) 2016-2018 Devra Garfinkle Johnson
  Copyright (c) 2016 Christian Johnson
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -60,78 +60,78 @@
  * The {@link Page} class has methods which handle user input to these pages,
  * but the output for these pages differs significantly from that
  * which the {@link Page} class is designed to handle.  Thus the extension.
- * @copyright 2016-2017 Devra Garfinkle Johnson, 2016 Christian Johnson
+ * @copyright 2016-2018 Devra Garfinkle Johnson, 2016 Christian Johnson
  * @license MIT license
  */
 
 "use strict";
 
 /**
- * helper class for animating the Robinson-Schensted algorithm and the
- * Domino Robinson-Schensted algorithm
+ * Helper class for animating the Robinson-Schensted algorithm and the
+ * Domino Robinson-Schensted algorithm.
  * @extends Page
  */
 class PageAnimate extends Page {
         /**
          * @param table
-         * @param {Array} table.clearList - a list of the class names of the DOM
+         * @param {Array} table.clearList - A list of the class names of the DOM
          * objects on the page which need to be removed when the user requests new output.
-         * @param {function} table.parse - the function which parses a string
+         * @param {function} table.parse - The function which parses a string
          * representation of the parameter input which has been supplied by the user.
-         * @param {function} table.generateParameter - the function which generates a
+         * @param {function} table.generateParameter - The function which generates a
          * random parameter based on the input supplied by the user.
-         * @param {string} table.animationClassName - the CSS class name of the animation object
-         * to be cleared between steps of the animation
-         * @param {function} table.getTableau - the function which obtains the
-         * empty tableau to start the animation
-         * @param {function} table.getAnimationData - the function which gets the
-         * data necessary to put the animation on the page
+         * @param {string} table.animationClassName - The CSS class name of the animation
+         * object to be cleared between steps of the animation.
+         * @param {function} table.getTableau - The function which obtains the
+         * empty tableau to start the animation.
+         * @param {function} table.getAnimationData - The function which gets the
+         * data necessary to put the animation on the page.
          */
         constructor(table) {
                 super(table);
                 /**
-                 * the function which obtains the
-                 * empty tableau to start the animation
+                 * The function which obtains the
+                 * empty tableau to start the animation.
                  * @type {function}
                  */
                 this.getTableau = table.getTableau;
                 /**
-                 * the function which gets the
-                 * data necessary to put the animation on the page
+                 * The function which gets the
+                 * data necessary to put the animation on the page.
                  * @type {function}
                  */
                 this.getAnimationData = table.getAnimationData;
                 /**
-                 * the CSS class name of the animation object
-                 * to be cleared between steps of the animation
+                 * The CSS class name of the animation object
+                 * to be cleared between steps of the animation.
                  * @type {string}
                  */
                 this.animationClassName = table.animationClassName;
                 this.clearList.push(this.animationClassName);
                 /**
-                 * how long, in milliseconds, the movement
+                 * How long, in milliseconds, the movement
                  * of each Domino should take.
                  * @type {number}
                  */
                 this.animationDuration = parseFloat($("#speed").val()) * 1000;
                 /**
-                 * the index in the permutation array of the number
-                 * being added at the current step of the animation
+                 * The index in the permutation array of the number
+                 * being added at the current step of the animation.
                  * @type {number}
                  */
                 this.currentIndex = 0;
                 /**
-                 * the last index in the permutation array
+                 * The last index in the permutation array.
                  * @type {number}
                  */
                 this.lastIndex = 0;
                 /**
-                 * the permutation arrray
+                 * The permutation arrray.
                  * @type {number[]}
                  */
                 this.permutation = null;
                 /**
-                 * the underlying tableau at each stage of the animation
+                 * This holds the underlying tableau at each stage of the animation.
                  * @type {Object}
                  */
                 this.tableau = null;
@@ -139,9 +139,9 @@ class PageAnimate extends Page {
 
         /**
          * This function handles the onchange event for the dropdown
-         * menu on the webpage which allows the user to change
+         * menu on the webpage which allows the user to change.
          * {@link PageAnimate#animationDuration}.
-         * @param {Object} select - the dropdown menu on the webpage
+         * @param {Object} select - The dropdown menu on the webpage.
          */
         changeSpeed(select) {
                 this.animationDuration = parseFloat($(select).val()) * 1000;
@@ -272,13 +272,13 @@ class PageAnimate extends Page {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Domino.html">Domino</a></li><li><a href="DominoGrid.html">DominoGrid</a></li><li><a href="Page.html">Page</a></li><li><a href="PageAnimate.html">PageAnimate</a></li><li><a href="PageCycles.html">PageCycles</a></li><li><a href="PageSUStar.html">PageSUStar</a></li><li><a href="ParameterDominoRS.html">ParameterDominoRS</a></li><li><a href="ParameterRS.html">ParameterRS</a></li><li><a href="ParameterSOStar.html">ParameterSOStar</a></li><li><a href="ParameterSppq.html">ParameterSppq</a></li><li><a href="ParameterSUpq.html">ParameterSUpq</a></li><li><a href="ParameterSUStar.html">ParameterSUStar</a></li><li><a href="Square.html">Square</a></li><li><a href="Tableau.html">Tableau</a></li><li><a href="TableauA.html">TableauA</a></li><li><a href="TableauAAnimate.html">TableauAAnimate</a></li><li><a href="TableauAnimate.html">TableauAnimate</a></li><li><a href="TableauAPair.html">TableauAPair</a></li><li><a href="TableauAPairRendererDOM.html">TableauAPairRendererDOM</a></li><li><a href="TableauARendererAnimate.html">TableauARendererAnimate</a></li><li><a href="TableauARendererDOM.html">TableauARendererDOM</a></li><li><a href="TableauCycles.html">TableauCycles</a></li><li><a href="TableauCyclesRendererDOM.html">TableauCyclesRendererDOM</a></li><li><a href="TableauHoverCyclesRendererDOM.html">TableauHoverCyclesRendererDOM</a></li><li><a href="TableauPair.html">TableauPair</a></li><li><a href="TableauPairCycles.html">TableauPairCycles</a></li><li><a href="TableauPairCyclesRendererDOM.html">TableauPairCyclesRendererDOM</a></li><li><a href="TableauPairGrid.html">TableauPairGrid</a></li><li><a href="TableauPairRendererAnimateCycle.html">TableauPairRendererAnimateCycle</a></li><li><a href="TableauPairRendererDOM.html">TableauPairRendererDOM</a></li><li><a href="TableauRendererAnimate.html">TableauRendererAnimate</a></li><li><a href="TableauRendererAnimateCycle.html">TableauRendererAnimateCycle</a></li><li><a href="TableauRendererDOM.html">TableauRendererDOM</a></li><li><a href="TableauSignsSOStar.html">TableauSignsSOStar</a></li><li><a href="TableauSignsSppq.html">TableauSignsSppq</a></li><li><a href="TableauSignsSUpq.html">TableauSignsSUpq</a></li><li><a href="TableauSUStar.html">TableauSUStar</a></li><li><a href="TableauWithGrid.html">TableauWithGrid</a></li><li><a href="Tile.html">Tile</a></li><li><a href="TileGrid.html">TileGrid</a></li></ul><h3>Global</h3><ul><li><a href="global.html#pageAnimateDominoRS">pageAnimateDominoRS</a></li><li><a href="global.html#pageAnimateRS">pageAnimateRS</a></li><li><a href="global.html#pageCycleCopy">pageCycleCopy</a></li><li><a href="global.html#pageCycleHover">pageCycleHover</a></li><li><a href="global.html#pageCycleInPlace">pageCycleInPlace</a></li><li><a href="global.html#pageCyclePairCopy">pageCyclePairCopy</a></li><li><a href="global.html#pageCyclePairInPlace">pageCyclePairInPlace</a></li><li><a href="global.html#pageCyclePairSpecial">pageCyclePairSpecial</a></li><li><a href="global.html#pageCycleSpecial">pageCycleSpecial</a></li><li><a href="global.html#pageDominoRS">pageDominoRS</a></li><li><a href="global.html#pageDominoRSGrid">pageDominoRSGrid</a></li><li><a href="global.html#pageRS">pageRS</a></li><li><a href="global.html#pageSOStar">pageSOStar</a></li><li><a href="global.html#pageSppq">pageSppq</a></li><li><a href="global.html#pageSUpq">pageSUpq</a></li><li><a href="global.html#pageSUStar">pageSUStar</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Domino.html">Domino</a></li><li><a href="DominoGrid.html">DominoGrid</a></li><li><a href="Page.html">Page</a></li><li><a href="PageAnimate.html">PageAnimate</a></li><li><a href="PageCycles.html">PageCycles</a></li><li><a href="PageSpecial.html">PageSpecial</a></li><li><a href="PageSUStar.html">PageSUStar</a></li><li><a href="ParameterDominoRS.html">ParameterDominoRS</a></li><li><a href="ParameterRS.html">ParameterRS</a></li><li><a href="ParameterSOStar.html">ParameterSOStar</a></li><li><a href="ParameterSppq.html">ParameterSppq</a></li><li><a href="ParameterSUpq.html">ParameterSUpq</a></li><li><a href="ParameterSUStar.html">ParameterSUStar</a></li><li><a href="Square.html">Square</a></li><li><a href="Tableau.html">Tableau</a></li><li><a href="TableauA.html">TableauA</a></li><li><a href="TableauAAnimate.html">TableauAAnimate</a></li><li><a href="TableauAnimate.html">TableauAnimate</a></li><li><a href="TableauAPair.html">TableauAPair</a></li><li><a href="TableauAPairRendererDOM.html">TableauAPairRendererDOM</a></li><li><a href="TableauARendererAnimate.html">TableauARendererAnimate</a></li><li><a href="TableauARendererDOM.html">TableauARendererDOM</a></li><li><a href="TableauCycles.html">TableauCycles</a></li><li><a href="TableauCyclesRendererDOM.html">TableauCyclesRendererDOM</a></li><li><a href="TableauHoverCyclesRendererDOM.html">TableauHoverCyclesRendererDOM</a></li><li><a href="TableauPair.html">TableauPair</a></li><li><a href="TableauPairCycles.html">TableauPairCycles</a></li><li><a href="TableauPairCyclesRendererDOM.html">TableauPairCyclesRendererDOM</a></li><li><a href="TableauPairGrid.html">TableauPairGrid</a></li><li><a href="TableauPairRendererAnimateCycle.html">TableauPairRendererAnimateCycle</a></li><li><a href="TableauPairRendererDOM.html">TableauPairRendererDOM</a></li><li><a href="TableauRendererAnimate.html">TableauRendererAnimate</a></li><li><a href="TableauRendererAnimateCycle.html">TableauRendererAnimateCycle</a></li><li><a href="TableauRendererDOM.html">TableauRendererDOM</a></li><li><a href="TableauSignsSOStar.html">TableauSignsSOStar</a></li><li><a href="TableauSignsSppq.html">TableauSignsSppq</a></li><li><a href="TableauSignsSUpq.html">TableauSignsSUpq</a></li><li><a href="TableauSUStar.html">TableauSUStar</a></li><li><a href="TableauWithGrid.html">TableauWithGrid</a></li><li><a href="Tile.html">Tile</a></li><li><a href="TileGrid.html">TileGrid</a></li></ul><h3>Global</h3><ul><li><a href="global.html#pageAnimateDominoRS">pageAnimateDominoRS</a></li><li><a href="global.html#pageAnimateRS">pageAnimateRS</a></li><li><a href="global.html#pageCycleCopy">pageCycleCopy</a></li><li><a href="global.html#pageCycleHover">pageCycleHover</a></li><li><a href="global.html#pageCycleInPlace">pageCycleInPlace</a></li><li><a href="global.html#pageCyclePairCopy">pageCyclePairCopy</a></li><li><a href="global.html#pageCyclePairInPlace">pageCyclePairInPlace</a></li><li><a href="global.html#pageCyclePairSpecial">pageCyclePairSpecial</a></li><li><a href="global.html#pageCycleSpecial">pageCycleSpecial</a></li><li><a href="global.html#pageDominoRS">pageDominoRS</a></li><li><a href="global.html#pageDominoRSGrid">pageDominoRSGrid</a></li><li><a href="global.html#pageRS">pageRS</a></li><li><a href="global.html#pageSOStar">pageSOStar</a></li><li><a href="global.html#pageSppq">pageSppq</a></li><li><a href="global.html#pageSUpq">pageSUpq</a></li><li><a href="global.html#pageSUStar">pageSUStar</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Nov 29 2018 18:38:57 GMT-0500 (Eastern Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Dec 13 2018 16:02:33 GMT-0500 (Eastern Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -59,24 +59,26 @@ class TableauSignsSOStar {
          * {@link TableauWithGrid} of type D and an array of signs.
          * If no tableau is supplied, it constructs an empty
          * {@link TableauSignsSOStar}.
-         * @param {TableauWithGrid} [tableau] - tableau will be of type D
-         * @param {string[]} [signs] - the elements of signs can be '+' or '-'
+         * @param {Object} table
+         * @param {TableauWithGrid} [table.tableau] - tableau will be of type D
+         * @param {string[]} [table.signs] - the elements of signs can be '+' or '-'
          */
-        constructor(tableau, signs) {
-                if (!tableau) {
+        constructor(table) {
+                table = table || {};
+                if (!table.tableau) {
                         /**
                          * Type D
                          * @type {TableauWithGrid}
                          */
-                        this.tableau = new TableauWithGrid("D");
+                        this.tableau = new TableauWithGrid({type: "D"});
                         /**
                          * the elements of signs can be '+' or '-'
                          * @type {Array.<string>}
                          */
                         this.signs = [];
                 } else {
-                        this.tableau = tableau;
-                        this.signs = signs;
+                        this.tableau = table.tableau;
+                        this.signs = table.signs;
                 }
         }
 
@@ -85,13 +87,13 @@ class TableauSignsSOStar {
          *  @return {TableauSignsSOStar}
          */
         clone() {
-                let tab = this.tableau.clone();
+                let tableau = this.tableau.clone();
                 let signs = [];
-                this.signs.forEach((sgn) => {
-                        signs.push(sgn);
+                this.signs.forEach((sign) => {
+                        signs.push(sign);
                 });
 
-                return new TableauSignsSOStar(tab, signs);
+                return new TableauSignsSOStar({tableau, signs});
         }
 
         /**
@@ -137,8 +139,8 @@ class TableauSignsSOStar {
                         dominoList = dominoList.concat(newDominos);
                 });
 
-                let rightTableau = new TableauWithGrid("D", dominoList);
-                return new TableauPair(this.tableau.clone(), rightTableau);
+                let rightTableau = new TableauWithGrid({type: "D", dominoList});
+                return new TableauPair({left: this.tableau.clone(), right: rightTableau});
         }
 
         /**
@@ -373,13 +375,13 @@ class TableauSignsSOStar {
                 let signs = source.signs;
                 let dominoList = tableau.dominoList;
                 let dominoGrid = tableau.dominoGrid;
-                let paramArray = [0];
+                let parameterArray = [0];
 
                 function enterInArray(upperNumber, lowerNumber) {
                         let pairEntry = lowerNumber > 0? 0: -1;
                         let number = lowerNumber > 0? lowerNumber: -lowerNumber;
-                        paramArray[upperNumber] = number;
-                        paramArray[number] = pairEntry;
+                        parameterArray[upperNumber] = number;
+                        parameterArray[number] = pairEntry;
                 }
 
                 function findLevelAndPosition(sign, startLevel) {
@@ -470,7 +472,7 @@ class TableauSignsSOStar {
                                 let levelInfo = findLevelAndPosition(opSign, level - 1);
                                 let upperLevel = levelInfo.level;
                                 if (upperLevel < 0) {
-                                        paramArray[lastDomino.n] = sign;
+                                        parameterArray[lastDomino.n] = sign;
                                 } else  {
                                         let position = levelInfo.position;
                                         let number = tableau.removeRobinsonSchensted(position);
@@ -479,7 +481,7 @@ class TableauSignsSOStar {
                         }
                 }
 
-                return new ParameterSOStar(paramArray);
+                return new ParameterSOStar({array: parameterArray});
         }
 }
 
@@ -496,18 +498,30 @@ class TableauSignsSOStar {
  */
 class ParameterSOStar {
         /**
-         * @param {Array|string} [input] - The input to this constructor can
-         * either be an array of the type required for
-         * {@link ParameterSOStar#parameter},
-         * or it can be the string representation of the parameter.
-         * If <code>input</code> is not given, the constructor returns the
+         * This constructs a {@link ParameterSOStar} from either
+         * an array or a space-separated string.
+         * If input is not given, the constructor returns the
          * representation of the empty parameter.
+         * @param {Object} table
+         * @param {Array} [table.array] - an array of the type required
+         * for {@link ParameterSOStar#parameter}
+         * @param {string} [table.parameterString] - the string representation
+         * of a parameter.
          */
-        constructor(input) {
-                if (Array.isArray(input)) {
-                        this.parameter = input;
-                } else if (typeof input == "string") {
-                        this.parameter = ParameterSOStar.parseParameterString(input);
+        constructor(table) {
+                table = table || {};
+                if (table.array) {
+                        /**
+                         * This is an array which stores a representation of the
+                         * parameter which is convenient for the algorithm.
+                         * It contains numbers and sign strings ('+' and '-').
+                         * Functionally, the array is 1-based, that is, parameter[0] = 0,
+                         * (basically just to discard that entry).
+                         * @type {Array}
+                         */
+                        this.parameter = table.array;
+                } else if (table.parameterString) {
+                        this.parameter = ParameterSOStar.parseParameterString(table.parameterString);
                 } else {
                         this.parameter = [0];
                 }
@@ -518,9 +532,9 @@ class ParameterSOStar {
          *  @return {ParameterSOStar}
          */
         clone() {
-                let param = [];
-                this.parameter.forEach((item) => param.push(item));
-                return new ParameterSOStar(param);
+                let parameter = [];
+                this.parameter.forEach((item) => parameter.push(item));
+                return new ParameterSOStar({array: parameter});
         }
 
         /**
@@ -567,7 +581,7 @@ class ParameterSOStar {
                         parameter[num] = Math.random() < .5 ? "+": "-";
                 }
 
-                return new ParameterSOStar(parameter);
+                return new ParameterSOStar({array: parameter});
         }
 
         /**
@@ -631,7 +645,7 @@ class ParameterSOStar {
                                 }
                 });
 
-                return new ParameterSOStar(parameter);
+                return new ParameterSOStar({array: parameter});
         }
 
         /**

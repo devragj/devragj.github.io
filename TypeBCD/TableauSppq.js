@@ -57,26 +57,28 @@ class TableauSignsSppq {
         /**
          * This constructs a  {@link TableauSignsSppq} from a
          * {@link TableauWithGrid} of type C and an array of signs.
-         * If no tableau is supplied, it constructs an empty
+         * If no input is supplied, it constructs an empty
          * {@link TableauSignsSppq}.
-         * @param {TableauWithGrid} [tableau] - tableau will be of type C
-         * @param {string[]} [signs] - the elements of signs can be '+' or '-'
+         * @param {Object} table
+         * @param {TableauWithGrid} [table.tableau] - tableau will be of type C
+         * @param {string[]} [table.signs] - the elements of signs can be '+' or '-'
          */
-        constructor(tableau, signs) {
-                if (!tableau) {
+        constructor(table) {
+                table = table || {};
+                if (!table.tableau) {
                         /**
                          * Type C
                          * @type {TableauWithGrid}
                          */
-                        this.tableau = new TableauWithGrid("C");
+                        this.tableau = new TableauWithGrid({type: "C"});
                         /**
                          * the elements of signs can be '+' or '-'
                          * @type {Array.<string>}
                          */
                         this.signs = [];
                 } else {
-                        this.tableau = tableau;
-                        this.signs = signs;
+                        this.tableau = table.tableau;
+                        this.signs = table.signs;
                 }
         }
 
@@ -85,13 +87,13 @@ class TableauSignsSppq {
          *  @return {TableauSignsSppq}
          */
         clone() {
-                let tab = this.tableau.clone();
+                let tableau = this.tableau.clone();
                 let signs = [];
-                this.signs.forEach((sgn) => {
-                        signs.push(sgn);
+                this.signs.forEach((sign) => {
+                        signs.push(sign);
                 });
 
-                return new TableauSignsSppq(tab, signs);
+                return new TableauSignsSppq({tableau, signs});
         }
 
         /**
@@ -137,8 +139,8 @@ class TableauSignsSppq {
                         dominoList = dominoList.concat(newDominos);
                 });
 
-                let rightTableau = new TableauWithGrid("C", dominoList);
-                return new TableauPair(this.tableau.clone(), rightTableau);
+                let rightTableau = new TableauWithGrid({type: "C", dominoList});
+                return new TableauPair({left: this.tableau.clone(), right: rightTableau});
         }
 
         /**
@@ -352,13 +354,13 @@ class TableauSignsSppq {
                 let signs = source.signs;
                 let dominoList = tableau.dominoList;
                 let dominoGrid = tableau.dominoGrid;
-                let paramArray = [0];
+                let parameterArray = [0];
 
                 function enterInArray(upperNumber, lowerNumber) {
                         let pairEntry = lowerNumber > 0? 0: -1;
                         let number = lowerNumber > 0? lowerNumber: -lowerNumber;
-                        paramArray[upperNumber] = number;
-                        paramArray[number] = pairEntry;
+                        parameterArray[upperNumber] = number;
+                        parameterArray[number] = pairEntry;
                 }
 
                 function findLevelAndPosition(sign, startLevel) {
@@ -449,7 +451,7 @@ class TableauSignsSppq {
                                 let levelInfo = findLevelAndPosition(opSign, level - 1);
                                 let upperLevel = levelInfo.level;
                                 if (upperLevel < 0) {
-                                        paramArray[lastDomino.n] = sign;
+                                        parameterArray[lastDomino.n] = sign;
                                 } else  {
                                         let position = levelInfo.position;
                                         let number = tableau.removeRobinsonSchensted(position);
@@ -458,7 +460,7 @@ class TableauSignsSppq {
                         }
                 }
 
-                return new ParameterSppq(paramArray);
+                return new ParameterSppq({array: parameterArray});
         }
 }
 
@@ -475,15 +477,19 @@ class TableauSignsSppq {
  */
 class ParameterSppq {
         /**
-         * @param {Array|string} [input] - The input to this constructor can
-         * either be an array of the type required for
-         * {@link ParameterSppq#parameter},
-         * or it can be the string representation of the parameter.
-         * If <code>input</code> is not given, the constructor returns the
+         * This constructs a {@link ParameterSppq} from either
+         * an array or a space-separated string.
+         * If input is not given, the constructor returns the
          * representation of the empty parameter.
+         * @param {Object} table
+         * @param {Array} [table.array] - an array of the type required
+         * for {@link ParameterSppq#parameter}
+         * @param {string} [table.parameterString] - the string representation
+         * of a parameter.
          */
-        constructor(input) {
-                if (Array.isArray(input)) {
+        constructor(table) {
+                table = table || {};
+                if (table.array) {
                         /**
                          * This is an array which stores a representation of the
                          * parameter which is convenient for the algorithm.
@@ -492,9 +498,9 @@ class ParameterSppq {
                          * (basically just to discard that entry).
                          * @type {Array}
                          */
-                        this.parameter = input;
-                } else if (typeof input == "string") {
-                        this.parameter = ParameterSppq.parseParameterString(input);
+                        this.parameter = table.array;
+                } else if (table.parameterString) {
+                        this.parameter = ParameterSppq.parseParameterString(table.parameterString);
                 } else {
                         this.parameter = [0];
                 }
@@ -505,9 +511,9 @@ class ParameterSppq {
          *  @return {ParameterSppq}
          */
         clone() {
-                let param = [];
-                this.parameter.forEach((item) => param.push(item));
-                return new ParameterSppq(param);
+                let parameter = [];
+                this.parameter.forEach((item) => parameter.push(item));
+                return new ParameterSppq({array: parameter});
         }
 
         /**
@@ -554,7 +560,7 @@ class ParameterSppq {
                         parameter[num] = Math.random() < .5 ? "+": "-";
                 }
 
-                return new ParameterSppq(parameter);
+                return new ParameterSppq({array: parameter});
         }
 
         /**
@@ -617,7 +623,7 @@ class ParameterSppq {
                                         parameter[number2] = number1;
                                 }
                 });
-                return new ParameterSppq(parameter);
+                return new ParameterSppq({array: parameter});
         }
 
         /**

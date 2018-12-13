@@ -29,7 +29,7 @@
             <pre class="prettyprint source linenums"><code>/**
  MIT License
 
- Copyright (c) 2016-2017 Devra Garfinkle Johnson
+ Copyright (c) 2016-2018 Devra Garfinkle Johnson
  Copyright (c) 2016 Christian Johnson
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -87,24 +87,26 @@ class TableauSignsSOStar {
          * {@link TableauWithGrid} of type D and an array of signs.
          * If no tableau is supplied, it constructs an empty
          * {@link TableauSignsSOStar}.
-         * @param {TableauWithGrid} [tableau] - tableau will be of type D
-         * @param {string[]} [signs] - the elements of signs can be '+' or '-'
+         * @param {Object} table
+         * @param {TableauWithGrid} [table.tableau] - tableau will be of type D
+         * @param {string[]} [table.signs] - the elements of signs can be '+' or '-'
          */
-        constructor(tableau, signs) {
-                if (!tableau) {
+        constructor(table) {
+                table = table || {};
+                if (!table.tableau) {
                         /**
                          * Type D
                          * @type {TableauWithGrid}
                          */
-                        this.tableau = new TableauWithGrid("D");
+                        this.tableau = new TableauWithGrid({type: "D"});
                         /**
                          * the elements of signs can be '+' or '-'
                          * @type {Array.&lt;string>}
                          */
                         this.signs = [];
                 } else {
-                        this.tableau = tableau;
-                        this.signs = signs;
+                        this.tableau = table.tableau;
+                        this.signs = table.signs;
                 }
         }
 
@@ -113,13 +115,13 @@ class TableauSignsSOStar {
          *  @return {TableauSignsSOStar}
          */
         clone() {
-                let tab = this.tableau.clone();
+                let tableau = this.tableau.clone();
                 let signs = [];
-                this.signs.forEach((sgn) => {
-                        signs.push(sgn);
+                this.signs.forEach((sign) => {
+                        signs.push(sign);
                 });
 
-                return new TableauSignsSOStar(tab, signs);
+                return new TableauSignsSOStar({tableau, signs});
         }
 
         /**
@@ -165,8 +167,8 @@ class TableauSignsSOStar {
                         dominoList = dominoList.concat(newDominos);
                 });
 
-                let rightTableau = new TableauWithGrid("D", dominoList);
-                return new TableauPair(this.tableau.clone(), rightTableau);
+                let rightTableau = new TableauWithGrid({type: "D", dominoList});
+                return new TableauPair({left: this.tableau.clone(), right: rightTableau});
         }
 
         /**
@@ -401,13 +403,13 @@ class TableauSignsSOStar {
                 let signs = source.signs;
                 let dominoList = tableau.dominoList;
                 let dominoGrid = tableau.dominoGrid;
-                let paramArray = [0];
+                let parameterArray = [0];
 
                 function enterInArray(upperNumber, lowerNumber) {
                         let pairEntry = lowerNumber > 0? 0: -1;
                         let number = lowerNumber > 0? lowerNumber: -lowerNumber;
-                        paramArray[upperNumber] = number;
-                        paramArray[number] = pairEntry;
+                        parameterArray[upperNumber] = number;
+                        parameterArray[number] = pairEntry;
                 }
 
                 function findLevelAndPosition(sign, startLevel) {
@@ -498,7 +500,7 @@ class TableauSignsSOStar {
                                 let levelInfo = findLevelAndPosition(opSign, level - 1);
                                 let upperLevel = levelInfo.level;
                                 if (upperLevel &lt; 0) {
-                                        paramArray[lastDomino.n] = sign;
+                                        parameterArray[lastDomino.n] = sign;
                                 } else  {
                                         let position = levelInfo.position;
                                         let number = tableau.removeRobinsonSchensted(position);
@@ -507,7 +509,7 @@ class TableauSignsSOStar {
                         }
                 }
 
-                return new ParameterSOStar(paramArray);
+                return new ParameterSOStar({array: parameterArray});
         }
 }
 
@@ -524,18 +526,30 @@ class TableauSignsSOStar {
  */
 class ParameterSOStar {
         /**
-         * @param {Array|string} [input] - The input to this constructor can
-         * either be an array of the type required for
-         * {@link ParameterSOStar#parameter},
-         * or it can be the string representation of the parameter.
-         * If &lt;code>input&lt;/code> is not given, the constructor returns the
+         * This constructs a {@link ParameterSOStar} from either
+         * an array or a space-separated string.
+         * If input is not given, the constructor returns the
          * representation of the empty parameter.
+         * @param {Object} table
+         * @param {Array} [table.array] - an array of the type required
+         * for {@link ParameterSOStar#parameter}
+         * @param {string} [table.parameterString] - the string representation
+         * of a parameter.
          */
-        constructor(input) {
-                if (Array.isArray(input)) {
-                        this.parameter = input;
-                } else if (typeof input == "string") {
-                        this.parameter = ParameterSOStar.parseParameterString(input);
+        constructor(table) {
+                table = table || {};
+                if (table.array) {
+                        /**
+                         * This is an array which stores a representation of the
+                         * parameter which is convenient for the algorithm.
+                         * It contains numbers and sign strings ('+' and '-').
+                         * Functionally, the array is 1-based, that is, parameter[0] = 0,
+                         * (basically just to discard that entry).
+                         * @type {Array}
+                         */
+                        this.parameter = table.array;
+                } else if (table.parameterString) {
+                        this.parameter = ParameterSOStar.parseParameterString(table.parameterString);
                 } else {
                         this.parameter = [0];
                 }
@@ -546,9 +560,9 @@ class ParameterSOStar {
          *  @return {ParameterSOStar}
          */
         clone() {
-                let param = [];
-                this.parameter.forEach((item) => param.push(item));
-                return new ParameterSOStar(param);
+                let parameter = [];
+                this.parameter.forEach((item) => parameter.push(item));
+                return new ParameterSOStar({array: parameter});
         }
 
         /**
@@ -595,7 +609,7 @@ class ParameterSOStar {
                         parameter[num] = Math.random() &lt; .5 ? "+": "-";
                 }
 
-                return new ParameterSOStar(parameter);
+                return new ParameterSOStar({array: parameter});
         }
 
         /**
@@ -659,7 +673,7 @@ class ParameterSOStar {
                                 }
                 });
 
-                return new ParameterSOStar(parameter);
+                return new ParameterSOStar({array: parameter});
         }
 
         /**
@@ -681,13 +695,13 @@ class ParameterSOStar {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Domino.html">Domino</a></li><li><a href="DominoGrid.html">DominoGrid</a></li><li><a href="Page.html">Page</a></li><li><a href="PageAnimate.html">PageAnimate</a></li><li><a href="PageCycles.html">PageCycles</a></li><li><a href="PageSUStar.html">PageSUStar</a></li><li><a href="ParameterDominoRS.html">ParameterDominoRS</a></li><li><a href="ParameterRS.html">ParameterRS</a></li><li><a href="ParameterSOStar.html">ParameterSOStar</a></li><li><a href="ParameterSppq.html">ParameterSppq</a></li><li><a href="ParameterSUpq.html">ParameterSUpq</a></li><li><a href="ParameterSUStar.html">ParameterSUStar</a></li><li><a href="Square.html">Square</a></li><li><a href="Tableau.html">Tableau</a></li><li><a href="TableauA.html">TableauA</a></li><li><a href="TableauAAnimate.html">TableauAAnimate</a></li><li><a href="TableauAnimate.html">TableauAnimate</a></li><li><a href="TableauAPair.html">TableauAPair</a></li><li><a href="TableauAPairRendererDOM.html">TableauAPairRendererDOM</a></li><li><a href="TableauARendererAnimate.html">TableauARendererAnimate</a></li><li><a href="TableauARendererDOM.html">TableauARendererDOM</a></li><li><a href="TableauCycles.html">TableauCycles</a></li><li><a href="TableauCyclesRendererDOM.html">TableauCyclesRendererDOM</a></li><li><a href="TableauHoverCyclesRendererDOM.html">TableauHoverCyclesRendererDOM</a></li><li><a href="TableauPair.html">TableauPair</a></li><li><a href="TableauPairCycles.html">TableauPairCycles</a></li><li><a href="TableauPairCyclesRendererDOM.html">TableauPairCyclesRendererDOM</a></li><li><a href="TableauPairGrid.html">TableauPairGrid</a></li><li><a href="TableauPairRendererAnimateCycle.html">TableauPairRendererAnimateCycle</a></li><li><a href="TableauPairRendererDOM.html">TableauPairRendererDOM</a></li><li><a href="TableauRendererAnimate.html">TableauRendererAnimate</a></li><li><a href="TableauRendererAnimateCycle.html">TableauRendererAnimateCycle</a></li><li><a href="TableauRendererDOM.html">TableauRendererDOM</a></li><li><a href="TableauSignsSOStar.html">TableauSignsSOStar</a></li><li><a href="TableauSignsSppq.html">TableauSignsSppq</a></li><li><a href="TableauSignsSUpq.html">TableauSignsSUpq</a></li><li><a href="TableauSUStar.html">TableauSUStar</a></li><li><a href="TableauWithGrid.html">TableauWithGrid</a></li><li><a href="Tile.html">Tile</a></li><li><a href="TileGrid.html">TileGrid</a></li></ul><h3>Global</h3><ul><li><a href="global.html#pageAnimateDominoRS">pageAnimateDominoRS</a></li><li><a href="global.html#pageAnimateRS">pageAnimateRS</a></li><li><a href="global.html#pageCycleCopy">pageCycleCopy</a></li><li><a href="global.html#pageCycleHover">pageCycleHover</a></li><li><a href="global.html#pageCycleInPlace">pageCycleInPlace</a></li><li><a href="global.html#pageCyclePairCopy">pageCyclePairCopy</a></li><li><a href="global.html#pageCyclePairInPlace">pageCyclePairInPlace</a></li><li><a href="global.html#pageCyclePairSpecial">pageCyclePairSpecial</a></li><li><a href="global.html#pageCycleSpecial">pageCycleSpecial</a></li><li><a href="global.html#pageDominoRS">pageDominoRS</a></li><li><a href="global.html#pageDominoRSGrid">pageDominoRSGrid</a></li><li><a href="global.html#pageRS">pageRS</a></li><li><a href="global.html#pageSOStar">pageSOStar</a></li><li><a href="global.html#pageSppq">pageSppq</a></li><li><a href="global.html#pageSUpq">pageSUpq</a></li><li><a href="global.html#pageSUStar">pageSUStar</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Domino.html">Domino</a></li><li><a href="DominoGrid.html">DominoGrid</a></li><li><a href="Page.html">Page</a></li><li><a href="PageAnimate.html">PageAnimate</a></li><li><a href="PageCycles.html">PageCycles</a></li><li><a href="PageSpecial.html">PageSpecial</a></li><li><a href="PageSUStar.html">PageSUStar</a></li><li><a href="ParameterDominoRS.html">ParameterDominoRS</a></li><li><a href="ParameterRS.html">ParameterRS</a></li><li><a href="ParameterSOStar.html">ParameterSOStar</a></li><li><a href="ParameterSppq.html">ParameterSppq</a></li><li><a href="ParameterSUpq.html">ParameterSUpq</a></li><li><a href="ParameterSUStar.html">ParameterSUStar</a></li><li><a href="Square.html">Square</a></li><li><a href="Tableau.html">Tableau</a></li><li><a href="TableauA.html">TableauA</a></li><li><a href="TableauAAnimate.html">TableauAAnimate</a></li><li><a href="TableauAnimate.html">TableauAnimate</a></li><li><a href="TableauAPair.html">TableauAPair</a></li><li><a href="TableauAPairRendererDOM.html">TableauAPairRendererDOM</a></li><li><a href="TableauARendererAnimate.html">TableauARendererAnimate</a></li><li><a href="TableauARendererDOM.html">TableauARendererDOM</a></li><li><a href="TableauCycles.html">TableauCycles</a></li><li><a href="TableauCyclesRendererDOM.html">TableauCyclesRendererDOM</a></li><li><a href="TableauHoverCyclesRendererDOM.html">TableauHoverCyclesRendererDOM</a></li><li><a href="TableauPair.html">TableauPair</a></li><li><a href="TableauPairCycles.html">TableauPairCycles</a></li><li><a href="TableauPairCyclesRendererDOM.html">TableauPairCyclesRendererDOM</a></li><li><a href="TableauPairGrid.html">TableauPairGrid</a></li><li><a href="TableauPairRendererAnimateCycle.html">TableauPairRendererAnimateCycle</a></li><li><a href="TableauPairRendererDOM.html">TableauPairRendererDOM</a></li><li><a href="TableauRendererAnimate.html">TableauRendererAnimate</a></li><li><a href="TableauRendererAnimateCycle.html">TableauRendererAnimateCycle</a></li><li><a href="TableauRendererDOM.html">TableauRendererDOM</a></li><li><a href="TableauSignsSOStar.html">TableauSignsSOStar</a></li><li><a href="TableauSignsSppq.html">TableauSignsSppq</a></li><li><a href="TableauSignsSUpq.html">TableauSignsSUpq</a></li><li><a href="TableauSUStar.html">TableauSUStar</a></li><li><a href="TableauWithGrid.html">TableauWithGrid</a></li><li><a href="Tile.html">Tile</a></li><li><a href="TileGrid.html">TileGrid</a></li></ul><h3>Global</h3><ul><li><a href="global.html#pageAnimateDominoRS">pageAnimateDominoRS</a></li><li><a href="global.html#pageAnimateRS">pageAnimateRS</a></li><li><a href="global.html#pageCycleCopy">pageCycleCopy</a></li><li><a href="global.html#pageCycleHover">pageCycleHover</a></li><li><a href="global.html#pageCycleInPlace">pageCycleInPlace</a></li><li><a href="global.html#pageCyclePairCopy">pageCyclePairCopy</a></li><li><a href="global.html#pageCyclePairInPlace">pageCyclePairInPlace</a></li><li><a href="global.html#pageCyclePairSpecial">pageCyclePairSpecial</a></li><li><a href="global.html#pageCycleSpecial">pageCycleSpecial</a></li><li><a href="global.html#pageDominoRS">pageDominoRS</a></li><li><a href="global.html#pageDominoRSGrid">pageDominoRSGrid</a></li><li><a href="global.html#pageRS">pageRS</a></li><li><a href="global.html#pageSOStar">pageSOStar</a></li><li><a href="global.html#pageSppq">pageSppq</a></li><li><a href="global.html#pageSUpq">pageSUpq</a></li><li><a href="global.html#pageSUStar">pageSUStar</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Nov 29 2018 18:38:57 GMT-0500 (Eastern Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Dec 13 2018 16:02:33 GMT-0500 (Eastern Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

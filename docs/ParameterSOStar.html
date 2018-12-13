@@ -28,9 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>ParameterSOStar<span class="signature">(input<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>ParameterSOStar<span class="signature">(table)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">This class handles the input to the SO*(2n) algorithm.This parameter is an arrangement of the numbers 1 through ninto pairs and single numbers, where each single number is associatedwith a sign, + or -.  In addition, a pair of numbers will also have a sign(or orientation) associated with it.The parameter is stored in the array ParameterSOStar#parameter.A parameter can also be represented as a string, and is for display purposes.So, this class contains functions to go between the two representationsof the parameter.</div>
+            <div class="class-description">This class handles the input to the SO*(2n) algorithm.This parameter is an arrangement of the numbers 1 through ninto pairs and single numbers, where each single number is associatedwith a sign, + or -.  In addition, a pair of numbers will also have a sign(or orientation) associated with it.The parameter is stored in the array <a href="ParameterSOStar.html#parameter">ParameterSOStar#parameter</a>.A parameter can also be represented as a string, and is for display purposes.So, this class contains functions to go between the two representationsof the parameter.</div>
         
     
 </header>
@@ -45,12 +45,16 @@
     
 
     
-    <h4 class="name" id="ParameterSOStar"><span class="type-signature"></span>new ParameterSOStar<span class="signature">(input<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="ParameterSOStar"><span class="type-signature"></span>new ParameterSOStar<span class="signature">(table)</span><span class="type-signature"></span></h4>
     
 
     
 
 
+
+<div class="description">
+    This constructs a <a href="ParameterSOStar.html">ParameterSOStar</a> from eitheran array or a space-separated string.If input is not given, the constructor returns therepresentation of the empty parameter.
+</div>
 
 
 
@@ -62,6 +66,48 @@
 
     <h5>Parameters:</h5>
     
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>table</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
 
 <table class="params">
     <thead>
@@ -87,15 +133,45 @@
 
         <tr>
             
-                <td class="name"><code>input</code></td>
+                <td class="name"><code>array</code></td>
             
 
             <td class="type">
             
                 
 <span class="param-type">Array</span>
-|
 
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">an array of the type requiredfor <a href="ParameterSOStar.html#parameter">ParameterSOStar#parameter</a></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>parameterString</code></td>
+            
+
+            <td class="type">
+            
+                
 <span class="param-type">string</span>
 
 
@@ -116,7 +192,14 @@
 
             
 
-            <td class="description last">The input to this constructor caneither be an array of the type required forParameterSOStar#parameter,or it can be the string representation of the parameter.If <code>input</code> is not given, the constructor returns therepresentation of the empty parameter.</td>
+            <td class="description last">the string representationof a parameter.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -157,7 +240,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="TypeBCD_TableauSOStar.js.html">TypeBCD/TableauSOStar.js</a>, <a href="TypeBCD_TableauSOStar.js.html#line497">line 497</a>
+        <a href="TypeBCD_TableauSOStar.js.html">TypeBCD/TableauSOStar.js</a>, <a href="TypeBCD_TableauSOStar.js.html#line499">line 499</a>
     </li></ul></dd>
     
 
@@ -200,6 +283,82 @@
 
     
 
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="parameter"><span class="type-signature"></span>parameter<span class="type-signature"> :Array</span></h4>
+
+
+
+
+<div class="description">
+    This is an array which stores a representation of theparameter which is convenient for the algorithm.It contains numbers and sign strings ('+' and '-').Functionally, the array is 1-based, that is, parameter[0] = 0,(basically just to discard that entry).
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TypeBCD_TableauSOStar.js.html">TypeBCD/TableauSOStar.js</a>, <a href="TypeBCD_TableauSOStar.js.html#line522">line 522</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
     
 
     
@@ -355,7 +514,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="TypeBCD_TableauSOStar.js.html">TypeBCD/TableauSOStar.js</a>, <a href="TypeBCD_TableauSOStar.js.html#line535">line 535</a>
+        <a href="TypeBCD_TableauSOStar.js.html">TypeBCD/TableauSOStar.js</a>, <a href="TypeBCD_TableauSOStar.js.html#line549">line 549</a>
     </li></ul></dd>
     
 
@@ -508,7 +667,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="TypeBCD_TableauSOStar.js.html">TypeBCD/TableauSOStar.js</a>, <a href="TypeBCD_TableauSOStar.js.html#line609">line 609</a>
+        <a href="TypeBCD_TableauSOStar.js.html">TypeBCD/TableauSOStar.js</a>, <a href="TypeBCD_TableauSOStar.js.html#line623">line 623</a>
     </li></ul></dd>
     
 
@@ -616,7 +775,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="TypeBCD_TableauSOStar.js.html">TypeBCD/TableauSOStar.js</a>, <a href="TypeBCD_TableauSOStar.js.html#line520">line 520</a>
+        <a href="TypeBCD_TableauSOStar.js.html">TypeBCD/TableauSOStar.js</a>, <a href="TypeBCD_TableauSOStar.js.html#line534">line 534</a>
     </li></ul></dd>
     
 
@@ -720,7 +879,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="TypeBCD_TableauSOStar.js.html">TypeBCD/TableauSOStar.js</a>, <a href="TypeBCD_TableauSOStar.js.html#line578">line 578</a>
+        <a href="TypeBCD_TableauSOStar.js.html">TypeBCD/TableauSOStar.js</a>, <a href="TypeBCD_TableauSOStar.js.html#line592">line 592</a>
     </li></ul></dd>
     
 
@@ -828,7 +987,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="TypeBCD_TableauSOStar.js.html">TypeBCD/TableauSOStar.js</a>, <a href="TypeBCD_TableauSOStar.js.html#line642">line 642</a>
+        <a href="TypeBCD_TableauSOStar.js.html">TypeBCD/TableauSOStar.js</a>, <a href="TypeBCD_TableauSOStar.js.html#line656">line 656</a>
     </li></ul></dd>
     
 
@@ -890,13 +1049,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Domino.html">Domino</a></li><li><a href="DominoGrid.html">DominoGrid</a></li><li><a href="Page.html">Page</a></li><li><a href="PageAnimate.html">PageAnimate</a></li><li><a href="PageCycles.html">PageCycles</a></li><li><a href="PageSUStar.html">PageSUStar</a></li><li><a href="ParameterDominoRS.html">ParameterDominoRS</a></li><li><a href="ParameterRS.html">ParameterRS</a></li><li><a href="ParameterSOStar.html">ParameterSOStar</a></li><li><a href="ParameterSppq.html">ParameterSppq</a></li><li><a href="ParameterSUpq.html">ParameterSUpq</a></li><li><a href="ParameterSUStar.html">ParameterSUStar</a></li><li><a href="Square.html">Square</a></li><li><a href="Tableau.html">Tableau</a></li><li><a href="TableauA.html">TableauA</a></li><li><a href="TableauAAnimate.html">TableauAAnimate</a></li><li><a href="TableauAnimate.html">TableauAnimate</a></li><li><a href="TableauAPair.html">TableauAPair</a></li><li><a href="TableauAPairRendererDOM.html">TableauAPairRendererDOM</a></li><li><a href="TableauARendererAnimate.html">TableauARendererAnimate</a></li><li><a href="TableauARendererDOM.html">TableauARendererDOM</a></li><li><a href="TableauCycles.html">TableauCycles</a></li><li><a href="TableauCyclesRendererDOM.html">TableauCyclesRendererDOM</a></li><li><a href="TableauHoverCyclesRendererDOM.html">TableauHoverCyclesRendererDOM</a></li><li><a href="TableauPair.html">TableauPair</a></li><li><a href="TableauPairCycles.html">TableauPairCycles</a></li><li><a href="TableauPairCyclesRendererDOM.html">TableauPairCyclesRendererDOM</a></li><li><a href="TableauPairGrid.html">TableauPairGrid</a></li><li><a href="TableauPairRendererAnimateCycle.html">TableauPairRendererAnimateCycle</a></li><li><a href="TableauPairRendererDOM.html">TableauPairRendererDOM</a></li><li><a href="TableauRendererAnimate.html">TableauRendererAnimate</a></li><li><a href="TableauRendererAnimateCycle.html">TableauRendererAnimateCycle</a></li><li><a href="TableauRendererDOM.html">TableauRendererDOM</a></li><li><a href="TableauSignsSOStar.html">TableauSignsSOStar</a></li><li><a href="TableauSignsSppq.html">TableauSignsSppq</a></li><li><a href="TableauSignsSUpq.html">TableauSignsSUpq</a></li><li><a href="TableauSUStar.html">TableauSUStar</a></li><li><a href="TableauWithGrid.html">TableauWithGrid</a></li><li><a href="Tile.html">Tile</a></li><li><a href="TileGrid.html">TileGrid</a></li></ul><h3>Global</h3><ul><li><a href="global.html#pageAnimateDominoRS">pageAnimateDominoRS</a></li><li><a href="global.html#pageAnimateRS">pageAnimateRS</a></li><li><a href="global.html#pageCycleCopy">pageCycleCopy</a></li><li><a href="global.html#pageCycleHover">pageCycleHover</a></li><li><a href="global.html#pageCycleInPlace">pageCycleInPlace</a></li><li><a href="global.html#pageCyclePairCopy">pageCyclePairCopy</a></li><li><a href="global.html#pageCyclePairInPlace">pageCyclePairInPlace</a></li><li><a href="global.html#pageCyclePairSpecial">pageCyclePairSpecial</a></li><li><a href="global.html#pageCycleSpecial">pageCycleSpecial</a></li><li><a href="global.html#pageDominoRS">pageDominoRS</a></li><li><a href="global.html#pageDominoRSGrid">pageDominoRSGrid</a></li><li><a href="global.html#pageRS">pageRS</a></li><li><a href="global.html#pageSOStar">pageSOStar</a></li><li><a href="global.html#pageSppq">pageSppq</a></li><li><a href="global.html#pageSUpq">pageSUpq</a></li><li><a href="global.html#pageSUStar">pageSUStar</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Domino.html">Domino</a></li><li><a href="DominoGrid.html">DominoGrid</a></li><li><a href="Page.html">Page</a></li><li><a href="PageAnimate.html">PageAnimate</a></li><li><a href="PageCycles.html">PageCycles</a></li><li><a href="PageSpecial.html">PageSpecial</a></li><li><a href="PageSUStar.html">PageSUStar</a></li><li><a href="ParameterDominoRS.html">ParameterDominoRS</a></li><li><a href="ParameterRS.html">ParameterRS</a></li><li><a href="ParameterSOStar.html">ParameterSOStar</a></li><li><a href="ParameterSppq.html">ParameterSppq</a></li><li><a href="ParameterSUpq.html">ParameterSUpq</a></li><li><a href="ParameterSUStar.html">ParameterSUStar</a></li><li><a href="Square.html">Square</a></li><li><a href="Tableau.html">Tableau</a></li><li><a href="TableauA.html">TableauA</a></li><li><a href="TableauAAnimate.html">TableauAAnimate</a></li><li><a href="TableauAnimate.html">TableauAnimate</a></li><li><a href="TableauAPair.html">TableauAPair</a></li><li><a href="TableauAPairRendererDOM.html">TableauAPairRendererDOM</a></li><li><a href="TableauARendererAnimate.html">TableauARendererAnimate</a></li><li><a href="TableauARendererDOM.html">TableauARendererDOM</a></li><li><a href="TableauCycles.html">TableauCycles</a></li><li><a href="TableauCyclesRendererDOM.html">TableauCyclesRendererDOM</a></li><li><a href="TableauHoverCyclesRendererDOM.html">TableauHoverCyclesRendererDOM</a></li><li><a href="TableauPair.html">TableauPair</a></li><li><a href="TableauPairCycles.html">TableauPairCycles</a></li><li><a href="TableauPairCyclesRendererDOM.html">TableauPairCyclesRendererDOM</a></li><li><a href="TableauPairGrid.html">TableauPairGrid</a></li><li><a href="TableauPairRendererAnimateCycle.html">TableauPairRendererAnimateCycle</a></li><li><a href="TableauPairRendererDOM.html">TableauPairRendererDOM</a></li><li><a href="TableauRendererAnimate.html">TableauRendererAnimate</a></li><li><a href="TableauRendererAnimateCycle.html">TableauRendererAnimateCycle</a></li><li><a href="TableauRendererDOM.html">TableauRendererDOM</a></li><li><a href="TableauSignsSOStar.html">TableauSignsSOStar</a></li><li><a href="TableauSignsSppq.html">TableauSignsSppq</a></li><li><a href="TableauSignsSUpq.html">TableauSignsSUpq</a></li><li><a href="TableauSUStar.html">TableauSUStar</a></li><li><a href="TableauWithGrid.html">TableauWithGrid</a></li><li><a href="Tile.html">Tile</a></li><li><a href="TileGrid.html">TileGrid</a></li></ul><h3>Global</h3><ul><li><a href="global.html#pageAnimateDominoRS">pageAnimateDominoRS</a></li><li><a href="global.html#pageAnimateRS">pageAnimateRS</a></li><li><a href="global.html#pageCycleCopy">pageCycleCopy</a></li><li><a href="global.html#pageCycleHover">pageCycleHover</a></li><li><a href="global.html#pageCycleInPlace">pageCycleInPlace</a></li><li><a href="global.html#pageCyclePairCopy">pageCyclePairCopy</a></li><li><a href="global.html#pageCyclePairInPlace">pageCyclePairInPlace</a></li><li><a href="global.html#pageCyclePairSpecial">pageCyclePairSpecial</a></li><li><a href="global.html#pageCycleSpecial">pageCycleSpecial</a></li><li><a href="global.html#pageDominoRS">pageDominoRS</a></li><li><a href="global.html#pageDominoRSGrid">pageDominoRSGrid</a></li><li><a href="global.html#pageRS">pageRS</a></li><li><a href="global.html#pageSOStar">pageSOStar</a></li><li><a href="global.html#pageSppq">pageSppq</a></li><li><a href="global.html#pageSUpq">pageSUpq</a></li><li><a href="global.html#pageSUStar">pageSUStar</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Nov 29 2018 18:38:58 GMT-0500 (Eastern Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Dec 13 2018 16:02:34 GMT-0500 (Eastern Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

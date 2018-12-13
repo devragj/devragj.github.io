@@ -1,7 +1,7 @@
 /**
  MIT License
 
- Copyright (c) 2016-2017 Devra Garfinkle Johnson
+ Copyright (c) 2016-2018 Devra Garfinkle Johnson
  Copyright (c) 2016 Christian Johnson
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
  * The {@link Page} class has methods which handle user input to these pages,
  * but the output for these pages differs significantly from that
  * which the {@link Page} class is designed to handle.  Thus the extension.
- * @copyright 2016-2017 Devra Garfinkle Johnson, 2016 Christian Johnson
+ * @copyright 2016-2018 Devra Garfinkle Johnson, 2016 Christian Johnson
  */
 
 "use strict";
@@ -57,8 +57,7 @@ class PageCycles extends Page {
          * takes place on the original tableau, otherwise,
          * clones are created and shown.
          * @param {boolean} [table.unboxedOnly] - If true, only special squares for
-         * unboxed cycles will be shown.  Current uses also have
-         * <code>inPlace == true</code>.
+         * unboxed cycles will be shown.
          */
         constructor(table) {
                 super(table)
@@ -81,7 +80,7 @@ class PageCycles extends Page {
                  * <code>inPlace == true</code>.
                  * @type {boolean}
                  */
-                this.unboxed = table.unboxed;
+                this.unboxedOnly = table.unboxedOnly;
                 // this.type = $('input[name = "gridGroup"]:checked').val();
                 // this.type = "D";
                 /**
@@ -119,7 +118,7 @@ class PageCycles extends Page {
                 Page.displayText(parameterObject.getParameterString());
                 let tableauPair = TableauPair.RobinsonSchenstedGrid(parameterObject, this.type);
                 this.drawable = this.getDrawable(tableauPair, this.type,
-                        this.animationDuration, this.inPlace, this.unboxed);
+                        this.animationDuration, this.inPlace, this.unboxedOnly);
                 this.draw(this.drawable);
         }
 

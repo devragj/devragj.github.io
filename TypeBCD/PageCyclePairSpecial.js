@@ -1,7 +1,7 @@
 /**
  MIT License
 
- Copyright (c) 2016-2017 Devra Garfinkle Johnson
+ Copyright (c) 2016-2018 Devra Garfinkle Johnson
  Copyright (c) 2016 Christian Johnson
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,7 +26,7 @@
 /**
  * @file
  * Initializes the {@link PageCycles} object for the webpage CyclesAnimatePairSpecial.html
- * @copyright 2016-2017 Devra Garfinkle Johnson, 2016 Christian Johnson
+ * @copyright 2016-2018 Devra Garfinkle Johnson, 2016 Christian Johnson
  */
 
 "use strict";
@@ -41,13 +41,13 @@
                  clearList: ['comment', 'tableauPairRender'],
                  parse: ParameterDominoRS.parse,
                  generateParameter: ParameterDominoRS.generateParameter,
-                 getDrawable: function(tableauPair, type, animationDuration, inPlace, unboxed) {
-                         return new TableauPairCycles(type, tableauPair.left,
-                                 tableauPair.right, animationDuration, inPlace, unboxed);
+                 getDrawable: function(tableauPair, type, animationDuration, inPlace, unboxedOnly) {
+                         return new TableauPairCycles({type, left: tableauPair.left, right:
+                                 tableauPair.right, animationDuration, inPlace, unboxedOnly});
                  },
                  draw: function(tableauPair) {tableauPair.drawWithSpecialSquares();},
                  inPlace: true,
-                 unboxed: true,
+                 unboxedOnly: true,
                  type: true
                  });
  });

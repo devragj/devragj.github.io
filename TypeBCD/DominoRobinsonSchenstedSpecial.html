@@ -3,15 +3,18 @@
 <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="Tableau.css"></link>
+        <link rel="stylesheet" href="TableauCycles.css"></link>
         <link rel="stylesheet" href="../common/pageStyles.css"/>
-        <title>Domino Robinson-Schensted Algorithm, With Grid</title>
+        <title>Domino Robinson-Schensted Algorithm, Then Make Special</title>
         <script type="text/javascript" src="../common/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="Tableau.js"></script>
+        <script type="text/javascript" src="TableauCycles.js"></script>
+        <script type="text/javascript" src="TableauPairCycles.js"></script>
         <script type="text/javascript" src="../common/Page.js"></script>
-        <script type="text/javascript" src="PageDominoRSGrids.js"></script>
+        <script type="text/javascript" src="PageSpecial.js"></script>
 </head>
 <body>
-        <h2>Domino Robinson-Schensted Algorithm, With Grid
+        <h2>Domino Robinson-Schensted Algorithm, Then Make Special
                 <span class="infoButtons">
                 <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Instructions</button>
                 <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button>
@@ -27,14 +30,15 @@
                         The page can be used in two ways.&nbsp;
                         First, you can have the page generate a random signed permutation.&nbsp;
                         To do that, enter the size of the desired permutation in the first textbox.&nbsp;
-                        Then click one of the two buttons directly to the right.&nbsp;
+                        Then click the Run button directly to the right.&nbsp;
                         The Run button will display a randomly-generated signed permutation and the output of the Robinson-Schensted algorithm when applied to that permutation.&nbsp;
-                        Alternatively, the Run Steps button will also generate a random signed permutation, and will show you the intermediate steps of applying the Robinson-Schensted algorithm to that permutation.
+                        The defects of that tableau pair, the places where the tableaux are not special, are marked with colored squares.&nbsp;
+                        After that, the page displays the tableaux made special.
                 </p>
                 <p>
                         Instead, you can enter a permutation in the second textbox.&nbsp;
                         To do that, list the (positive and negative) numbers of the signed permutation, separated by spaces.&nbsp;
-                        Then, use the Run or Run Steps buttons to the right of that box, as above.
+                        Then, use the Run button to the right of that box, as above.
                 </p>
                 <p>
                         Pressing Enter while in one of these two textboxes will click the Run button to the right.&nbsp;
@@ -44,7 +48,7 @@
 
         <div class="infoDiv" id="InformationDiv" style="display:none">
                 <p>
-                        This page displays the Domino Robinson-Schensted algorithm.&nbsp;
+                        This page first displays the Domino Robinson-Schensted algorithm.&nbsp;
                         The Domino Robinson-Schensted algorithm is a relatively straightforward generalization of the Robinson-Schensted algorithm to the hyperoctrahedral group, that is, the group of signed permutations.&nbsp;
                         The input to the Domino Robinson-Schensted algorithm is a "signed permutation", for example, 2 -5 3 6 -4 1.&nbsp;
                         That is, the numbers 1 through n are permuted, and, in addition, each number has a sign (or orientation) associated with it.&nbsp;
@@ -70,11 +74,35 @@
                 <p>
                         Domino tableaux are used to answer questions about simple Lie groups of type B, C, or D.&nbsp;
                         To use a domino tableau for a question about a Lie group of a specific type, you need to place the tableau on the grid associated to that type.&nbsp;
+                        The grid is the underlying array of 2 x 2 boxes on which the domino tableau is placed.&nbsp;
+                        A C type tableau is placed on the grid with its top left square in the top left square of the grid.&nbsp;
+                        A D type tableau is placed on the grid with its top left square in the top right square of the grid.&nbsp;
+                        A B type tableau is placed on the grid with its top left square in the bottom right square of the grid.&nbsp;
+                        In addition, a B type tableau, which is associated with the group SO(2n + 1, &#x2102;), has a single square with a 0 in it in its top left corner.
                 </p>
                 <p>
-                        The B grid is associated with the group SO(2n + 1).&nbsp;
-                        Selecting the B grid will run the Domino Robinson-Schensted algorithm algorithm starting with two tableaux with zeros in their top-left corner.&nbsp;
-                        In that way, the resulting tableaux are made of 2n + 1 squares.
+                        Domino tableaux are used to classify Kazhdan-Lusztig cells in the Weyl groups of type B<sub>n</sub>, C<sub>n</sub>, and D<sub>n</sub>.&nbsp;
+                        (Or, equivalently, they are used to classify primitive ideals in the enveloping algrbra of the complexified Lie algebra with that Weyl group.)
+                        The Domino Robinson-Schensted algorithm starts that process.&nbsp;
+                        However, left (or right) cells are classified by tableau with special shape with respect to their grid.&nbsp;
+                        To get from the output of the Robinson-Schensted algorithm to the corresponding tableau with special shape, we need to move a tableau through all its open unboxed cycles.
+                </p>
+                <p>
+                        A tableau is special with respect to its grid if every 2 x 2 square of the grid is either filled, half-fulll, or empty (where squares above or to the left of the tableau are considered as filled.)&nbsp;
+                        If a 2 x 2 grid square has only one of its four squares filled, that square (called a filled corner) is marked in green.&nbsp;
+                        If a 2 x 2 grid square has three of its four squares filled, the empty square (called an empty hole) is marked in purple.
+                </p>
+                <p>
+                        This page first displays the result of applying the Domino Robinson-Schensted algorithm to a signed permutation.&nbsp;
+                        If the original tableaux are not special, the defects are marked.&nbsp;
+                        Filled corners are marked with green squares.&nbsp;
+                        Empty holes are marked with purple squares.&nbsp;
+                        After that, the page displays the result of moving the tableaux through their open unboxed cycles.&nbsp;
+                        The change in shape is that the squares marked green are no longer in the shape of the tableaux, whereas those marked purple now are.&nbsp;
+                </p>
+                <p>
+                         You can see the process of making a tableau special by moving through its open unboxed cycles on this page:&nbsp; <a  href="https://devragj.github.io/TypeBCD/CyclesAnimateSpecial.html" target="_blank">Animate Cycles Special</a>.&nbsp;
+                         You can see the process of making a tableau pair special by moving through its open unboxed extended cycles on this page:&nbsp; <a  href="https://devragj.github.io/TypeBCD/CyclesAnimatePairSpecial.html" target="_blank">Animate Extended Cycles Special</a>.
                 </p>
                 <p>
                         <h4>References</h4>
@@ -94,16 +122,14 @@
 
         <div id="Controls">
                 <span>Type:&nbsp;
-                        <label>B<input type="radio" name="gridGroup" value="B" onclick="pageDominoRSGrid.setType(this);">&nbsp; </label>
-                        <label>C<input type="radio" name="gridGroup" value="C" onclick="pageDominoRSGrid.setType(this);" checked>&nbsp; </label>
-                        <label>D<input type="radio" name="gridGroup" value="D" onclick="pageDominoRSGrid.setType(this);">&nbsp; </label>
+                        <label>B<input type="radio" name="gridGroup" value="B" onclick="pageSpecial.setType(this);">&nbsp; </label>
+                        <label>C<input type="radio" name="gridGroup" value="C" onclick="pageSpecial.setType(this);" checked>&nbsp; </label>
+                        <label>D<input type="radio" name="gridGroup" value="D" onclick="pageSpecial.setType(this);">&nbsp; </label>
                 </span><br>
-                <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
-                <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageDominoRSGrid.runInput()">Run</button></span>
-                <span><button type="button" class = "BigButton" onclick="pageDominoRSGrid.runSteps()">Run Steps</button></span>
-                <span>permutation:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
-                <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageDominoRSGrid.runParameter()">Run</button></span>
-                <span><button type="button" class = "BigButton" onclick="pageDominoRSGrid.runParameterSteps()">Run Steps</button></span>
+                <span>n: <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
+                <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageSpecial.runInput()">Run</button></span>
+                <span>permutation: <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
+                <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageSpecial.runParameter()">Run</button></span>
         </div>
 </body>
 

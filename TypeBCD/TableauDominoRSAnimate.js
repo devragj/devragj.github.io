@@ -1,7 +1,7 @@
 /**
  MIT License
 
- Copyright (c) 2016-2017 Devra Garfinkle Johnson
+ Copyright (c) 2016-2018 Devra Garfinkle Johnson
  Copyright (c) 2016 Christian Johnson
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,7 +33,7 @@
  * is stored in the {@link Domino}.
  * The {@link TableauRendererAnimate} class then renders the tableau and
  * creates an animation function for every {@link Domino} which is to be moved.
- * @copyright 2016-2017 Devra Garfinkle Johnson, 2016 Christian Johnson
+ * @copyright 2016-2018 Devra Garfinkle Johnson, 2016 Christian Johnson
  */
 
 "use strict";
@@ -184,7 +184,7 @@ class TableauAnimate {
          */
         static getAnimationData(tableau, rsNumber, animationDuration)  {
                 let tableauToAnimate = TableauAnimate.getRSAnimationTableau(tableau, rsNumber);
-                return new TableauRendererAnimate(tableauToAnimate, animationDuration).getDOMAndAnimation();
+                return new TableauRendererAnimate({tableau: tableauToAnimate, animationDuration}).getDOMAndAnimation();
         }
 }
 
@@ -195,14 +195,15 @@ class TableauAnimate {
  */
 class TableauRendererAnimate extends TableauRendererDOM {
         /**
-         * @param {Tableau} tableau - a tableau with animation informationm
+         * @param {Object} table
+         * @param {Tableau} table.tableau - a tableau with animation informationm
          * stored in its Dominos
-         * @param {number} animationDuration - how long, in milliseconds,
+         * @param {number} table.animationDuration - how long, in milliseconds,
          * the movement of each Domino should take
          * @extends TableauRendererDOM
          */
-        constructor(tableau, animationDuration) {
-                super(tableau);
+        constructor(table) {
+                super(table);
                 /**
                  * {x: number, y: number}<br>
                  * The offset is set so that the domino to be added to the tableau
@@ -215,7 +216,7 @@ class TableauRendererAnimate extends TableauRendererDOM {
                  * the movement of each Domino should take
                  * @type {number}
                  */
-                this.animationDuration = animationDuration;
+                this.animationDuration = table.animationDuration;
         }
 
         /**

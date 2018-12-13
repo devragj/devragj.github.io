@@ -1,7 +1,7 @@
 /**
  MIT License
 
- Copyright (c) 2016-2017 Devra Garfinkle Johnson
+ Copyright (c) 2016-2018 Devra Garfinkle Johnson
  Copyright (c) 2016 Christian Johnson
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -28,7 +28,7 @@
  * This file contains the {@link Page} class.
  * The {@link Page} class has methods to handle user input to the page,
  * and to generate the output.
- * @copyright 2016-2017 Devra Garfinkle Johnson, 2016 Christian Johnson
+ * @copyright 2016-2018 Devra Garfinkle Johnson, 2016 Christian Johnson
  * @license MIT license
  */
 
@@ -50,61 +50,59 @@
 class Page {
         /**
          * @param {Object} table
-         * @param {string[]} table.clearList - a list of the class names of the DOM
+         * @param {string[]} table.clearList - A list of the class names of the DOM
          * objects on the page which need to be removed when the user requests new output.
-         * @param {function} table.parse - the function which parses a string
+         * @param {function} table.parse - The function which parses a string
          * representation of the parameter input which has been supplied by the user.
-         * @param {function} table.generateParameter - the function which generates a
+         * @param {function} table.generateParameter - The function which generates a
          * random parameter based on the input supplied by the user.
-         * @param {function} [table.getDrawable] - in a basic page, the function which,
+         * @param {function} [table.getDrawable] - In a basic page, the function which,
          * when given a parameter object, returns the output to be drawn on the page.
-         * @param {function} [table.drawSteps] - in a basic page, the function
+         * @param {function} [table.drawSteps] - In a basic page, the function
          * which draws the output in steps.
-         * @param {boolean} [table.pairs] - if true, the textbox for pairs is present on
+         * @param {boolean} [table.pairs] - If true, the textbox for pairs is present on
          * the page, so its input needs to be processed.
-         * @param {string} [table.type] - one of B, C, or D
+         * @param {string} [table.type] - One of B, C, or D.
          */
         constructor(table) {
                 /**
-                 * a list of the class names of the DOM
+                 * A list of the class names of the DOM
                  * objects on the page which need to be
                  * removed when the user requests new output.
                  * @type {string[]}
                  */
                 this.clearList = table.clearList;
                 /**
-                 * the function which parses a string representation
+                 * The function which parses a string representation
                  * of the parameter input which has been supplied by the user.
                  * @type {function}
                  */
                 this.parse = table.parse;
                 /**
-                 * the function which generates a
+                 * The function which generates a
                  * random parameter based on the input supplied by the user.
                  * @type {function}
                  */
                 this.generateParameter = table.generateParameter;
                 /**
-                 * in a basic page, the function which,
+                 * In a basic page, the function which,
                  * when given a parameter object,
                  * returns the output to be drawn on the page.
                  * @type {function}
                  */
                 this.getDrawable = table.getDrawable;
                 /**
-                 * in a basic page, the function
+                 * In a basic page, the function
                  * which draws the output in steps.
                  * @type {function}
                  */
                 this.drawSteps = table.drawSteps;
                 /**
-                 * if true, the textbox for pairs is present on
+                 * If true, the textbox for pairs is present on
                  * the page, so its input needs to be processed.
                  * @type {boolean}
                  */
                 this.pairs = table.pairs;
-
-                // this.type = table.type;
                 if (table.type) {
                         /**
                          * One of B, C, or D. This member is used on pages where the
@@ -120,7 +118,7 @@ class Page {
          * an integer, parses, and checks the input
          * @param {string} boxName - the id of the textbox
          * @param {number} cutoff - the minimum allowed value of the integer
-         * @param {string} errorMessage - message to be shown in an alert box
+         * @param {string} errorMessage - the message to be shown in an alert box
          * if the entry is not proper
          * @param {boolean} [emptyOK] - if true, the box can be empty
          * @return {number|undefined}  the value obtained from the textbox
@@ -144,7 +142,7 @@ class Page {
 
         /**
          * This function calls {@link Page#getIntegerFromBox} to obtain the
-         * value from the textbox with id 'nbox'
+         * value from the textbox with id 'nbox'.
          */
         getN() {
                 let message = "Please enter a positive integer in the n box.";
@@ -265,7 +263,7 @@ class Page {
 
         /**
          * This function displays the output of the algorithm on the page.
-         * @param {Object} parameterObject - the parameter object which is the input
+         * @param {Object} parameterObject - The parameter object which is the input
          * to the algorithm.
          */
         displayInputAndOutput(parameterObject) {

@@ -1,7 +1,7 @@
 /**
  MIT License
 
- Copyright (c) 2016-2017 Devra Garfinkle Johnson
+ Copyright (c) 2016-2018 Devra Garfinkle Johnson
  Copyright (c) 2016 Christian Johnson
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,7 +30,7 @@
  * which extends {@link TableauPairGrid}.<br>
  * There are also two drawing classes, {@link TableauPairCyclesRendererDOM} and
  * {@link TableauPairRendererAnimateCycle}.<br>
- * @copyright 2016-2017 Devra Garfinkle Johnson, 2016 Christian Johnson
+ * @copyright 2016-2018 Devra Garfinkle Johnson, 2016 Christian Johnson
  */
 
 "use strict";
@@ -42,41 +42,42 @@
  */
 class TableauPairCycles extends TableauPairGrid {
         /**
-         * The first two inputs to the constructor are used to construct a TableauWithGrid.
-         * @param {string} type - B, C, or D
-         * @param {Tableau} left - the left tableau of the pair
-         * @param {Tableau} right - the right tableau of the pair
-         * @param {number} animationDuration - how long, in milliseconds, the movement
+         * @param {Object} table
+         * The first three inputs to the constructor are used to construct a TableauPairGrid.
+         * @param {string} table.type - B, C, or D
+         * @param {Tableau} table.left - the left tableau of the pair
+         * @param {Tableau} table.right - the right tableau of the pair
+         * @param {number} table.animationDuration - how long, in milliseconds, the movement
          * of each Domino should take.
-         * @param {boolean} [inPlace] - If true, the change takes place on the
+         * @param {boolean} [table.inPlace] - If true, the change takes place on the
          * original tableau pair, otherwise, clones are created and shown.
-         * @param {boolean} [unboxedOnly] - If true, only special squares for
+         * @param {boolean} [table.unboxedOnly] - If true, only special squares for
          * unboxed cycles will be shown.  Current uses also have inPlace == true.
          */
-        constructor(type, left, right, animationDuration, inPlace, unboxedOnly) {
-                super(type, left, right);
-                this.left = new TableauCycles(type, this.left,
-                        animationDuration, inPlace, unboxedOnly);
-                this.right = new TableauCycles(type, this.right,
-                        animationDuration, inPlace, unboxedOnly);
+        constructor(table) {
+                super(table);
+                this.left = new TableauCycles({type: this.left.type, tableau: this.left,
+                        animationDuration: table.animationDuration, inplace: table.inPlace, unboxedOnly: table.unboxedOnly});
+                this.right = new TableauCycles({type: this.right.type, tableau: this.right,
+                        animationDuration: table.animationDuration, inplace: table.inPlace, unboxedOnly: table.unboxedOnly});
                 /**
                  * how long, in milliseconds, the movement
                  * of each Domino should take.
                  * @type {number}
                  */
-                this.animationDuration = animationDuration;
+                this.animationDuration = table.animationDuration;
                 /**
                  * If true, the change takes place on the
                  * original tableau pair, otherwise, clones are created and shown.
                  * @type {boolean}
                  */
-                this.inPlace = inPlace;
+                this.inPlace = table.inPlace;
                 /**
                  * If true, only special squares for
                  * unboxed cycles will be shown.  Current uses also have inPlace == true.
                  * @type {boolean}
                  */
-                this.unboxedOnly = unboxedOnly;
+                this.unboxedOnly = table.unboxedOnly;
                 /**
                  * Each tableau will be drawn with its corners and holes,
                  * so this drawing may be wider than the original tableau.  This
@@ -102,9 +103,9 @@ class TableauPairCycles extends TableauPairGrid {
          *  @return {TableauPairCycles}
          */
         clone() {
-                let newTableau = new TableauPairCycles(this.left.type,
-                        this.left.clone(), this.right.clone(), this.animationDuration,
-                        this.inPlace, this.unboxedOnly);
+                let newTableau = new TableauPairCycles({type: this.left.type, left:
+                        this.left.clone(), right: this.right.clone(), animationDuration: this.animationDuration, inPlace:
+                        this.inPlace, unboxedOnly: this.unboxedOnly});
                 newTableau.widthToDraw = this.widthToDraw;
                 newTableau.heightToDraw = this.heightToDraw;
                 return newTableau;
@@ -415,7 +416,28 @@ class TableauPairCycles extends TableauPairGrid {
          * draw the animation of the extended cycle corresponding to that square.
          */
         drawWithSpecialSquares() {
-                document.body.appendChild(new TableauPairCyclesRendererDOM(this).renderDOM());
+                document.body.appendChild(new TableauPairCyclesRendererDOM({tableauPair: this}).renderDOM());
+        }
+
+        /**
+         * This mwethod alters the {@link TableauPairCycles}, by changing both its
+         * left and right tableaux into their associated special tableaux.
+         */
+        makeSpecial() {
+                this.left.makeSpecial();
+                this.right.makeSpecial();
+        }
+
+        /**
+         * This method clones the {@link TableauPairCycles},
+         * and then makes the new {@link TableauPairCycles} special.
+         * @return {TableauPairCycles} The special {@link TableauPairCycles}
+         * associated to this {@link TableauPairCycles}.
+         */
+        getSpecialTableau() {
+                let newTableauPair = this.clone();
+                newTableauPair.makeSpecial();
+                return newTableauPair;
         }
 }
 
@@ -425,10 +447,12 @@ class TableauPairCycles extends TableauPairGrid {
  */
 class TableauPairCyclesRendererDOM extends TableauPairRendererDOM {
         /**
-         * @param {TableauPairCycles} tableau
+         * @param {Object} table
+         * @param {TableauPairCycles} table.tableauPair
+         * @param {boolean} [table.noClick] Used for pages without animatiom.
          */
-        constructor(tableauPair) {
-                super(tableauPair);
+        constructor(table) {
+                super(table);
                 /**
                  * the size of the side of the square
                  * alloted to each square of a Domino, in pixels
@@ -446,7 +470,12 @@ class TableauPairCyclesRendererDOM extends TableauPairRendererDOM {
                  * of each tableau in relation to the 2x2 grid
                  * @type {Object}
                  */
-                this.offset = TableauWithGrid.getOffset(tableauPair.left.type);
+                this.offset = TableauWithGrid.getOffset(this.tableauPair.left.type);
+                /**
+                 * If true, the special squares are not clickable.
+                 * @type {boolean}
+                 */
+                this.noClick = table.noClick;
         }
 
         /**
@@ -567,7 +596,7 @@ class TableauPairCyclesRendererDOM extends TableauPairRendererDOM {
                 }
 
                 let newDimensions = TableauPairCyclesRendererDOM.addSpecialSquares(leftWrapper,
-                        rightWrapper, this.tableauPair,  this.offset, this.gridSize, width, height);
+                        rightWrapper, this.tableauPair,  this.offset, this.gridSize, width, height, this.noClick);
                 width = newDimensions.width;
                 height = newDimensions.height;
                 width = width % 2 == 0? width: ++width;
@@ -604,7 +633,7 @@ class TableauPairRendererAnimateCycle extends TableauPairRendererDOM {
          * @param {boolean} table.leftFirst - if true, the animation starts on the left
          */
         constructor(table) {
-                super(table.tableauPairToAnimate);
+                super({tableauPair: table.tableauPairToAnimate});
                 /**
                  * an Array of Arrays
                  * of the Dominos in the cycles of the left tableau

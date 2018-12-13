@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: TypeBCD/PageCycleCopy.js</title>
+    <title>JSDoc: Source: TypeBCD/PageSpecial.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: TypeBCD/PageCycleCopy.js</h1>
+    <h1 class="page-title">Source: TypeBCD/PageSpecial.js</h1>
 
     
 
@@ -53,31 +53,63 @@
 
 /**
  * @file
- * Initializes the {@link PageCycles} object for the webpage CyclesAnimateCopy.html
+ * This file contains the {@link PageSpecial} class, which extends
+ * the {@link Page} class.
+ * It is used by the page
+ * DominoRobinsonSchenstedSpecial.html
+ * The {@link Page} class has methods which handle user input to these pages,
+ * but the output for this page differs significantly from that
+ * which the {@link Page} class is designed to handle.  Thus the extension.
  * @copyright 2016-2018 Devra Garfinkle Johnson, 2016 Christian Johnson
+ * @license MIT license
  */
 
 "use strict";
 
 /**
- * The configuration object for the webpage CyclesAnimateCopy.html.
+ * @extends Page
  */
+class PageSpecial extends Page {
+        /**
+         * @param table
+         * @param {Array} table.clearList - a list of the class names of the DOM
+         * objects on the page which need to be removed when the user requests new output.
+         * @param {function} table.parse - the function which parses a string
+         * representation of the parameter input which has been supplied by the user.
+         * @param {function} table.generateParameter - the function which generates a
+         * random parameter based on the input supplied by the user.
+         */
+        constructor(table) {
+                super(table);
+        }
 
- let pageCycleCopy = null;
- $(function() {
-         pageCycleCopy =  new PageCycles({
-                 clearList: ['comment', 'tableauRender'],
-                 parse: ParameterDominoRS.parse,
-                 generateParameter: ParameterDominoRS.generateParameter,
-                 getDrawable: function(tableauPair, type, animationDuration,
-                         inPlace, unboxedOnly) {
-                         return new TableauCycles({type,
-                                 tableau: tableauPair.left, animationDuration, inPlace, unboxedOnly});
-                 },
-                 draw: function(tableau) {tableau.drawWithSpecialSquares();},
-                 type: true
-                 });
- });
+        displayInputAndOutput(parameterObject) {
+                Page.displayText(parameterObject.getParameterString());
+                let tableauPair = TableauPair.RobinsonSchenstedGrid(parameterObject, this.type);
+                let drawable = new TableauPairCycles({type: this.type, left: tableauPair.left, right:
+                        tableauPair.right, unboxedOnly: true})
+                document.body.appendChild(new TableauPairCyclesRendererDOM({tableauPair: drawable, noClick: true}).renderDOM());
+                drawable.makeSpecial();
+                let left = new TableauWithGrid({type: this.type, tableau: drawable.left});
+                let right = new TableauWithGrid({type: this.type, tableau: drawable.right});
+                tableauPair = new TableauPairGrid({type: this.type, left, right});
+                let wrapper = document.createElement('div');
+                wrapper.style.float = "left";
+                // wrapper.style.clear = "both";
+                wrapper.appendChild(new TableauPairRendererDOM({tableauPair}).renderDOM());
+                document.body.appendChild(wrapper);
+        }
+}
+
+let pageSpecial = null;
+$(function() {
+        pageSpecial =  new PageSpecial({
+                clearList: ['comment', 'tableauPairRender'],
+                parse: ParameterDominoRS.parse,
+                generateParameter: ParameterDominoRS.generateParameter,
+                type: true,
+                });
+});
 </code></pre>
         </article>
     </section>

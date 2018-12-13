@@ -38,7 +38,7 @@
  * The {@link TableauWithGrid} class is an extension of the {@link Tableau} class.
  * Domino tableaux are used for simple Lie groups of types B, C, and D.
  * There is one grid for each type.<br>
- * @copyright 2016-2017 Devra Garfinkle Johnson, 2016 Christian Johnson
+ * @copyright 2016-2018 Devra Garfinkle Johnson, 2016 Christian Johnson
  */
 
 "use strict";
@@ -438,26 +438,30 @@ class Domino {
 class Tableau {
         /**
          * The constructor creates a Tableau, usually from an Array of Dominos.<br>
-         * @param {Tableau|Domino[]} [info = []] - Often you are constructing an empty tableau,
+         * Often you are constructing an empty tableau,
          * or making a Tableau from an array of Dominos (when cloning a tableau, for example).
          * There is also a version of the constructor which starts with a Tableau
          * and just gives you the same Tableau back again.
          * This is used by the derived class {@link TableauWithGrid}.
+         * @param {Object} table
+         * @param {Object} [table.tableau] - a Tableau to be copied.
+         * @param {Object} [table.dominoList] - an Array of Dominos.
          */
-        constructor(info) {
-                if (info instanceof Tableau) {
+        constructor(table) {
+                table = table || {};
+                if (table.tableau) {
                         /**
                          * an array of references to the Dominos of the tableau.
                          * @type {Domino[]}
                          */
-                        this.dominoList = info.dominoList;
+                        this.dominoList = table.tableau.dominoList;
                         /**
                          * see {@link DominoGrid}
                          * @type {DominoGrid}
                          */
-                        this.dominoGrid = info.dominoGrid;
+                        this.dominoGrid = table.tableau.dominoGrid;
                 } else {
-                        this.dominoList = info || [];
+                        this.dominoList = table.dominoList || [];
                         this.dominoGrid = new DominoGrid(this.dominoList);
                 }
         }
@@ -467,7 +471,7 @@ class Tableau {
          *  @return {Tableau}
          */
         clone() {
-                return new Tableau(Domino.cloneList(this.dominoList));
+                return new Tableau({dominoList: Domino.cloneList(this.dominoList)});
         }
 
         /**
@@ -477,7 +481,7 @@ class Tableau {
          */
         static makeBTableau() {
                 let zero = Domino.makeZero();
-                return new Tableau([zero]);
+                return new Tableau({dominoList: [zero]});
         }
 
         /**
@@ -485,7 +489,7 @@ class Tableau {
          *  to draw the Tableau on a webpage.
          */
         draw() {
-                document.body.appendChild(new TableauRendererDOM(this).renderDOM());
+                document.body.appendChild(new TableauRendererDOM({tableau: this}).renderDOM());
         }
 
         /**
@@ -1377,21 +1381,22 @@ class Tableau {
  */
 class TableauWithGrid extends Tableau {
         /**
-         * @param {string} type - One of "B", "C", or "D"
-         * @param {Tableau|Domino[]} [info = []] - this is the input
-         * to construct a Tableau
+         * @param {Object} table
+         * @param {string} table.type - One of "B", "C", or "D"
+         * @param {Object} [table.tableau] - a Tableau to be copied.
+         * @param {Object} [table.dominoList] - an Array of Dominos.
          */
-         constructor(type, info) {
-                 if (type == "B" && !info) {
-                         super([Domino.makeZero()]);
+         constructor(table) {
+                 if (table.type == "B" && !(table.tableau || table.dominoList)) {
+                         super({dominoList: [Domino.makeZero()]});
                  } else {
-                         super(info);
+                         super(table);
                  }
                  /**
                   * One of "B", "C", or "D"
                   * @type {string}
                   */
-                 this.type = type;
+                 this.type = table.type;
                  /**
                   * See {@link TableauWithGrid.getGrid} for a description of this function.
                   * The type of the TableauWithGrid is mostly expressed through
@@ -1399,7 +1404,7 @@ class TableauWithGrid extends Tableau {
                   * situated in the 2x2 box of the grid which contains it.
                   * @type {function}
                   */
-                 this.getGridSubPosition = TableauWithGrid.getGrid(type);
+                 this.getGridSubPosition = TableauWithGrid.getGrid(this.type);
          }
 
         /**
@@ -1407,7 +1412,7 @@ class TableauWithGrid extends Tableau {
          *  @return {TableauWithGrid}
          */
         clone() {
-                return new TableauWithGrid(this.type, Domino.cloneList(this.dominoList));
+                return new TableauWithGrid({type: this.type, dominoList: Domino.cloneList(this.dominoList)});
         }
 
         /**
@@ -1906,14 +1911,20 @@ class TableauWithGrid extends Tableau {
  */
 class ParameterDominoRS {
         /**
-         * @param {number[]|string} [input] - The input to this constructor can
-         * either be an array of the type required for {@link ParameterDominoRS#parameter},
-         * or it can be the string representation of the signed permutation.
+         * This constructs a {@link ParameterDominoRS} from either
+         * an array of numbers or a space-separated string of those numbers.
          * If input is not given, the constructor returns the representation
          * of the empty signed permutation.
+         * {@link TableauSignsSppq}.
+         * @param {Object} table
+         * @param {number[]} [table.array] - an array of the type required
+         * for {@link ParameterDominoRS#parameter}
+         * @param {string} [table.parameterString] - the string representation
+         * of a signed permutation.
          */
-        constructor(input) {
-                if (Array.isArray(input)) {
+        constructor(table) {
+                table = table || {};
+                if (table.array) {
                         /**
                          * This is an array which stores the signed permutation.
                          * Functionally, the array is 1-based, that is,
@@ -1921,10 +1932,9 @@ class ParameterDominoRS {
                          * and parameter[i] = j means that the permutation takes i to j.
                          * @type {Array.number}
                          */
-                        this.parameter = input;
-                } else if (typeof input == "string") {
-                        this.parameter = ParameterDominoRS.parse(input).parameter;
-
+                        this.parameter = table.array;
+                } else if (table.parameterString) {
+                        this.parameter = ParameterDominoRS.parse(table.parameterString).parameter;
                 } else {
                         this.parameter = [0];
                 }
@@ -1935,9 +1945,9 @@ class ParameterDominoRS {
          *  @return {ParameterDominoRS}
          */
         clone() {
-                let param = [];
-                this.parameter.forEach((item) => param.push(item));
-                return new ParameterDominoRS(param);
+                let parameter = [];
+                this.parameter.forEach((item) => parameter.push(item));
+                return new ParameterDominoRS({array: parameter});
         }
 
         /**
@@ -1966,7 +1976,7 @@ class ParameterDominoRS {
                         }
                 }
 
-                return new ParameterDominoRS(parameter);
+                return new ParameterDominoRS({array: parameter});
         }
 
         /**
@@ -1999,7 +2009,7 @@ class ParameterDominoRS {
                 data.forEach((datum) => {
                         parameter.push(parseInt(datum));
                 });
-                return new ParameterDominoRS(parameter);
+                return new ParameterDominoRS({array: parameter});
         }
 }
 
@@ -2008,11 +2018,13 @@ class ParameterDominoRS {
 */
 class TableauPair {
         /**
-         * @param {Tableau} [left] - the left tableau of the pair.
-         * @param {Tableau} [right] - the right tableau of the pair.
+         * @param {Object} table
+         * @param {Tableau} [table.left] - the left tableau of the pair.
+         * @param {Tableau} [table.right] - the right tableau of the pair.
          */
-        constructor(left, right) {
-                if (!left) {
+        constructor(table) {
+                table = table || {};
+                if (!table.left) {
                         /**
                          * the left tableau of the pair
                          * @type {Tableau}
@@ -2024,8 +2036,8 @@ class TableauPair {
                          */
                         this.right = new Tableau();
                 } else {
-                        this.left = left;
-                        this.right = right;
+                        this.left = table.left;
+                        this.right = table.right;
                 }
         }
 
@@ -2037,7 +2049,7 @@ class TableauPair {
         static makeTableauPairB() {
                 let left = Tableau.makeBTableau();
                 let right = Tableau.makeBTableau();
-                return new TableauPair(left, right);
+                return new TableauPair({left, right});
         }
 
         /**
@@ -2047,7 +2059,7 @@ class TableauPair {
         clone() {
                 let left = this.left.clone();
                 let right = this.right.clone();
-                return new TableauPair(left, right);
+                return new TableauPair({left, right});
         }
 
         /**
@@ -2055,7 +2067,7 @@ class TableauPair {
          *  to draw the {@link TableauPair} on a webpage.
          */
         draw() {
-                document.body.appendChild(new TableauPairRendererDOM(this).renderDOM());
+                document.body.appendChild(new TableauPairRendererDOM({tableauPair: this}).renderDOM());
         }
 
         /**
@@ -2129,8 +2141,8 @@ class TableauPair {
                         myTableauPair = new TableauPair();
                 }
 
-                myTableauPair.left = new TableauWithGrid(type, myTableauPair.left);
-                myTableauPair.right = new TableauWithGrid(type, myTableauPair.right);
+                myTableauPair.left = new TableauWithGrid({type, tableau: myTableauPair.left});
+                myTableauPair.right = new TableauWithGrid({type, tableau: myTableauPair.right});
                 for (let index = 1, length = parameter.length; index < length; ++index) {
                         myTableauPair.nextRobinsonSchensted(parameter[index], index);
                 }
@@ -2156,8 +2168,8 @@ class TableauPair {
                         myTableauPair = new TableauPair();
                 }
 
-                myTableauPair.left = new TableauWithGrid(type, myTableauPair.left);
-                myTableauPair.right = new TableauWithGrid(type, myTableauPair.right);
+                myTableauPair.left = new TableauWithGrid({type, tableau: myTableauPair.left});
+                myTableauPair.right = new TableauWithGrid({type, tableau: myTableauPair.right});
                 for (let index = 1, length = parameter.length; index < length; ++index) {
                         Page.displayText(parameter[index]);
                         myTableauPair.nextRobinsonSchensted(parameter[index], index);
@@ -2189,7 +2201,7 @@ class TableauPair {
                         parameter[number + skip] = tableau.removeRobinsonSchensted(rightDomino);
                 }
 
-                return new ParameterDominoRS(parameter);
+                return new ParameterDominoRS({array: parameter});
         }
 }
 
@@ -2199,26 +2211,27 @@ class TableauPair {
  */
 class TableauPairGrid extends TableauPair {
         /**
-         * @param {string} type - "B", "C", or "D"
-         * @param {TableauWithGrid|Tableau} [left] - the left tableau of the pair
-         * @param {TableauWithGrid|Tableau} [right] - the right tableau of the pair
+         * @param {Object} table
+         * @param {string} table.type - "B", "C", or "D"
+         * @param {Tableau} [table.left] - the left tableau of the pair
+         * @param {Tableau} [table.right] - the right tableau of the pair
          */
-        constructor(type, left, right) {
-                super(left, right);
-                if (!left) {
+        constructor(table) {
+                super(table);
+                if (!table.left) {
                         /**
                          * the left tableau of the pair
                          * @type {TableauWithGrid}
                          */
-                        this.left = new TableauWithGrid(type);
+                        this.left = new TableauWithGrid({type: table.type});
                         /**
                          * the right tableau of the pair
                          * @type {TableauWithGrid}
                          */
-                        this.right = new TableauWithGrid(type);
+                        this.right = new TableauWithGrid({type: table.type});
                 } else if (!this.left.type) {
-                        this.left = new TableauWithGrid(type, this.left);
-                        this.right = new TableauWithGrid(type, this.right);
+                        this.left = new TableauWithGrid({type, tableau: this.left});
+                        this.right = new TableauWithGrid({type, tableau: this.right});
                 }
         }
 
@@ -2229,7 +2242,7 @@ class TableauPairGrid extends TableauPair {
         clone() {
                 let left = this.left.clone();
                 let right = this.right.clone();
-                return new TableauPairGrid(this.left.type, left, right);
+                return new TableauPairGrid({type: this.left.type, left, right});
         }
 
         /**
@@ -2243,7 +2256,7 @@ class TableauPairGrid extends TableauPair {
          */
         static RobinsonSchenstedGrid(parameterObject, type) {
                 let parameter = parameterObject.parameter;
-                let myTableauPair = new TableauPairGrid(type);
+                let myTableauPair = new TableauPairGrid({type});
                 for (let index = 1, length = parameter.length; index < length; ++index) {
                         myTableauPair.nextRobinsonSchensted(parameter[index], index);
                 }
@@ -2416,21 +2429,22 @@ class TableauPairGrid extends TableauPair {
  */
 class TableauRendererDOM {
         /**
-          * @param {Tableau} tableau - the tableau to draw<br>
+         * @param {Object} table
+         * @param {Tableau} table.tableau - the tableau to draw<br>
          */
-        constructor(tableau) {
+        constructor(table) {
                 /**
                  * the tableau to draw
                  * @type {TableauWithGrid|Tableau}
                  */
-                this.tableau = tableau;
+                this.tableau = table.tableau;
                 /**
                  * the size of the side of the square
                  * alloted to each square of a Domino, in pixels
                  * @type {Number}
                  */
                 this.gridSize = 30;
-                if (tableau.type) {
+                if (this.tableau.type) {
                         /**
                          * a boolean which is true if tableau is a TableauWithGrid
                          * @type {Boolean}
@@ -2441,7 +2455,7 @@ class TableauRendererDOM {
                          * of the tableau in relation to the 2x2 grid
                          * @type {Object}
                          */
-                        this.offset = TableauWithGrid.getOffset(tableau.type);
+                        this.offset = TableauWithGrid.getOffset(this.tableau.type);
                 } else {
                         this.offset = {x: 0, y: 0};
                 }
@@ -2657,14 +2671,15 @@ class TableauRendererDOM {
  */
 class TableauPairRendererDOM {
         /**
-         * @param {TableauPair} tableauPair - the pair to draw
+         * @param {Object} table
+         * @param {TableauPair} table.tableauPair - the pair to draw
          */
-        constructor(tableauPair) {
+        constructor(table) {
                 /**
                  * the tableau pair to render
                  * @type {TableauPair}
                  */
-                this.tableauPair = tableauPair;
+                this.tableauPair = table.tableauPair;
         }
 
         /**
@@ -2674,8 +2689,8 @@ class TableauPairRendererDOM {
          * @return {Object} the rendered tableau pair
          */
         renderDOM() {
-                let leftRenderer = new TableauRendererDOM(this.tableauPair.left);
-                let rightRenderer = new TableauRendererDOM(this.tableauPair.right);
+                let leftRenderer = new TableauRendererDOM({tableau: this.tableauPair.left});
+                let rightRenderer = new TableauRendererDOM({tableau: this.tableauPair.right});
                 let wrapperLeft = leftRenderer.renderDOM();
                 let wrapperRight = rightRenderer.renderDOM();
 

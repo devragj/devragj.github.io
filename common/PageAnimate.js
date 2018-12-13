@@ -1,7 +1,7 @@
 /**
  MIT License
 
- Copyright (c) 2016-2017 Devra Garfinkle Johnson
+ Copyright (c) 2016-2018 Devra Garfinkle Johnson
  Copyright (c) 2016 Christian Johnson
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,78 +32,78 @@
  * The {@link Page} class has methods which handle user input to these pages,
  * but the output for these pages differs significantly from that
  * which the {@link Page} class is designed to handle.  Thus the extension.
- * @copyright 2016-2017 Devra Garfinkle Johnson, 2016 Christian Johnson
+ * @copyright 2016-2018 Devra Garfinkle Johnson, 2016 Christian Johnson
  * @license MIT license
  */
 
 "use strict";
 
 /**
- * helper class for animating the Robinson-Schensted algorithm and the
- * Domino Robinson-Schensted algorithm
+ * Helper class for animating the Robinson-Schensted algorithm and the
+ * Domino Robinson-Schensted algorithm.
  * @extends Page
  */
 class PageAnimate extends Page {
         /**
          * @param table
-         * @param {Array} table.clearList - a list of the class names of the DOM
+         * @param {Array} table.clearList - A list of the class names of the DOM
          * objects on the page which need to be removed when the user requests new output.
-         * @param {function} table.parse - the function which parses a string
+         * @param {function} table.parse - The function which parses a string
          * representation of the parameter input which has been supplied by the user.
-         * @param {function} table.generateParameter - the function which generates a
+         * @param {function} table.generateParameter - The function which generates a
          * random parameter based on the input supplied by the user.
-         * @param {string} table.animationClassName - the CSS class name of the animation object
-         * to be cleared between steps of the animation
-         * @param {function} table.getTableau - the function which obtains the
-         * empty tableau to start the animation
-         * @param {function} table.getAnimationData - the function which gets the
-         * data necessary to put the animation on the page
+         * @param {string} table.animationClassName - The CSS class name of the animation
+         * object to be cleared between steps of the animation.
+         * @param {function} table.getTableau - The function which obtains the
+         * empty tableau to start the animation.
+         * @param {function} table.getAnimationData - The function which gets the
+         * data necessary to put the animation on the page.
          */
         constructor(table) {
                 super(table);
                 /**
-                 * the function which obtains the
-                 * empty tableau to start the animation
+                 * The function which obtains the
+                 * empty tableau to start the animation.
                  * @type {function}
                  */
                 this.getTableau = table.getTableau;
                 /**
-                 * the function which gets the
-                 * data necessary to put the animation on the page
+                 * The function which gets the
+                 * data necessary to put the animation on the page.
                  * @type {function}
                  */
                 this.getAnimationData = table.getAnimationData;
                 /**
-                 * the CSS class name of the animation object
-                 * to be cleared between steps of the animation
+                 * The CSS class name of the animation object
+                 * to be cleared between steps of the animation.
                  * @type {string}
                  */
                 this.animationClassName = table.animationClassName;
                 this.clearList.push(this.animationClassName);
                 /**
-                 * how long, in milliseconds, the movement
+                 * How long, in milliseconds, the movement
                  * of each Domino should take.
                  * @type {number}
                  */
                 this.animationDuration = parseFloat($("#speed").val()) * 1000;
                 /**
-                 * the index in the permutation array of the number
-                 * being added at the current step of the animation
+                 * The index in the permutation array of the number
+                 * being added at the current step of the animation.
                  * @type {number}
                  */
                 this.currentIndex = 0;
                 /**
-                 * the last index in the permutation array
+                 * The last index in the permutation array.
                  * @type {number}
                  */
                 this.lastIndex = 0;
                 /**
-                 * the permutation arrray
+                 * The permutation arrray.
                  * @type {number[]}
                  */
                 this.permutation = null;
                 /**
-                 * the underlying tableau at each stage of the animation
+                 * This holds the underlying tableau at each stage of the animation.
                  * @type {Object}
                  */
                 this.tableau = null;
@@ -111,9 +111,9 @@ class PageAnimate extends Page {
 
         /**
          * This function handles the onchange event for the dropdown
-         * menu on the webpage which allows the user to change
+         * menu on the webpage which allows the user to change.
          * {@link PageAnimate#animationDuration}.
-         * @param {Object} select - the dropdown menu on the webpage
+         * @param {Object} select - The dropdown menu on the webpage.
          */
         changeSpeed(select) {
                 this.animationDuration = parseFloat($(select).val()) * 1000;
