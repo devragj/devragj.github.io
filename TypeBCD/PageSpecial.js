@@ -62,13 +62,10 @@ class PageSpecial extends Page {
                         tableauPair.right, unboxedOnly: true})
                 document.body.appendChild(new TableauPairCyclesRendererDOM({tableauPair: drawable, noClick: true}).renderDOM());
                 drawable.makeSpecial();
-                let left = new TableauWithGrid({type: this.type, tableau: drawable.left});
-                let right = new TableauWithGrid({type: this.type, tableau: drawable.right});
-                tableauPair = new TableauPairGrid({type: this.type, left, right});
                 let wrapper = document.createElement('div');
                 wrapper.style.float = "left";
                 // wrapper.style.clear = "both";
-                wrapper.appendChild(new TableauPairRendererDOM({tableauPair}).renderDOM());
+                wrapper.appendChild(new TableauPairRendererDOM({tableauPair: drawable}).renderDOM());
                 document.body.appendChild(wrapper);
         }
 }
