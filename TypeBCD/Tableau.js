@@ -177,7 +177,7 @@ class DominoGrid {
          */
         unset(x, y) {
                 if (this.rowLengths[y] != x + 1 || this.columnLengths[x] != y + 1) {
-                        throw new Error("Bad input to unset.")
+                        throw new Error("Bad input to unset.");
                 }
 
                 if (x == 0) {
@@ -269,7 +269,7 @@ class DominoGrid {
                                 this.grid[position.y].pop();
                         }
 
-                        this.rowLengths[position.y] -=2;
+                        this.rowLengths[position.y] -= 2;
                         this.columnLengths[position.x]--;
                         this.columnLengths[position.x + 1]--;
                 } else { // !position.horizontal
@@ -505,6 +505,7 @@ class Tableau {
                                 break;
                         }
                 }
+
                 if (!inserted) {
                         this.dominoList.push(domino);
                 }
@@ -1450,6 +1451,7 @@ class TableauWithGrid extends Tableau {
                                 if (square.x % 2 == 0 && square.y % 2 == 1) return "W";
                         }
                 }
+
                 return GRIDS[type];
         }
 
@@ -1512,15 +1514,16 @@ class TableauWithGrid extends Tableau {
          * @return {boolean} If true, the domino is boxed with respect to the grid.
          */
         isBoxed(domino) {
-                if (this.getGridSubPosition(domino) == "X") {
+                let gridSubPosition = this.getGridSubPosition(domino);
+                if (gridSubPosition == "X") {
                         return true;
                 }
 
-                if (domino.horizontal && this.getGridSubPosition(domino) == "Z") {
+                if (domino.horizontal && gridSubPosition == "Z") {
                         return true;
                 }
 
-                if (!domino.horizontal && this.getGridSubPosition(domino) == "Y") {
+                if (!domino.horizontal && gridSubPosition == "Y") {
                         return true;
                 }
 
@@ -1969,11 +1972,12 @@ class ParameterDominoRS {
                 parameter[0] = 0;
 
                 for (let index = 1; index <= n; index++) {
-                        let num = chooseOne(numbers);
-                        parameter[index] = num;
+                        let number = chooseOne(numbers);
                         if (Math.random() < .5) {
-                                parameter[index] *= -1;
+                                number *= -1;
                         }
+
+                        parameter[index] = number;
                 }
 
                 return new ParameterDominoRS({array: parameter});
