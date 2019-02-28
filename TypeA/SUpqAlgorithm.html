@@ -1,93 +1,108 @@
 <!DOCTYPE html>
 <html>
-<head>
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" href="TableauA.css"/>
-        <link rel="stylesheet" href="../common/pageStyles.css"/>
-        <title>SU(p,q) Algorithm</title>
-        <script type="text/javascript" src="TableauA.js"></script>
-        <script type="text/javascript" src="TableauSUpq.js"></script>
-        <script type="text/javascript" src="../common/Page.js"></script>
-        <script type="text/javascript" src="PageSUpq.js"></script>
-</head>
-<body>
-        <h2>SU(p,q) Algorithm
-                <span class="infoButtons">
-                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Instructions</button>
-                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button>
-                </span>
-        </h2>
-        <div class="infoDiv" id="InstructionsDiv" style="display:none">
-                <p>
-                        The page can be used in two ways.&nbsp;
-                        First, you can have the page generate a random input parameter.&nbsp;
-                        To do that, enter the size of the parameter in the first textbox.&nbsp;
-                        Optionally, enter the number of pairs in the parameter in the second textbox.&nbsp;
-                        The number of pairs should be less than or equal to half the number chosen for n.
-                </p>
-                <p>
-                        After entering this information, click one of the two buttons directly to the right.&nbsp;
-                        The Run button will display a randomly-generated parameter and the output of the SU(p,q) Algorithm when applied to that parameter.&nbsp;
-                        Alternatively, the Run Steps button will also generate a random parameter, and will show you the intermediate steps of applying the SU(p,q) Algorithm to that parameter.
-                </p>
-                <p>
-                        Pressing Enter while in one of the textboxes will click the Run button to the right.&nbsp;
-                        Pressing a button a second time, or a different button, will clear the previous result as it gives you a new result, as will pressing Enter while in a textbox.
-                </p>
-                <p>
-                        You can also enter an input parameter in the textbox labelled "parameter".&nbsp;
-                        A parameter is an arrangement of the numbers 1 through n (with n = p + q), where each number is either a singleton or paired with another number.&nbsp;
-                        Any singleton number has a sign associated to it, either + or -.&nbsp;
-                        For example, this is a parameter:&nbsp; 1+ 3- 2_5 6+ 4_7.&nbsp;
-                        The _ is used to indicate a pair of numbers.&nbsp;
-                        Specifically, this will be a parameter for SU(p,q) where p = (number of + signs) + (number of pairs), and similarly q = (number of - signs) + (number of pairs).&nbsp;
-                        So, the example above is a parameter for SU(4,3).
-                </p>
-                <p>
-                        To enter a parameter in the parameter textbox, write the parameter as in the example, with spaces separating the pieces of the parameter.&nbsp;
-                        Then, use the Run or Run Steps buttons to the right of that box, as above.
-                </p>
-        </div>
-        <div class="infoDiv" id="InformationDiv" style="display:none">
-                <p>
-                        This page displays the algorithm for computing annihilators and associated varieties for irreducible Harish-Chandra modules for SU(p,q).&nbsp;
-                        The input to the SU(p,q) algorithm is a parameter for the irreducible Harish-Chandra module.&nbsp;
-                        For the purposes of this algorithm, if n = p + q, then a parameter takes the form of an arrangement of the numbers 1,..., n, where each number is either a singleton or paired with another number.&nbsp;
-                        Any singleton number has a sign associated to it, either + or -.&nbsp;
-                        For example, this is a parameter:&nbsp; 1+ 3- 2_5 6+ 4_7.&nbsp;
-                        The _ is used to indicate a pair of numbers.&nbsp;
-                        We have p = (number of + signs) + (number of pairs), and similarly q = (number of - signs) + (number of pairs).&nbsp;
-                        So, the example above is a parameter for SU(4,3).
-                </p>
-                <p>
-                        A parameter is determined by its pieces (that is, the number/sign combinations and number/number pairs).&nbsp;
-                        Unlike in a permutation, the order of the pieces doesn't matter.&nbsp;
-                        We will list the pieces in increasing numerical order, where this increasing order disregards the first number of any number pair, and just uses the second number to find its place.&nbsp;
-                        (The example parameter above is in this order.)&nbsp;
-                        The pieces of the parameter are used by the algorithm in this order.
-                </p>
-                <p>
-                        The output of the SU(p,q) algorithm is a pair of tableaux.&nbsp;
-                        The left tableau is a tableau with numbers, just as in the output to the Robinson-Schensted algorithm.&nbsp;
-                        The right tableau is a tableau of the same shape as the left tableau, but with signs (+ and -) in the squares.&nbsp;
-                        The signs alternate along rows.&nbsp;
-                        More precisely, the right side of the output of the algorithm is an equivalence class of such tableaux, with the equivalence relationship being that rows of equal length can be interchanged.&nbsp;
-                        With this equivalence relationship, the algorithm is a bijection.&nbsp;
-                        The left tableau of the output corresponds to the primitive idea which is the annihilator of the irreducible Harish-Chandra module associated to the parameter.&nbsp;
-                        The right tableau describes the associated variety of this Harish-Chandra module.
-                </p>
-                <p>
-                        Reference:&nbsp; Garfinkle, Devra. "The Annihilators of Irreducible Harish-Chandra Modules for SU(p,q) and Other Type A<sub>n-1</sub> Groups", American Journal of Mathematics, Vol. 115, No. 2 (Apr., 1993), pp. 305-369, Stable URL:&nbsp; <a href="http://www.jstor.org/stable/2374861" target="_blank">http://www.jstor.org/stable/2374861</a>
-                </p>
-        </div>
-        <div id="Controls">
-                <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
-                <span>pairs:&nbsp; <input type="text" id="pbox" size="6" onkeyup="Page.randomKey(event)"></span>
-                <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageSUpq.runInput()">Run</button></span>
-                <span><button type="button" class = "BigButton" onclick="pageSUpq.runSteps()">Run Steps</button></span>
-                <span>parameter:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
-                <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageSUpq.runParameter()">Run</button></span>
-                <span><button type="button" class = "BigButton" onclick="pageSUpq.runParameterSteps()">Run Steps</button></span>
-        </div>
-</body>
+        <head>
+                <meta charset="utf-8" />
+                <link rel="stylesheet" href="TableauA.css" />
+                <link rel="stylesheet" href="../common/pageStyles.css" />
+                <title>SU(p,q) Algorithm</title>
+                <script type="text/javascript" src="TableauA.js"></script>
+                <script type="text/javascript" src="TableauSUpq.js"></script>
+                <script type="text/javascript" src="../common/Page.js"></script>
+                <script type="text/javascript" src="PageSUpq.js"></script>
+        </head>
+        <body>
+                <h2>SU(p,q) Algorithm
+                        <span class="infoButtons">
+                                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Instructions</button>
+                                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button>
+                        </span>
+                </h2>
+                <div class="infoDiv" id="InstructionsDiv" style="display:none">
+                        <p>
+                                The page can be used in two ways.&nbsp;
+                                First, you can have the page generate a random input parameter.&nbsp;
+                                To do that, enter the size of the parameter in the first textbox.&nbsp;
+                                Optionally, enter the number of pairs in the parameter in the second textbox.&nbsp;
+                                The number of pairs should be less than or equal to half the number chosen for n.
+                        </p>
+                        <p>
+                                After entering this information, click one of the two buttons directly to the right.&nbsp;
+                                The Run button will display a randomly-generated parameter and the output of the SU(p,q) Algorithm when applied to that parameter.&nbsp;
+                                Alternatively, the Run Steps button will also generate a random parameter, and will show you the intermediate steps of applying the SU(p,q) Algorithm to that parameter.
+                        </p>
+                        <p>
+                                Pressing Enter while in one of the textboxes will click the Run button to the right.&nbsp;
+                                Pressing a button a second time, or a different button, will clear the previous result as it gives you a new result, as will pressing Enter while in a textbox.
+                        </p>
+                        <p>
+                                You can also enter an input parameter in the textbox labelled "parameter".&nbsp;
+                                A parameter is an arrangement of the numbers 1 through n (with n = p + q), where each number is either a singleton or paired with another number.&nbsp;
+                                Any singleton number has a sign associated to it, either + or -.&nbsp;
+                                For example, this is a parameter:&nbsp; 1+ 3- 2_5 6+ 4_7.&nbsp;
+                                The _ is used to indicate a pair of numbers.&nbsp;
+                                Specifically, this will be a parameter for SU(p,q) where p = (number of + signs) + (number of pairs), and similarly q = (number of - signs) + (number of pairs).&nbsp;
+                                So, the example above is a parameter for SU(4,3).
+                        </p>
+                        <p>
+                                To enter a parameter in the parameter textbox, write the parameter as in the example, with spaces separating the pieces of the parameter.&nbsp;
+                                Then, use the Run or Run Steps buttons to the right of that box, as above.
+                        </p>
+                </div>
+                <div class="infoDiv" id="InformationDiv" style="display:none">
+                        <p>
+                                This page displays the algorithm for computing annihilators and associated varieties for irreducible Harish-Chandra modules for SU(p,q).&nbsp;
+                                The input to the SU(p,q) algorithm is a parameter for the irreducible Harish-Chandra module.&nbsp;
+                                For the purposes of this algorithm, if n = p + q, then a parameter takes the form of an arrangement of the numbers 1,..., n, where each number is either a singleton or paired with another number.&nbsp;
+                                Any singleton number has a sign associated to it, either + or -.&nbsp;
+                                For example, this is a parameter:&nbsp; 1+ 3- 2_5 6+ 4_7.&nbsp;
+                                The _ is used to indicate a pair of numbers.&nbsp;
+                                We have p = (number of + signs) + (number of pairs), and similarly q = (number of - signs) + (number of pairs).&nbsp;
+                                So, the example above is a parameter for SU(4,3).
+                        </p>
+                        <p>
+                                A parameter is determined by its pieces (that is, the number/sign combinations and number/number pairs).&nbsp;
+                                Unlike in a permutation, the order of the pieces doesn't matter.&nbsp;
+                                We will list the pieces in increasing numerical order, where this increasing order disregards the first number of any number pair, and just uses the second number to find its place.&nbsp;
+                                (The example parameter above is in this order.)&nbsp;
+                                The pieces of the parameter are used by the algorithm in this order.
+                        </p>
+                        <p>
+                                The output of the SU(p,q) algorithm is a pair of tableaux.&nbsp;
+                                The left tableau is a tableau with numbers, just as in the output to the Robinson-Schensted algorithm.&nbsp;
+                                The right tableau is a tableau of the same shape as the left tableau, but with signs (+ and -) in the squares.&nbsp;
+                                The signs alternate along rows.&nbsp;
+                                More precisely, the right side of the output of the algorithm is an equivalence class of such tableaux, with the equivalence relationship being that rows of equal length can be interchanged.&nbsp;
+                                With this equivalence relationship, the algorithm is a bijection.&nbsp;
+                                The left tableau of the output corresponds to the primitive idea which is the annihilator of the irreducible Harish-Chandra module associated to the parameter.&nbsp;
+                                The right tableau describes the associated variety of this Harish-Chandra module.
+                        </p>
+                        <p>
+                                <h4>References</h4>
+                                Garfinkle, Devra. "The Annihilators of Irreducible Harish-Chandra Modules for SU(p,q) and Other Type A<sub>n-1</sub> Groups", American Journal of Mathematics, Vol. 115, No. 2 (Apr., 1993), pp.
+                                305-369, Stable URL:&nbsp; <a href="http://www.jstor.org/stable/2374861" target="_blank">http://www.jstor.org/stable/2374861</a>
+                                <p>
+                                        For associated varieties, see
+                                        <ul style="list-style-type: none; list-style-position: inside; padding-left: 0;">
+                                                <li>
+                                                        Trapa, Peter. "Generalized Robinson-Schensted algorithms for real Lie groups" International Math Research Notices, 1999, no. 15, 803-834. <a href="http://www.math.utah.edu/%7Eptrapa/cellspaper.pdf"
+                                                                target="_blank">http://www.math.utah.edu/%7Eptrapa/cellspaper.pdf</a>
+                                                </li>
+                                                <li>
+                                                        Trapa, Peter. "Annihilators and associated varieties of A_q(lambda) modules for U(p,q)" Compositio Mathematica, 129 (2001), no. 1, 1-45. <a href="https://www.math.utah.edu/%7Eptrapa/newestaql.pdf"
+                                                                target="_blank">https://www.math.utah.edu/%7Eptrapa/newestaql.pdf</a>
+                                                </li>
+                                        </ul>
+                                </p>
+                        </p>
+                </div>
+                <div id="Controls">
+                        <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
+                        <span>pairs:&nbsp; <input type="text" id="pbox" size="6" onkeyup="Page.randomKey(event)"></span>
+                        <span><button type="button" id="runRandomButton" class="SmallButton" onclick="pageSUpq.runInput()">Run</button></span>
+                        <span><button type="button" class="BigButton" onclick="pageSUpq.runSteps()">Run Steps</button></span>
+                        <span>parameter:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
+                        <span><button type="button" id="runParameterButton" class="SmallButton" onclick="pageSUpq.runParameter()">Run</button></span>
+                        <span><button type="button" class="BigButton" onclick="pageSUpq.runParameterSteps()">Run Steps</button></span>
+                </div>
+        </body>
 </html>
