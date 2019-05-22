@@ -5,6 +5,12 @@ span {
        display:inline-block;
        margin: 10px 20px;
 }
+button {
+        padding: 5px 12px;
+        border-radius: 4px;
+        background-color: lightskyblue;
+        font-size: 14px;
+}
 span.infoButtons {
        /* display:inline-block; */
        margin: 0 0 0 20px;
@@ -26,7 +32,7 @@ button:hover{
         width: 135px;
 }
 #Controls {
-        margin: 20px 30px;
+        margin: 20px 30px 25px;
 }
 .infoDiv {
         margin: 10px 30px;
@@ -35,4 +41,6 @@ button:hover{
 }
 .toggleButton {
         margin: 0px 20px;
+        color: white;
+        background-color: blueviolet;
 }
