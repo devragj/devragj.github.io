@@ -53,25 +53,33 @@
         </div>
 
         <div id="Controls">
-                <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="pageAnimateRS.animationRandomKey(event)"></span>
-                <span><button type="button" id="startRandomButton" class = "BiggerButton" onclick="pageAnimateRS.startRandomAnimation()">Start Animation</button></span>
-                <span><button type="button" id="nextRandomButton" class = "BiggerButton" onclick="pageAnimateRS.nextStep()">Next Step</button></span>
-                <span>permutation:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="pageAnimateRS.animationParameterKey(event)"></span>
-                <span><button type="button" id="startParameterButton" class = "BiggerButton" onclick="pageAnimateRS.startParameterAnimation()">Start Animation</button></span>
-                <span><button type="button" id="nextParameterButton" class = "BiggerButton" onclick="pageAnimateRS.nextStep()">Next Step</button></span>
-                <span>animation speed:
-                        <select id='speed' onchange="pageAnimateRS.changeSpeed(this)">
-                                <option value='.2'>.2 second</option>
-                                <option value='.5'>.5 second</option>
-                                <option value='1'>1 second</option>
-                                <option value='1.5'>1.5 seconds</option>
-                                <option value='2' selected>2 seconds</option>
-                                <option value='2.5'>2.5 seconds</option>
-                                <option value='3'>3 seconds</option>
-                                <option value='3.5'>3.5 seconds</option>
-                                <option value='4'>4 seconds</option>
-                        </select>
-                </span>
+                <div class='controlHolder'>
+                        <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="pageAnimateRS.animationRandomKey(event)"></span>
+                        <span><button type="button" id="startRandomButton" class = "BiggerButton" onclick="pageAnimateRS.startRandomAnimation()">Start Animation</button></span>
+                        <span><button type="button" id="nextRandomButton" class = "BiggerButton" onclick="pageAnimateRS.nextStep()">Next Step</button></span>
+                </div>
+                <div class='controlHolder'>
+                        <span>permutation:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="pageAnimateRS.animationParameterKey(event)"></span>
+                        <span><button type="button" id="startParameterButton" class = "BiggerButton" onclick="pageAnimateRS.startParameterAnimation()">Start Animation</button></span>
+                        <span><button type="button" id="nextParameterButton" class = "BiggerButton" onclick="pageAnimateRS.nextStep()">Next Step</button></span>
+                </div>
+                <div class='controlHolder animationSpeed'>
+                        <span>animation speed:
+                                <select id='speed' onchange="pageAnimateRS.changeSpeed(this)">
+                                        <option value='.2'>.2 second</option>
+                                        <option value='.5'>.5 second</option>
+                                        <option value='1'>1 second</option>
+                                        <option value='1.5'>1.5 seconds</option>
+                                        <option value='2' selected>2 seconds</option>
+                                        <option value='2.5'>2.5 seconds</option>
+                                        <option value='3'>3 seconds</option>
+                                        <option value='3.5'>3.5 seconds</option>
+                                        <option value='4'>4 seconds</option>
+                                </select>
+                        </span>
+                </div>
+                <div style="clear: both;">
+                </div>
         </div>
 </body>
 </html>

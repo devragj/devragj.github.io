@@ -59,28 +59,38 @@
         </div>
 
         <div id="Controls">
-                <span>Type:&nbsp;
-                        <label>B<input type="radio" name="gridGroup" value="B" onclick="pageCycleSpecial.setType(this);">&nbsp; </label>
-                        <label>C<input type="radio" name="gridGroup" value="C" onclick="pageCycleSpecial.setType(this);">&nbsp; </label>
-                        <label>D<input type="radio" name="gridGroup" value="D" onclick="pageCycleSpecial.setType(this);" checked>&nbsp; </label>
-                </span>
-                <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
-                <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageCycleSpecial.runInput()">Run</button></span>
-                <span>permutation:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
-                <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageCycleSpecial.runParameter()">Run</button></span>
-                <span>animation speed:
-                        <select id='speed' onchange="pageCycleSpecial.changeSpeed(this)">
-                                <option value='.2'>.2 second</option>
-                                <option value='.5'>.5 second</option>
-                                <option value='1'>1 second</option>
-                                <option value='1.5'>1.5 seconds</option>
-                                <option value='2' selected>2 seconds</option>
-                                <option value='2.5'>2.5 seconds</option>
-                                <option value='3'>3 seconds</option>
-                                <option value='3.5'>3.5 seconds</option>
-                                <option value='4'>4 seconds</option>
-                        </select>
-                </span>
+                <div class='controlHolder gridButtons'>
+                        <span>Type:&nbsp;
+                                <label>B<input type="radio" name="gridGroup" value="B" onclick="pageCycleSpecial.setType(this);">&nbsp; </label>
+                                <label>C<input type="radio" name="gridGroup" value="C" onclick="pageCycleSpecial.setType(this);">&nbsp; </label>
+                                <label>D<input type="radio" name="gridGroup" value="D" onclick="pageCycleSpecial.setType(this);" checked>&nbsp; </label>
+                        </span>
+                </div>
+                <div class='controlHolder'>
+                        <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
+                        <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageCycleSpecial.runInput()">Run</button></span>
+                </div>
+                <div class='controlHolder'>
+                        <span>permutation:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
+                        <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageCycleSpecial.runParameter()">Run</button></span>
+                </div>
+                <div class='controlHolder animationSpeed'>
+                        <span>animation speed:
+                                <select id='speed' onchange="pageCycleSpecial.changeSpeed(this)">
+                                        <option value='.2'>.2 second</option>
+                                        <option value='.5'>.5 second</option>
+                                        <option value='1'>1 second</option>
+                                        <option value='1.5'>1.5 seconds</option>
+                                        <option value='2' selected>2 seconds</option>
+                                        <option value='2.5'>2.5 seconds</option>
+                                        <option value='3'>3 seconds</option>
+                                        <option value='3.5'>3.5 seconds</option>
+                                        <option value='4'>4 seconds</option>
+                                </select>
+                        </span>
+                </div>
+                <div style="clear: both;">
+                </div>
         </div>
 </body>
 </html>

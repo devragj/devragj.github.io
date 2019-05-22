@@ -26,13 +26,27 @@ button:hover{
        width: 110px;
 }
 .BiggerButton {
-        width: 120px;
+        width: 124px;
 }
 .GiantButton {
         width: 135px;
 }
 #Controls {
         margin: 20px 30px 25px;
+}
+.controlHolder {
+        float: left;
+        border: 1px solid black;
+        margin: 10px 40px 10px 10px;
+}
+#Controls div:nth-last-child(2) {
+        margin-right: 10px;
+}
+.animationSpeed {
+        padding: 5px 0;
+}
+.gridButtons {
+        padding: 5px 0;
 }
 .infoDiv {
         margin: 10px 30px;

@@ -48,15 +48,23 @@
         </div>
 
         <div id="Controls">
-                <span>Type:&nbsp;
-                        <label>B<input type="radio" name="gridGroup" value="B" onclick="pageCycleHover.setType(this);">&nbsp; </label>
-                        <label>C<input type="radio" name="gridGroup" value="C" onclick="pageCycleHover.setType(this);">&nbsp; </label>
-                        <label>D<input type="radio" name="gridGroup" value="D" onclick="pageCycleHover.setType(this);" checked>&nbsp; </label>
-                </span>
-                <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
-                <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageCycleHover.runInput()">Run</button></span>
-                <span>permutation:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
-                <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageCycleHover.runParameter()">Run</button></span>
+                <div class='controlHolder gridButtons'>
+                        <span>Type:&nbsp;
+                                <label>B<input type="radio" name="gridGroup" value="B" onclick="pageCycleHover.setType(this);">&nbsp; </label>
+                                <label>C<input type="radio" name="gridGroup" value="C" onclick="pageCycleHover.setType(this);">&nbsp; </label>
+                                <label>D<input type="radio" name="gridGroup" value="D" onclick="pageCycleHover.setType(this);" checked>&nbsp; </label>
+                        </span>
+                </div>
+                <div class='controlHolder'>
+                        <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
+                        <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageCycleHover.runInput()">Run</button></span>
+                </div>
+                <div class='controlHolder'>
+                        <span>permutation:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
+                        <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageCycleHover.runParameter()">Run</button></span>
+                </div>
+                <div style="clear: both;">
+                </div>
         </div>
 </body>
 </html>

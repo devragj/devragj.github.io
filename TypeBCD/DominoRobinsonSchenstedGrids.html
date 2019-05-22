@@ -93,17 +93,25 @@
         </div>
 
         <div id="Controls">
-                <span>Type:&nbsp;
-                        <label>B<input type="radio" name="gridGroup" value="B" onclick="pageDominoRSGrid.setType(this);">&nbsp; </label>
-                        <label>C<input type="radio" name="gridGroup" value="C" onclick="pageDominoRSGrid.setType(this);" checked>&nbsp; </label>
-                        <label>D<input type="radio" name="gridGroup" value="D" onclick="pageDominoRSGrid.setType(this);">&nbsp; </label>
-                </span><br>
-                <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
-                <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageDominoRSGrid.runInput()">Run</button></span>
-                <span><button type="button" class = "BigButton" onclick="pageDominoRSGrid.runSteps()">Run Steps</button></span>
-                <span>permutation:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
-                <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageDominoRSGrid.runParameter()">Run</button></span>
-                <span><button type="button" class = "BigButton" onclick="pageDominoRSGrid.runParameterSteps()">Run Steps</button></span>
+                <div class='controlHolder gridButtons'>
+                        <span>Type:&nbsp;
+                                <label>B<input type="radio" name="gridGroup" value="B" onclick="pageDominoRSGrid.setType(this);">&nbsp; </label>
+                                <label>C<input type="radio" name="gridGroup" value="C" onclick="pageDominoRSGrid.setType(this);" checked>&nbsp; </label>
+                                <label>D<input type="radio" name="gridGroup" value="D" onclick="pageDominoRSGrid.setType(this);">&nbsp; </label>
+                        </span><br>
+                </div>
+                <div class='controlHolder'>
+                        <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
+                        <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageDominoRSGrid.runInput()">Run</button></span>
+                        <span><button type="button" class = "BigButton" onclick="pageDominoRSGrid.runSteps()">Run Steps</button></span>
+                </div>
+                <div class='controlHolder'>
+                        <span>permutation:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
+                        <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageDominoRSGrid.runParameter()">Run</button></span>
+                        <span><button type="button" class = "BigButton" onclick="pageDominoRSGrid.runParameterSteps()">Run Steps</button></span>
+                </div>
+                <div style="clear: both;">
+                </div>
         </div>
 </body>
 

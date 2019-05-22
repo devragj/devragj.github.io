@@ -1,112 +1,128 @@
 <!DOCTYPE html>
 <html>
-<head>
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" href="Tableau.css"></link>
-        <link rel="stylesheet" href="TableauAnimate.css"></link>
-        <link rel="stylesheet" href="../common/pageStyles.css"/>
-        <title>Domino Robinson-Schensted Algorithm Animated</title>
-        <script type="text/javascript" src="../common/jquery-3.1.1.min.js"></script>
-        <script type="text/javascript" src="jQueryRotate.js"></script>
-        <script type="text/javascript" src="Tableau.js"></script>
-        <script type="text/javascript" src="TableauDominoRSAnimate.js"></script>
-        <script type="text/javascript" src="../common/Page.js"></script>
-        <script type="text/javascript" src="../common/PageAnimate.js"></script>
-        <script type="text/javascript" src="PageAnimateDominoRS.js"></script>
-</head>
-<body>
-        <h2>Domino Robinson-Schensted Algorithm Animated
-                <span class="infoButtons">
-                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Instructions</button>
-                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button>
-                </span>
-        </h2>
+        <head>
+                <meta charset="utf-8" />
+                <link rel="stylesheet" href="Tableau.css">
+                </link>
+                <link rel="stylesheet" href="TableauAnimate.css">
+                </link>
+                <link rel="stylesheet" href="../common/pageStyles.css" />
+                <title>Domino Robinson-Schensted Algorithm Animated</title>
+                <script type="text/javascript" src="../common/jquery-3.1.1.min.js"></script>
+                <script type="text/javascript" src="jQueryRotate.js"></script>
+                <script type="text/javascript" src="Tableau.js"></script>
+                <script type="text/javascript" src="TableauDominoRSAnimate.js"></script>
+                <script type="text/javascript" src="../common/Page.js"></script>
+                <script type="text/javascript" src="../common/PageAnimate.js"></script>
+                <script type="text/javascript" src="PageAnimateDominoRS.js"></script>
+        </head>
+        <body>
+                <h2>Domino Robinson-Schensted Algorithm Animated
+                        <span class="infoButtons">
+                                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Instructions</button>
+                                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button>
+                        </span>
+                </h2>
 
-        <div class="infoDiv" id="InstructionsDiv" style="display:none">
-                <p>
-                        This page animates the insertion procedure, or bumping procedure, of the Domino Robinson-Schensted algorithm.&nbsp;
-                </p>
-                <p>
-                        To start, you need an input signed permutation.&nbsp;
-                        This can be obtained in two ways.&nbsp;
-                        First, you can have the page generate a random signed permutation.&nbsp;
-                        To do that, enter the size of the desired permutation in the first textbox.&nbsp;
-                </p>
-                <p>
-                        Instead, you can enter a signed permutation, for example, 2 -5 3 6 -4 1, in the second textbox.&nbsp;
-                        To do that, list the numbers of the permutation, separated by spaces.
-                </p>
-                <p>
-                        The easiest way to run the animation is to press Enter while in the textbox in which you have placed your input.&nbsp;
-                        The first time you press Enter, the page will start the animation.&nbsp;
-                        After that, it will do the next step.&nbsp;
-                        You can press Enter while in the middle of an animation step, to go on to the next step.&nbsp;
-                        If you press Enter after the animation is completed, this will start a new animation.
-                </p>
-                <p>
-                        If you want go to a different input while still in the middle of a previous input, you can enter your information into one of the textboxes, and then press the Start Animation button to the right of that textbox.&nbsp;
-                        After that, click the adjacent "Next Step" button, or return focus to the textbox.&nbsp;
-                        Then, you can continue the animation by pressing Enter, as above.
-                </p>
-                <p>
-                        You can alter the speed of the animation using the dropdown menu.
-                </p>
-        </div>
+                <div class="infoDiv" id="InstructionsDiv" style="display:none">
+                        <p>
+                                This page animates the insertion procedure, or bumping procedure, of the Domino Robinson-Schensted algorithm.&nbsp;
+                        </p>
+                        <p>
+                                To start, you need an input signed permutation.&nbsp;
+                                This can be obtained in two ways.&nbsp;
+                                First, you can have the page generate a random signed permutation.&nbsp;
+                                To do that, enter the size of the desired permutation in the first textbox.&nbsp;
+                        </p>
+                        <p>
+                                Instead, you can enter a signed permutation, for example, 2 -5 3 6 -4 1, in the second textbox.&nbsp;
+                                To do that, list the numbers of the permutation, separated by spaces.
+                        </p>
+                        <p>
+                                The easiest way to run the animation is to press Enter while in the textbox in which you have placed your input.&nbsp;
+                                The first time you press Enter, the page will start the animation.&nbsp;
+                                After that, it will do the next step.&nbsp;
+                                You can press Enter while in the middle of an animation step, to go on to the next step.&nbsp;
+                                If you press Enter after the animation is completed, this will start a new animation.
+                        </p>
+                        <p>
+                                If you want go to a different input while still in the middle of a previous input, you can enter your information into one of the textboxes, and then press the Start Animation button to the right of that
+                                textbox.&nbsp;
+                                After that, click the adjacent "Next Step" button, or return focus to the textbox.&nbsp;
+                                Then, you can continue the animation by pressing Enter, as above.
+                        </p>
+                        <p>
+                                You can alter the speed of the animation using the dropdown menu.
+                        </p>
+                </div>
 
-        <div class="infoDiv" id="InformationDiv" style="display:none">
-                <p>
-                        The Domino Robinson-Schensted algorithm is a relatively straightforward generalization of the Robinson-Schensted algorithm to the hyperoctrahedral group, that is, the group of signed permutations.&nbsp;
-                        The input to the Domino Robinson-Schensted algorithm is a "signed permutation", for example, 2 -5 3 6 -4 1.&nbsp;
-                        That is, the numbers 1 through n are permuted, and, in addition, each number has a sign (or orientation) associated with it.&nbsp;
-                        The output of the Domino Robinson-Schensted algorithm is a pair of domino tableaux with the same shape.&nbsp;
-                        That is, instead of a tableau being made of squares, it is made of 2 x 1 shapes (dominos), which can be horizontal or vertical in the tableau.&nbsp; However, unlike the dominos in a game, each domino has only one number in it.
-                </p>
-                <p>
-                        As in the original Robinson-Schensted algorithm, the left tableau is the insertion, or bumping tableau.&nbsp;
-                        The right tableau is the recording tableau.&nbsp;
-                        In this algorithm, insertion is either as a horizontal domino in the first row, if the number in the signed permutation is positive, or as a vertical domino in the first column, if the number in the signed permutation is positive.&nbsp;
-                        Bumping is also more complicated.&nbsp;
-                        A horizontal domino which is bumped entirely moves to the next row below.&nbsp;
-                        A vertical domino which is bumped entirely moves to the next column to the right.&nbsp;
-                        A domino which is bumped in one square rotates down and to the right on its unbumped square.&nbsp;
-                </p>
-                <p>
-                        <h4>References</h4>
-                        <ul style="list-style-type: none; list-style-position: inside; padding-left: 0;">
-                                <li>
-                                        Garfinkle, Devra. "On the classification of primitive ideals for complex classical Lie algebras, I." Compositio Mathematica 75.2 (1990): 135-169. <a href="http://eudml.org/doc/90031" target="_blank">http://eudml.org/doc/90031</a>
-                                </li>
-                                <li>
-                                        Garfinkle, Devra. "On the classification of primitive ideals for complex classical Lie algebras, II." Compositio Mathematica 81.3 (1992): 307-336. <a href="http://eudml.org/doc/90142" target="_blank">http://eudml.org/doc/90142</a>
-                                </li>
-                                <li>
-                                        Garfinkle, Devra. "On the classification of primitive ideals for complex classical Lie algebras, III." Compositio Mathematica 88.2 (1993): 187-234.<a href="http://eudml.org/doc/90244" target="_blank">http://eudml.org/doc/90244</a>
-                                </li>
-                        </ul>
-                </p>
-        </div>
+                <div class="infoDiv" id="InformationDiv" style="display:none">
+                        <p>
+                                The Domino Robinson-Schensted algorithm is a relatively straightforward generalization of the Robinson-Schensted algorithm to the hyperoctrahedral group, that is, the group of signed permutations.&nbsp;
+                                The input to the Domino Robinson-Schensted algorithm is a "signed permutation", for example, 2 -5 3 6 -4 1.&nbsp;
+                                That is, the numbers 1 through n are permuted, and, in addition, each number has a sign (or orientation) associated with it.&nbsp;
+                                The output of the Domino Robinson-Schensted algorithm is a pair of domino tableaux with the same shape.&nbsp;
+                                That is, instead of a tableau being made of squares, it is made of 2 x 1 shapes (dominos), which can be horizontal or vertical in the tableau.&nbsp; However, unlike the dominos in a game, each domino has only one
+                                number in it.
+                        </p>
+                        <p>
+                                As in the original Robinson-Schensted algorithm, the left tableau is the insertion, or bumping tableau.&nbsp;
+                                The right tableau is the recording tableau.&nbsp;
+                                In this algorithm, insertion is either as a horizontal domino in the first row, if the number in the signed permutation is positive, or as a vertical domino in the first column, if the number in the signed permutation
+                                is positive.&nbsp;
+                                Bumping is also more complicated.&nbsp;
+                                A horizontal domino which is bumped entirely moves to the next row below.&nbsp;
+                                A vertical domino which is bumped entirely moves to the next column to the right.&nbsp;
+                                A domino which is bumped in one square rotates down and to the right on its unbumped square.&nbsp;
+                        </p>
+                        <p>
+                                <h4>References</h4>
+                                <ul style="list-style-type: none; list-style-position: inside; padding-left: 0;">
+                                        <li>
+                                                Garfinkle, Devra. "On the classification of primitive ideals for complex classical Lie algebras, I." Compositio Mathematica 75.2 (1990): 135-169. <a href="http://eudml.org/doc/90031" target="_blank">http://eudml.org/doc/90031</a>
+                                        </li>
+                                        <li>
+                                                Garfinkle, Devra. "On the classification of primitive ideals for complex classical Lie algebras, II." Compositio Mathematica 81.3 (1992): 307-336. <a href="http://eudml.org/doc/90142" target="_blank">http://eudml.org/doc/90142</a>
+                                        </li>
+                                        <li>
+                                                Garfinkle, Devra. "On the classification of primitive ideals for complex classical Lie algebras, III." Compositio Mathematica 88.2 (1993): 187-234.<a href="http://eudml.org/doc/90244" target="_blank">http://eudml.org/doc/90244</a>
+                                        </li>
+                                </ul>
+                        </p>
+                </div>
 
-        <div id="Controls">
-                <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="pageAnimateDominoRS.animationRandomKey(event)"></span>
-                <span><button type="button" id="startRandomButton" class = "BiggerButton" onclick="pageAnimateDominoRS.startRandomAnimation()">Start Animation</button></span>
-                <span><button type="button" id="nextRandomButton" class = "BiggerButton" onclick="pageAnimateDominoRS.nextStep()">Next Step</button></span>
-                <span>permutation:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="pageAnimateDominoRS.animationParameterKey(event)"></span>
-                <span><button type="button" id="startParameterButton" class = "BiggerButton" onclick="pageAnimateDominoRS.startParameterAnimation()">Start Animation</button></span>
-                <span><button type="button" id="nextParameterButton" class = "BiggerButton" onclick="pageAnimateDominoRS.nextStep()">Next Step</button></span>
-                <span>animation speed:
-                        <select id='speed' onchange="pageAnimateDominoRS.changeSpeed(this)">
-                                <option value='.2'>.2 second</option>
-                                <option value='.5'>.5 second</option>
-                                <option value='1'>1 second</option>
-                                <option value='1.5'>1.5 seconds</option>
-                                <option value='2' selected>2 seconds</option>
-                                <option value='2.5'>2.5 seconds</option>
-                                <option value='3'>3 seconds</option>
-                                <option value='3.5'>3.5 seconds</option>
-                                <option value='4'>4 seconds</option>
-                        </select>
-                </span>
-        </div>
-</body>
+                <div id="Controls">
+                        <div class='controlHolder'>
+                                <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="pageAnimateDominoRS.animationRandomKey(event)"></span>
+                                <span><button type="button" id="startRandomButton" class="BiggerButton" onclick="pageAnimateDominoRS.startRandomAnimation()">Start Animation</button></span>
+                                <span><button type="button" id="nextRandomButton" class="BiggerButton" onclick="pageAnimateDominoRS.nextStep()">Next Step</button></span>
+                        </div>
+                        <div class='controlHolder'>
+                                <span>permutation:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="pageAnimateDominoRS.animationParameterKey(event)"></span>
+                                <span><button type="button" id="startParameterButton" class="BiggerButton" onclick="pageAnimateDominoRS.startParameterAnimation()">Start Animation</button></span>
+                                <span><button type="button" id="nextParameterButton" class="BiggerButton" onclick="pageAnimateDominoRS.nextStep()">Next Step</button></span>
+                        </div>
+                        <div class='controlHolder animationSpeed'>
+                                <span>animation speed:
+                                        <select id='speed' onchange="pageAnimateDominoRS.changeSpeed(this)">
+                                                <option value='.2'>.2 second</option>
+                                                <option value='.5'>.5 second</option>
+                                                <option value='1'>1 second</option>
+                                                <option value='1.5'>1.5 seconds</option>
+                                                <option value='2' selected>2 seconds</option>
+                                                <option value='2.5'>2.5 seconds</option>
+                                                <option value='3'>3 seconds</option>
+                                                <option value='3.5'>3.5 seconds</option>
+                                                <option value='4'>4 seconds</option>
+                                        </select>
+                                </span>
+                        </div>
+                        <div style="clear: both;">
+                        </div>
+
+
+
+                </div>
+        </body>
 
 </html>

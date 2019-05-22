@@ -46,12 +46,18 @@
         </div>
 
         <div id="Controls">
-                <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
-                <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageRS.runInput()">Run</button></span>
-                <span><button type="button" class = "BigButton" onclick="pageRS.runSteps()">Run Steps</button></span>
-                <span>permutation:&nbsp; <input type="text" id="parameterBox"  size="50" onkeyup="Page.parameterKey(event)"></span>
-                <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageRS.runParameter()">Run</button></span>
-                <span><button type="button" class = "BigButton" onclick="pageRS.runParameterSteps()">Run Steps</button></span>
+                <div class='controlHolder'>
+                    <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
+                    <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageRS.runInput()">Run</button></span>
+                    <span><button type="button" class = "BigButton" onclick="pageRS.runSteps()">Run Steps</button></span>
+                </div>
+                <div class='controlHolder'>
+                        <span>permutation:&nbsp; <input type="text" id="parameterBox"  size="50" onkeyup="Page.parameterKey(event)"></span>
+                        <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageRS.runParameter()">Run</button></span>
+                        <span><button type="button" class = "BigButton" onclick="pageRS.runParameterSteps()">Run Steps</button></span>
+                </div>
+                <div style="clear: both;">
+                </div>
         </div>
 </body>
 </html>

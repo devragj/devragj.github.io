@@ -121,15 +121,23 @@
         </div>
 
         <div id="Controls">
-                <span>Type:&nbsp;
-                        <label>B<input type="radio" name="gridGroup" value="B" onclick="pageSpecial.setType(this);">&nbsp; </label>
-                        <label>C<input type="radio" name="gridGroup" value="C" onclick="pageSpecial.setType(this);" checked>&nbsp; </label>
-                        <label>D<input type="radio" name="gridGroup" value="D" onclick="pageSpecial.setType(this);">&nbsp; </label>
-                </span><br>
-                <span>n: <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
-                <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageSpecial.runInput()">Run</button></span>
-                <span>permutation: <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
-                <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageSpecial.runParameter()">Run</button></span>
+                <div class='controlHolder gridButtons'>
+                        <span>Type:&nbsp;
+                                <label>B<input type="radio" name="gridGroup" value="B" onclick="pageSpecial.setType(this);">&nbsp; </label>
+                                <label>C<input type="radio" name="gridGroup" value="C" onclick="pageSpecial.setType(this);" checked>&nbsp; </label>
+                                <label>D<input type="radio" name="gridGroup" value="D" onclick="pageSpecial.setType(this);">&nbsp; </label>
+                        </span><br>
+                </div>
+                <div class='controlHolder'>
+                        <span>n: <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
+                        <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageSpecial.runInput()">Run</button></span>
+                </div>
+                <div class='controlHolder'>
+                        <span>permutation: <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
+                        <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageSpecial.runParameter()">Run</button></span>
+                </div>
+                <div style="clear: both;">
+                </div>
         </div>
 </body>
 
