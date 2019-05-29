@@ -3,7 +3,7 @@
 <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="Tableau.css"></link>
-        <link rel="stylesheet" href="../common/pageStyles.css"/>
+        <link rel="stylesheet" href="../common/pageStyles.css" />
         <title>Domino Robinson-Schensted Algorithm, With Grid</title>
         <script type="text/javascript" src="../common/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="Tableau.js"></script>
@@ -13,8 +13,8 @@
 <body>
         <h2>Domino Robinson-Schensted Algorithm, With Grid
                 <span class="infoButtons">
-                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Instructions</button>
-                <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button>
+                        <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Instructions</button>
+                        <button type="button" class="toggleButton" onclick="Page.toggleDiv(this)">Information</button>
                 </span>
         </h2>
 
@@ -49,12 +49,14 @@
                         The input to the Domino Robinson-Schensted algorithm is a "signed permutation", for example, 2 -5 3 6 -4 1.&nbsp;
                         That is, the numbers 1 through n are permuted, and, in addition, each number has a sign (or orientation) associated with it.&nbsp;
                         The output of the Domino Robinson-Schensted algorithm is a pair of domino tableaux with the same shape.&nbsp;
-                        That is, instead of a tableau being made of squares, it is made of 2 x 1 shapes (dominos), which can be horizontal or vertical in the tableau.&nbsp; However, unlike the dominos in a game, each domino has only one number in it.
+                        That is, instead of a tableau being made of squares, it is made of 2 x 1 shapes (dominos), which can be horizontal or vertical in the tableau.&nbsp; However, unlike the dominos in a game, each domino has only one
+                        number in it.
                 </p>
                 <p>
                         As in the original Robinson-Schensted algorithm, the left tableau is the insertion, or bumping tableau.&nbsp;
                         The right tableau is the recording tableau.&nbsp;
-                        In this algorithm, insertion is either as a horizontal domino in the first row, if the number in the signed permutation is positive, or as a vertical domino in the first column, if the number in the signed permutation is positive.&nbsp;
+                        In this algorithm, insertion is either as a horizontal domino in the first row, if the number in the signed permutation is positive, or as a vertical domino in the first column, if the number in the signed permutation
+                        is positive.&nbsp;
                         Bumping is also more complicated.&nbsp;
                         A horizontal domino which is bumped entirely moves to the next row below.&nbsp;
                         A vertical domino which is bumped entirely moves to the next column to the right.&nbsp;
@@ -65,7 +67,7 @@
                         A domino is then added to the recording tableau to record this change.
                 </p>
                 <p>
-                        You can see an animation of the bumping procedure here:&nbsp;  <a  href="https://devragj.github.io/TypeBCD/DominoRobinsonSchenstedAnimate.html" target="_blank">Domino Robinson-Schensted Algorithm Animated</a>.
+                        You can see an animation of the bumping procedure here:&nbsp; <a href="https://devragj.github.io/TypeBCD/DominoRobinsonSchenstedAnimate.html" target="_blank">Domino Robinson-Schensted Algorithm Animated</a>.
                 </p>
                 <p>
                         Domino tableaux are used to answer questions about simple Lie groups of type B, C, or D.&nbsp;
@@ -101,14 +103,14 @@
                         </span><br>
                 </div>
                 <div class='controlHolder'>
-                        <span>n:&nbsp; <input type="text" id="nbox" size="6" onkeyup="Page.randomKey(event)"></span>
-                        <span><button type="button" id="runRandomButton" class = "SmallButton" onclick="pageDominoRSGrid.runInput()">Run</button></span>
-                        <span><button type="button" class = "BigButton" onclick="pageDominoRSGrid.runSteps()">Run Steps</button></span>
+                        <span>n:&nbsp; <input type="text" id="nbox" size="2" onkeyup="Page.randomKey(event)"></span>
+                        <span><button type="button" id="runRandomButton" class="primaryButton SmallButton" onclick="pageDominoRSGrid.runInput()">Run</button></span>
+                        <span><button type="button" class="BigButton" onclick="pageDominoRSGrid.runSteps()">Run Steps</button></span>
                 </div>
                 <div class='controlHolder'>
-                        <span>permutation:&nbsp; <input type="text" id="parameterBox" size="50" onkeyup="Page.parameterKey(event)"></span>
-                        <span><button type="button" id="runParameterButton" class = "SmallButton" onclick="pageDominoRSGrid.runParameter()">Run</button></span>
-                        <span><button type="button" class = "BigButton" onclick="pageDominoRSGrid.runParameterSteps()">Run Steps</button></span>
+                        <span>permutation:&nbsp; <input type="text" id="parameterBox" size="40" onkeyup="Page.parameterKey(event)"></span>
+                        <span><button type="button" id="runParameterButton" class="primaryButton SmallButton" onclick="pageDominoRSGrid.runParameter()">Run</button></span>
+                        <span><button type="button" class="BigButton" onclick="pageDominoRSGrid.runParameterSteps()">Run Steps</button></span>
                 </div>
                 <div style="clear: both;">
                 </div>

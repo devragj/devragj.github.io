@@ -3,21 +3,42 @@ h2 {
 }
 span {
        display:inline-block;
-       margin: 10px 20px;
+       margin: 7px 10px;
 }
 button {
         padding: 5px 12px;
         border-radius: 4px;
-        background-color: lightskyblue;
+        /* background-color: lightskyblue; */
+        color: #008be2;
+        background-color: white;
+        border: 1px solid #008be2;
+        font-size: 14px;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+button:hover{
+        background-color: #008be2;
+        color: white;
+        cursor: pointer;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+/* .primaryButton {
+        padding: 5px 12px;
+        border-radius: 4px;
+        background-color: #008be2;
+        color: white;
+        border: 1px solid #008be2;
         font-size: 14px;
 }
+
+.primaryButton:hover {
+        color: #008be2;
+        background-color: white;
+        border: 1px solid #008be2;
+} */
 span.infoButtons {
        /* display:inline-block; */
        margin: 0 0 0 20px;
-}
-button:hover{
-        background: #3cf;
-        border-radius: 5px;
 }
 .SmallButton {
        width: 70px;
@@ -36,8 +57,9 @@ button:hover{
 }
 .controlHolder {
         float: left;
-        border: 1px solid black;
-        margin: 10px 40px 10px 10px;
+        border: 1px solid #c7c7c7;
+        margin: 10px 15px 10px 10px;
+        border-radius: .25em;
 }
 #Controls div:nth-last-child(2) {
         margin-right: 10px;
@@ -46,15 +68,27 @@ button:hover{
         padding: 5px 0;
 }
 .gridButtons {
-        padding: 5px 0;
+        padding: 4px 0;
 }
 .infoDiv {
         margin: 10px 30px;
         padding: 0px 20px;
-        border: 1px solid black;
+        /* border: 1px solid black; */
+        border: 1px solid #c7c7c7;
+        border-radius: .25em;
 }
 .toggleButton {
         margin: 0px 20px;
-        color: white;
+        /* color: white;
+        background-color: blueviolet; */
+        color: blueviolet;
+        background-color: white;
+        border: 1px solid blueviolet;
+}
+.toggleButton:hover {
         background-color: blueviolet;
+        color: white;
+}
+#nbox, #pbox {
+        text-align: right;
 }
