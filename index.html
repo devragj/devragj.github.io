@@ -2,6 +2,7 @@
 <html>
         <head>
                 <meta charset="utf-8">
+                <link rel="stylesheet" href="common/pageStyles.css"/>
                 <style type="text/css">
                         section {
                                 margin: 50px;
@@ -15,8 +16,48 @@
                         a.pagelink {
                                 margin-right: 30px;
                         }
+                        h2 {
+                               margin: 20px 10px 5px 10px;
+                        }
+                        .toggleButton {
+                                margin-left: 10px;
+                        }
                 </style>
-                <title></title>
+                <script>
+                function toggleDiv(button) {
+                        let text = button.innerHTML;
+                        let number = button.id[11];
+                        let divName = "AboutDiv" + number;
+                        if (text[0] == "H") {
+                                let newText = text.slice(5);
+                                button.innerHTML = newText;
+                        }
+
+                        else {
+                                button.innerHTML = "Hide " + text;
+                        }
+
+                        let div = document.getElementById(divName);
+                        this.showHide(div);
+                }
+
+                function showHide(info) {
+                        let divToToggle;
+                        if (typeof(info) == "string") {
+                                divToToggle = document.getElementById(info);
+                        } else {
+                                divToToggle = info;
+                        }
+
+                        if (divToToggle.style.display == 'block') {
+                                divToToggle.style.display = 'none';
+                        } else {
+                                divToToggle.style.display = 'block';
+                        }
+
+                }
+                </script>
+                <title>Domino Tableaux Algorithms</title>
         </head>
         <body>
                 <section id="description">
@@ -25,7 +66,21 @@
                         I welcome feedback.&nbsp; Please contact me at devra.johnson at verizon.net.
                 </section>
                 <section>
-                        <h3>Robinson-Schensted Algorithm</h3>
+                        <h2>Robinson-Schensted Algorithm
+                                <span class="infoButtons">
+                                <button type="button" class="toggleButton" id="AboutButton1" onclick="toggleDiv(this)">About These Pages</button>
+                                </span>
+                        </h2>
+                        <div class="infoDiv" id="AboutDiv1" style="display:none">
+                                <p>
+                                        These two pages illustrate the well-known Robinson-Schensted algorithm.&nbsp;
+                                        This algorithm starts with a permutation and produces a pair of tableaux.&nbsp;
+                                        The left tableau is called the insertion or bumping tableau.&nbsp;
+                                        The right tableau is called the recording tableau.&nbsp;
+                                        The first page shows either the final result of the algorithm or the result of each step of adding one number to the tableaux pair.&nbsp;
+                                        The second page has an animation of the bumping procedure.&nbsp;
+                                </p>
+                        </div>
                         <div>
                                 <a class="pagelink" href="TypeA/RobinsonSchensted.html">Robinson-Schensted Algorithm</a>
                         </div>
@@ -34,7 +89,29 @@
                         </div>
                 </section>
                 <section>
-                        <h3>Domino Robinson-Schensted Algorithm</h3>
+                        <h2>Domino Robinson-Schensted Algorithm
+                                <span class="infoButtons">
+                                <button type="button" class="toggleButton" id="AboutButton2" onclick="toggleDiv(this)">About These Pages</button>
+                                </span>
+                        </h2>
+                        <div class="infoDiv" id="AboutDiv2" style="display:none">
+                                <p>
+                                        These pages illustrate the domino Robinson-Schensted algorithm.&nbsp;
+                                        This algorithm starts with a signed permutation and produces a pair of domino tableaux.&nbsp;
+                                        As with the ordinary Robinson-Schensted algorithm, the left tableau is  the insertion, or bumping, tableau.&nbsp;
+                                        The right tableau is the recording tableau.&nbsp;
+                                        The first page shows either the final result of the algorithm or the result of each step of adding one number to the tableaux pair.&nbsp;
+                                        The second page has an animation of the bumping procedure.&nbsp;
+                                </p>
+                                <p>
+                                        The domino Robinson-Schensted algorithm is the first step in classifying Kazhdan-Lusztig cells (equivalently, classifying primitive ideals).&nbsp;
+                                        After that, we need to apply another procedure (called moving through cycles) to produce tableaux with a special shape.&nbsp;
+                                        To do that, we need first to place each tableau on a grid.&nbsp;
+                                        That's shown in the third page.&nbsp;
+                                        The fourth page shows the result of making the tableaux special.&nbsp;
+                                        The pages in the next section show more about the procedure of moving through cycles.&nbsp;
+                                </p>
+                        </div>
                         <div>
                                 <a class="pagelink" href="TypeBCD/DominoRobinsonSchensted.html">Domino Robinson-Schensted Algorithm</a>
                         </div>
@@ -49,7 +126,21 @@
                         </div>
                 </section>
                 <section>
-                        <h3>Moving Through Open Cycles</h3>
+                        <h2>Moving Through Open Cycles
+                                <span class="infoButtons">
+                                <button type="button" class="toggleButton" id="AboutButton3" onclick="toggleDiv(this)">About These Pages</button>
+                                </span>
+                        </h2>
+                        <div class="infoDiv" id="AboutDiv3" style="display:none">
+                                <p>
+                                        The first four pages demonstrate the procedure of moving a tableau through an open cycle.&nbsp;
+                                        This procedure is used in the classification of Kazhdan-Lusztig cells and also in some of the Harish-Chandra algorithms (shown in the pages of the next section).&nbsp;
+                                </p>
+                                <p>
+                                        When you have a pair of tableaux of the same shape, you move through an extended open cycle to obtain another pair of tableaux of the shape.&nbsp;
+                                        The last three pages show this procedure.&nbsp;
+                                </p>
+                        </div>
                         <div>
                                 <a class="pagelink" href="TypeBCD/CyclesAnimateCopy.html">Animate Cycles Copy</a>
                         </div>
@@ -73,7 +164,20 @@
                         </div>
                 </section>
                 <section>
-                        <h3>Harish-Chandra Module Algorithms</h3>
+                        <h2>Harish-Chandra Module Algorithms
+                                <span class="infoButtons">
+                                <button type="button" class="toggleButton" id="AboutButton4" onclick="toggleDiv(this)">About These Pages</button>
+                                </span>
+                        </h2>
+                        <div class="infoDiv" id="AboutDiv4" style="display:none">
+                                <p>
+                                        The algorithms in these pages are used for computing annihilators of irreducible Harish-Chandra modules (equivalently, Kazhdan-Lusztig-Vogan cells.)
+                                </p>
+
+                                <p>
+                                        For the last algorithm in this series (still experimental), see <a class="pagelink" href="https://devragj.github.io/SOpq-Algorithm/index.html">SO(p,q) and Sp(n,&#x211D;) Algorithms</a>
+                                </p>
+                        </div>
                         <div>
                                 <a class="pagelink" href="TypeA/SUpqAlgorithm.html">SU(p,q) Algorithm</a>
                         </div>
